@@ -1,5 +1,6 @@
 window.onload = function(){
   var points_count = 0;
+  var quiz = document.getElementById('quiz');
   var question = document.getElementById('question');
   var choices = document.getElementById('choices');
   var answer = document.getElementById('answer');
@@ -9,17 +10,19 @@ window.onload = function(){
 
   var icelandHash = new Object();
     icelandHash["question"] = "What's the capital of Iceland?";
-    icelandHash["choices"] = ["Oslo, Torshavn, Reykjavik, or Helsinki"];
+    icelandHash["choices"] = ["Oslo, Torshavn, Reykjavik, Helsinki"];
     icelandHash["capital"] = "Reykjavik";
-
 
   var button = document.getElementById('begin_button');
   button.addEventListener("click", function() {
 
-  var quiz = document.getElementById('quiz');
-  question.innerHTML = icelandHash["question"]
-  choices.innerHTML = icelandHash["choices"]
-  quiz.style.display = "block";
+    button.style.display = "none";
+
+    question.innerHTML = icelandHash["question"];
+    choices.innerHTML = icelandHash["choices"];
+    quiz.style.display = "block";
+
+  };
 
     // var iceland = prompt("What's the capital of Iceland?\nOslo\nTorshavn\nReykjavik\nHelsinki")
     //   var correct_answer = "Reykjavik"
@@ -74,5 +77,4 @@ window.onload = function(){
 
   //   alert("That's all. You have " + points_count + "/5 points! That's " + (points_count/5)*100 + "%.")
 
-   })
 };
