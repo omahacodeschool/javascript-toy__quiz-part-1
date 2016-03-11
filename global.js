@@ -4,10 +4,11 @@ window.onload = function(){
   var question = document.getElementById('question');
   var choices = document.getElementById('choices');
   var answer = document.getElementById('answer');
-  var enter = document.getElementById('response');
   var question_result = document.getElementById('question_result');
-  var next = document.getElementById('next');
   var total = document.getElementById('total_result');
+  var button = document.getElementById('begin_button');
+  var enter = document.getElementById('response');
+  var next = document.getElementById('next');
 
   var icelandHash = new Object();
     icelandHash["question"] = "What's the capital of Iceland?";
@@ -34,26 +35,28 @@ window.onload = function(){
     jordanHash["choices"] = ["Istanbul, Izmir, Sofia, Ankara"];
     jordanHash["capital"] = "Ankara";
 
-
-  var button = document.getElementById('begin_button');
   button.addEventListener("click", function() {
-
     button.style.display = "none";
     question.innerHTML = icelandHash["question"];
     choices.innerHTML = icelandHash["choices"];
     answer.value = "";
     quiz.style.display = "block";
     enter.style.display = "block";
-
+    total.innerHTML = "You have " + points_count + " points."
 
     enter.addEventListener("click", function() {
-      var params = answer.value
+      var params = answer.value;
+      question_result.style.display = "block";
       if (params == icelandHash["capital"]) {
-        points_count++
-        console.log("YAAAAAAAY! points_count is " + points_count)
+        points_count++;
+        question_result.innerHTML = ("Correct!");
+        total.innerHTML = "You have " + points_count + " point(s)."
       } else {
-        console.log("Incorrect answer.")
+        question_result.innerHTML = ("Sorry, wrong answer.");
       }
+    enter.style.display = "none";
+    next.style.display = "block";
+
     });
 
   });
