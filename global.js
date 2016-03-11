@@ -1,8 +1,6 @@
 window.onload = function(){
   // let's count how many answers they get correct. starts at 0 obvs 
   var right_answers = 0
-  // and make an array of question objects
-  var all_questions = []
   //shuffle function for shuffling array, NOT MINE. input array to randomize.
   function fischer_yates_shuffle(array) {
     var m = array.length, t, i;
@@ -31,14 +29,63 @@ window.onload = function(){
   };
   //
   //set up test question and choices, randomizes choices array
-  var question1 = new Object();
-  question1["question"] = "How great is pizza?";
-  var answer = "SUPER GREAT";
-  question1["answer"] = answer;
-  var notanswers = ["great","fine","i've never had pizza"];
-  notanswers.push(answer)
-  fischer_yates_shuffle(notanswers)
-  question1["answer_choices"] = notanswers
+  function set_up_questions {
+    all_questions = []
+    var question1 = new Object();
+    question1["question"] = "How great is pizza?";
+    var answer = "SUPER GREAT";
+    question1["answer"] = answer;
+    //notanswers is an array that will make up the other choices
+    var notanswers = ["great","fine","i've never had pizza"];
+    notanswers.push(answer)
+    fischer_yates_shuffle(notanswers)
+    question1["answer_choices"] = notanswers
+  
+    all_questions.push(question1) 
+
+    var question2 = new Object();
+    question2["question"] = "How do you feel about nachos?";
+    var answer = "ALSO GREAT";
+    question2["answer"] = answer;
+    //notanswers is an array that will make up the other choices
+    var notanswers = ["too much cheese!","waste of chips.","i've never had nachos"];
+    notanswers.push(answer)
+    fischer_yates_shuffle(notanswers)
+    question2["answer_choices"] = notanswers
+
+    all_questions.push(question2)
+
+    var question3 = new Object();
+    question3["question"] = "Donuts?";
+    var answer = "SURE OKAY";
+    question3["answer"] = answer;
+    //notanswers is an array that will make up the other choices
+    var notanswers = ["no thank you","too sweet!","gross."];
+    notanswers.push(answer)
+    fischer_yates_shuffle(notanswers)
+    question3["answer_choices"] = notanswers
+
+    all_questions.push(question4)
+
+    var question4 = new Object();
+    question4["question"] = "Do you like brownies?";
+    var answer = "KRYPTONITE";
+    question4["answer"] = answer;
+    //notanswers is an array that will make up the other choices
+    var notanswers = ["they hurt my tummy","i don't like chocolate","i really prefer pie"];
+    notanswers.push(answer)
+    fischer_yates_shuffle(notanswers)
+    question4["answer_choices"] = notanswers
+
+    all_questions.push(question4)
+
+    fischer_yates_shuffle(all_questions)
+  }
+
+
+
+
+
   
   //
   //when "next" is clicked it replaces question and answers
