@@ -42,38 +42,37 @@ window.onload = function(){
   button.addEventListener("click", function() {
     //button.style.display = "none";
 
-      question.innerHTML = array_of_countries[current_question]["question"];
-      choices.innerHTML = array_of_countries[current_question]["choices"];
-      answer.value = "";
-      quiz.style.display = "block";
-      enter.style.display = "block";
-      total.innerHTML = "You have " + points_count + " points."
+    question.innerHTML = array_of_countries[current_question]["question"];
+    choices.innerHTML = array_of_countries[current_question]["choices"];
+    answer.value = "";
+    quiz.style.display = "block";
+    enter.style.display = "block";
+    total.innerHTML = "You have " + points_count + " points."
 
-      console.log("current question is " + current_question);
-      // enter.addEventListener("click", function() {
-      //   var params = answer.value;
-      //   console.log("params is " + params);
-      //   question_result.style.display = "block";
-      //   console.log("i capital is " + i["capital"]);
-      //   if (params == i["capital"]) {
-      //     points_count++;
-      //     question_result.innerHTML = ("Correct!");
-      //     total.innerHTML = "You have " + points_count + " point(s)."
-      //   } else {
-      //     question_result.innerHTML = ("Sorry, wrong answer.");
-      //   } //ends if loop
-      //   enter.style.display = "none";
-      //   next.style.display = "block";
+  }); //ends 'start game click' event
+
+
+  enter.addEventListener("click", function() {
+    var params = answer.value;
+    // console.log("params is " + params);
+    question_result.style.display = "block";
+    // console.log("i capital is " + i["capital"]);
+    if (params == array_of_countries[current_question]["capital"]) {
+      points_count++;
+      question_result.innerHTML = ("Correct!");
+      total.innerHTML = "You have " + points_count + " point(s)."
+    } else {
+      question_result.innerHTML = ("Sorry, wrong answer.");
+    } //ends if loop
+    enter.style.display = "none";
+    next.style.display = "block";
+  }); //ends 'when next is clicked' event
 
       //   next.addEventListener("click", function() {
       //     enter.style.display = "block";
       //     next.style.display = "none";
       //     question_result.style.display = "none";
-
-      //   }); //ends 'when next is clicked' event
       // }); //ends 'click enter on question' event
-
-  }); //ends 'start game click' event
 
   //   alert("That's all. You have " + points_count + "/5 points! That's " + (points_count/5)*100 + "%.")
 
