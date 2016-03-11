@@ -1,4 +1,4 @@
-# JavaScript - Quiz (Part 1)
+ # JavaScript - Quiz (Part 1)
 
 Your task in this assignment is to build a quiz game using JavaScript (and HTML).
 
