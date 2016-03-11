@@ -1,9 +1,4 @@
 window.onload = function(){
-
-  check_answer = function(correct_answer, country){
-
-  }
-
   var points_count = 0
 
   var button = document.getElementById('begin_button')
