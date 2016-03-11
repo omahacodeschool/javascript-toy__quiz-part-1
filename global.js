@@ -94,8 +94,10 @@ window.onload = function(){
   }  
   //
   //when "next" is clicked it replaces question and answers
-  q++
-  //while(q <= all_questions.length) {    
+  for (var q = 1; q >= all_questions.length; q++) {
+    
+    current_question = all_questions[q]  
+    
     var next = document.getElementById("next");
     next.addEventListener("click", function() {
       hide_class_elements("a_stuff")
@@ -123,6 +125,6 @@ window.onload = function(){
       hide_class_elements("q_stuff");
       show_class_elements("a_stuff");
     });
-  //};
+  };
   alert("YOU DID IT!");
 };
