@@ -29,7 +29,7 @@ window.onload = function(){
   };
   //
   //set up test question and choices, randomizes choices array
-  //function set_up_questions() {
+  //set_up_questions() {
     all_questions = []
     var question1 = new Object();
     question1["question"] = "How great is pizza?";
@@ -94,36 +94,35 @@ window.onload = function(){
   }  
   //
   //when "next" is clicked it replaces question and answers
-  var next = document.getElementById("next");
-  next.addEventListener("click", function() {
-    hide_class_elements("a_stuff")
-    show_class_elements("q_stuff")
-    document.getElementById("answer").value = ""
-    document.getElementById("question").innerHTML = question1["question"];
-    var choices = document.querySelectorAll(".choices li");  
-    for (var i = choices.length - 1; i >= 0; i--) {
-      choices[i].innerHTML = question1["answer_choices"][i]
-    }
-  });
-  //
-  //if they input the correct answer it tells them they are right
-  var submit_guess = document.getElementById("submitter")
-  submit_guess.addEventListener("click", function() {
-    guess = document.getElementById("answer").value;
-    if (guess === question1["answer"]) {
-      right_answers++;
-      console.log("right_answers = " + right_answers);
-      document.getElementById("question_result").innerHTML = "CORRECT!";
-    } else {
-      document.getElementById("question_result").innerHTML = "NO! WHY WOULD YOU EVER THINK THAT??";
-    };
-    hide_class_elements("q_stuff")
-    show_class_elements("a_stuff")
-  });
+  q++
+  //while(q <= all_questions.length) {    
+    var next = document.getElementById("next");
+    next.addEventListener("click", function() {
+      hide_class_elements("a_stuff")
+      show_class_elements("q_stuff")
+      q++
+      document.getElementById("answer").value = ""
+      document.getElementById("question").innerHTML = all_questions[q]["question" ];
+      var choices = document.querySelectorAll(".choices li");  
+      for (var i = choices.length - 1; i >= 0; i--) {
+        choices[i].innerHTML = all_questions[q]["answer_choices"][i]
+      }
+    });
+    //
+    //if they input the correct answer it tells them they are right
+    var submit_guess = document.getElementById("submitter")
+    submit_guess.addEventListener("click", function() {
+      guess = document.getElementById("answer").value;
+      if (guess === all_questions[q]["answer"]) {
+        right_answers++;
+        console.log("right_answers = " + right_answers);
+        document.getElementById("question_result").innerHTML = "CORRECT!";
+      } else {
+        document.getElementById("question_result").innerHTML = "NO! WHY WOULD   YOU EVER THINK THAT??";
+      };
+      hide_class_elements("q_stuff");
+      show_class_elements("a_stuff");
+    });
+  //};
+  alert("YOU DID IT!");
 };
-
-
-
-
-
-
