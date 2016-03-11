@@ -1,14 +1,20 @@
 window.onload = function(){
 
-  
-
-  var questions = document.getElementById("questions")
+  var questions = document.getElementById("questions");
   questions.innerText = "What is my name?";
-  var choices = document.getElementById("choices")
+  var choices = document.getElementById("choices");
   choices.innerText = "1. Derek\n 2. Mark\n 3. Sarah\n 4. Dottie\n";
 
-  // var guess = document.getElementById("question_result");
-  // guess.innerText = ;
+  var button = document.getElementById("submitter");
+  var results = document.getElementById("question_result");
+
+  button.addEventListener("click", function(){
+    var answers = document.forms["answer"].submit("text");
+    results.innerText = (answers);
+  });
+    
+};
+
 
 
 
@@ -47,4 +53,3 @@ window.onload = function(){
   //     alert("You answered 3 of 3 correctly");
   //   }
   // });
-};
