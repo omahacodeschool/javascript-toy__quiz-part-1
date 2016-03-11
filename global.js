@@ -37,41 +37,41 @@ window.onload = function(){
 
   var array_of_countries = []
   array_of_countries.push(icelandHash, jordanHash, brazilHash, albaniaHash, turkeyHash)
+  var current_question = 0
 
   button.addEventListener("click", function() {
+    //button.style.display = "none";
 
-    array_of_countries.forEach(function(i) {
-
-      button.style.display = "none";
-      question.innerHTML = i["question"];
-      choices.innerHTML = i["choices"];
+      question.innerHTML = array_of_countries[current_question]["question"];
+      choices.innerHTML = array_of_countries[current_question]["choices"];
       answer.value = "";
       quiz.style.display = "block";
       enter.style.display = "block";
       total.innerHTML = "You have " + points_count + " points."
 
-      enter.addEventListener("click", function() {
-        var params = answer.value;
-        question_result.style.display = "block";
-        if (params == i["capital"]) {
-          points_count++;
-          question_result.innerHTML = ("Correct!");
-          total.innerHTML = "You have " + points_count + " point(s)."
-        } else {
-          question_result.innerHTML = ("Sorry, wrong answer.");
-        } //ends if loop
-      enter.style.display = "none";
-      next.style.display = "block";
+      console.log("current question is " + current_question);
+      // enter.addEventListener("click", function() {
+      //   var params = answer.value;
+      //   console.log("params is " + params);
+      //   question_result.style.display = "block";
+      //   console.log("i capital is " + i["capital"]);
+      //   if (params == i["capital"]) {
+      //     points_count++;
+      //     question_result.innerHTML = ("Correct!");
+      //     total.innerHTML = "You have " + points_count + " point(s)."
+      //   } else {
+      //     question_result.innerHTML = ("Sorry, wrong answer.");
+      //   } //ends if loop
+      //   enter.style.display = "none";
+      //   next.style.display = "block";
 
-        next.addEventListener("click", function() {
-          enter.style.display = "block";
-          next.style.display = "none";
-          question_result.style.display = "none";
+      //   next.addEventListener("click", function() {
+      //     enter.style.display = "block";
+      //     next.style.display = "none";
+      //     question_result.style.display = "none";
 
-        }); //ends 'when next is clicked' event
-      }); //ends 'click enter on question' event
-
-    });//ends loop through countries array
+      //   }); //ends 'when next is clicked' event
+      // }); //ends 'click enter on question' event
 
   }); //ends 'start game click' event
 
