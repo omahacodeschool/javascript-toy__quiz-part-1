@@ -39,12 +39,12 @@ var result = document.getElementById("total_result");
 					next_button.display = "block";
 					next_button.addEventListener("click", function(){
 						alert("WRONG. The correct answer is " + hashQuestionsAndAnswers[key][0]);
-						)};
+						};
 				};
 
 			});
 			
-		});
+		};
 
 		result.innerHTML = ("You got" + correct_answers + "out of" + Object.keys(hashQuestionsAndAnswers).length + "answers correct");
 		result.display = "block";
