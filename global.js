@@ -1,10 +1,35 @@
 window.onload = function(){
 
+  var correctAnswer = 0
+  var numberOfQuestions = 3
   var button = document.getElementById("begin_button");
 
   button.addEventListener("click", function(){
 
-    var question = prompt("What weighs more? \n A)A feather \n B)An elephant \n C)The moon");
+    var questionOne = prompt("What weighs more? \n A)A feather \n B)An elephant \n C)The moon");
+
+      if (questionOne == a){
+        alert("That's correct!");
+        correctAnswer++;
+      }
+      else {
+        alert("Aww, better luck with the next one.");
+      };
+
+    var questionTwo = prompt("What weighs less? \n A)A bowling ball \n B)A neutron star \n C)A puppy");
+
+      if (questionTwo == c) {
+        alert("That's correct!");
+        correctAnswer++;
+      }
+      else {
+        alert("Aww, better luck with the next one.");
+      };
+      
+      }
+
+    }
+    }
   })
 
   alert("Foo");
