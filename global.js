@@ -8,7 +8,7 @@ window.onload = function(){
 
     var questionOne = prompt("What weighs more? \n A)A feather \n B)An elephant \n C)The moon");
 
-      if (questionOne == a){
+      if (questionOne == "a"){
         alert("That's correct!");
         correctAnswer++;
       }
@@ -18,19 +18,25 @@ window.onload = function(){
 
     var questionTwo = prompt("What weighs less? \n A)A bowling ball \n B)A neutron star \n C)A puppy");
 
-      if (questionTwo == c) {
+      if (questionTwo == "c") {
         alert("That's correct!");
         correctAnswer++;
       }
       else {
         alert("Aww, better luck with the next one.");
       };
-      
-      }
 
-    }
-    }
-  })
+    var questionThree = prompt("What weighs on you more? \n A)The atmosphere \n B)Debt \n C)Guilt");
+
+      if (questionTwo == "c") {
+        alert("That's correct!");
+        correctAnswer++;
+      }
+      else {
+        alert("Aww, well, there are other quizzes.");
+      };
+
+    });
 
   alert("Foo");
 };
