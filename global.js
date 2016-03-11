@@ -11,7 +11,7 @@ window.onload = function(){
       array[i] = t;
     }
   }
-  //hid_class_elements hides elements 
+  //hide_class_elements hides elements 
   //input class either "q_stuff"(question elements) or "a_stuff"(answer elements)
   function hide_class_elements(class_name){
     var array = document.getElementsByClassName(class_name)
@@ -19,7 +19,7 @@ window.onload = function(){
       array[i].style.display = "none"
     }
   };
-  //show_clas_elements = shows elements that were hidden 
+  //show_class_elements = shows elements that were hidden 
   //input class either "q_stuff"(question elements) or "a_stuff"(answer elements)
   function show_class_elements(class_name){
     var array = document.getElementsByClassName(class_name)
@@ -38,6 +38,10 @@ window.onload = function(){
   //when "next" is clicked it replaces question and answers
   var next = document.getElementById("next");
   next.addEventListener("click", function() {
+    hide_class_elements("a_stuff")
+    show_class_elements("q_stuff")
+    //next line doesn't work how i want it to...but needs to happen.
+    //document.getElementById("answer") = ""
     document.getElementById("question").innerHTML = question1;
     var choices = document.querySelectorAll(".choices li");
     for (var i = choices.length - 1; i >= 0; i--) {
@@ -56,7 +60,8 @@ window.onload = function(){
     } else {
       document.getElementById("question_result").innerHTML = "NO! WHY WOULD YOU EVER THINK THAT??";
     };
-    hide_class_elements(q_stuff)
+    hide_class_elements("q_stuff")
+    show_class_elements("a_stuff")
   });
 };
 
