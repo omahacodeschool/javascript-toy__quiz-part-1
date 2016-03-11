@@ -2,8 +2,15 @@ window.onload = function(){
 
   
 
-  var questions = document.getElementById(".quiz .questions ").setAttribute("id", "democlass");
-  // questions.innerText == "What is my name?";
+  var questions = document.getElementById("questions")
+  questions.innerText = "What is my name?";
+  var choices = document.getElementById("choices")
+  choices.innerText = "1. Derek\n 2. Mark\n 3. Sarah\n 4. Dottie\n";
+
+  // var guess = document.getElementById("question_result");
+  // guess.innerText = ;
+
+
 
   // var button = document.getElementById("begin_button")
   // var count = 0
