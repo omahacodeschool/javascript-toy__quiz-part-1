@@ -1,21 +1,24 @@
 window.onload = function(){
 
   var button = document.getElementById("begin_button")
-  var answer1 = "4"
-  var answer2 = "3"
-  var answer3 = "3"
   var count = 0
 
   button.addEventListener("click", function(){
 
     var question = document.getElementsByClassName("question");
+    var correct_answer = document.getElementsByClassName("answers");
 
     for (var i = 0; i < question.length; i++) {
-      prompt(question[i]);
-      if (q1 != answer1){
-      alert("Sorry. You answer was incorrect."); 
-      } else {
-      alert("That's right!"); count++;
+      var guess = prompt(question[i]);
+
+      for (var a = 0; a < correct_answer.length; a++)
+        var answer = correct_answer[a];
+        
+        if (guess != correct_answer){
+        alert("Sorry. You answer was incorrect."); 
+        } else {
+        alert("That's right!"); count++;
+      }
     } 
 
     
