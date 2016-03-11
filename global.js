@@ -21,22 +21,26 @@ window.onload = function(){
     jordanHash["capital"] = "Amman";
 
   var brazilHash = new Object();
-    jordanHash["question"] = "What's the capital of Brazil?";
-    jordanHash["choices"] = ["Sao Paolo, Buenos Aires, Rio de Janeiro, Brasilia"];
-    jordanHash["capital"] = "Brasilia";
+    brazilHash["question"] = "What's the capital of Brazil?";
+    brazilHash["choices"] = ["Sao Paolo, Buenos Aires, Rio de Janeiro, Brasilia"];
+    brazilHash["capital"] = "Brasilia";
 
   var albaniaHash = new Object();
-    jordanHash["question"] = "What's the capital of Albania?";
-    jordanHash["choices"] = ["Pristina, Tirana, Belgrade, Skopje"];
-    jordanHash["capital"] = "Tirana";
+    albaniaHash["question"] = "What's the capital of Albania?";
+    albaniaHash["choices"] = ["Pristina, Tirana, Belgrade, Skopje"];
+    albaniaHash["capital"] = "Tirana";
 
   var turkeyHash = new Object();
-    jordanHash["question"] = "What's the capital of Turkey?";
-    jordanHash["choices"] = ["Istanbul, Izmir, Sofia, Ankara"];
-    jordanHash["capital"] = "Ankara";
+    turkeyHash["question"] = "What's the capital of Turkey?";
+    turkeyHash["choices"] = ["Istanbul, Izmir, Sofia, Ankara"];
+    turkeyHash["capital"] = "Ankara";
 
   var array_of_countries = []
-  array_of_countries.push(icelandHash, jordanHash, brazilHash, albaniaHash, turkeyHash)
+  array_of_countries.push(icelandHash)
+  array_of_countries.push(jordanHash)
+  array_of_countries.push(brazilHash)
+  array_of_countries.push(albaniaHash)
+  array_of_countries.push(turkeyHash)
   var current_question = 0
 
   button.addEventListener("click", function() {
@@ -47,7 +51,7 @@ window.onload = function(){
     answer.value = "";
     quiz.style.display = "block";
     enter.style.display = "block";
-    total.innerHTML = "You have " + points_count + " points."
+    total.innerHTML = "You have " + points_count + " points.";
 
   }); //ends 'start game click' event
 
@@ -68,11 +72,19 @@ window.onload = function(){
     next.style.display = "block";
   }); //ends 'when next is clicked' event
 
-      //   next.addEventListener("click", function() {
-      //     enter.style.display = "block";
-      //     next.style.display = "none";
-      //     question_result.style.display = "none";
-      // }); //ends 'click enter on question' event
+    next.addEventListener("click", function() {
+      enter.style.display = "block";
+      next.style.display = "none";
+      quiz.style.display = "block";
+      question_result.style.display = "none";
+      current_question++
+      console.log("current question number is " + current_question)
+      question.innerHTML = array_of_countries[current_question]["question"];
+      choices.innerHTML = array_of_countries[current_question]["choices"];
+      answer.value = "";
+      total.innerHTML = "You have " + points_count + " points."
+
+  }); //ends 'click enter on question' event
 
   //   alert("That's all. You have " + points_count + "/5 points! That's " + (points_count/5)*100 + "%.")
 
