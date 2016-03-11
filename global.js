@@ -60,7 +60,7 @@ window.onload = function(){
         alert("Sorry, that was incorrect. You have " + points_count + " points.")
       }
 
-    alert("That's all. You have " + points_count + " points!")
+    alert("That's all. You have " + points_count + "/5 points! That's " + (points_count/5)*100 + "%.")
 
   })
 };
