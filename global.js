@@ -8,7 +8,7 @@ window.onload = function(){
 
     var questionOne = prompt("What weighs more? \n A)A feather \n B)An elephant \n C)The moon");
 
-      if (questionOne == "a"){
+      if (questionOne == "c"){
         alert("That's correct!");
         correctAnswer++;
       }
@@ -35,6 +35,8 @@ window.onload = function(){
       else {
         alert("Aww, well, there are other quizzes.");
       };
+
+      alert(correctAnswer)
 
     });
 
