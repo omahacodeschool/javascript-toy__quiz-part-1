@@ -34,6 +34,8 @@ window.onload = function(){
       right_answers++;
       console.log("right_answers = " + right_answers);
       document.getElementById("question_result").innerHTML = "CORRECT!";
+    } else {
+      document.getElementById("question_result").innerHTML = "NO! WHY WOULD YOU EVER THINK THAT?!";
     };
   });
 };
