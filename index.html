@@ -11,23 +11,23 @@
 
 </body>
   <div id="quiz" >
-    <div id="question">
+    <div id="question" class="q_stuff">
       This is a question.
     </div>  <!--this ends question div -->  <!-- maybe choices are hidden once answer is submitted -->
-    <div id="choices" class="choices">
+    <div id="choices" class="choices, q_stuff">
       <li>Choice 1</li>
       <li>Choice 2</li>
       <li>Choice 3</li>
       <li>Choice 4</li>
     </div><!-- this ends choices div -->
     
-    <input type="text" id="answer">
-    <button id="submitter">Submit Answer</button>
+    <input type="text" id="answer" class="q_stuff">
+    <button id="submitter" class="q_stuff">Submit Answer</button>
     <!-- these two things should be hidden until answer submitted -->
-    <div id="question_result">
+    <div id="question_result" class="a_stuff">
       <!-- right/wrong -->
     </div>
-    <button id="next">Next Question</button>
+    <button id="next" class="a_stuff">Next Question</button>
   </div> <!--this ends quiz div--> 
   <div id="total_result">
     <!-- Everything else is hidden, gives score -->
