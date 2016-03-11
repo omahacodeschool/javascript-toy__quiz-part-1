@@ -29,7 +29,7 @@ window.onload = function(){
   };
   //
   //set up test question and choices, randomizes choices array
-  function set_up_questions {
+  //function set_up_questions() {
     all_questions = []
     var question1 = new Object();
     question1["question"] = "How great is pizza?";
@@ -80,13 +80,18 @@ window.onload = function(){
     all_questions.push(question4)
 
     fischer_yates_shuffle(all_questions)
-  }
 
+  // return all_questions
+  //}
 
-
-
-
-  
+  //questions_array = set_up_questions
+  //keeps track of the questions asked
+  q = 0
+  document.getElementById("question").innerHTML = all_questions[q]["question"];
+  var choices = document.querySelectorAll(".choices li");  
+  for (var i = choices.length - 1; i >= 0; i--) {
+    choices[i].innerHTML = all_questions[q]["answer_choices"][i]
+  }  
   //
   //when "next" is clicked it replaces question and answers
   var next = document.getElementById("next");
