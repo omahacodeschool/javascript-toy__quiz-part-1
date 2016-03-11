@@ -33,17 +33,16 @@ window.onload = function(){
   var answer = "SUPER GREAT";
   var notanswers = ["great","fine","i've never had pizza"];
   notanswers.push(answer)
-  fischer_yates_shuffle(notanswers)
   //
   //when "next" is clicked it replaces question and answers
   var next = document.getElementById("next");
   next.addEventListener("click", function() {
     hide_class_elements("a_stuff")
     show_class_elements("q_stuff")
-    //next line doesn't work how i want it to...but needs to happen.
-    //document.getElementById("answer") = ""
+    document.getElementById("answer").value = ""
     document.getElementById("question").innerHTML = question1;
     var choices = document.querySelectorAll(".choices li");
+    fischer_yates_shuffle(notanswers)
     for (var i = choices.length - 1; i >= 0; i--) {
       choices[i].innerHTML = notanswers[i]
     }
