@@ -43,7 +43,7 @@ window.onload = function(){
     //next line doesn't work how i want it to...but needs to happen.
     //document.getElementById("answer") = ""
     document.getElementById("question").innerHTML = question1;
-    var choices = document.querySelectorAll("choices li");
+    var choices = document.querySelectorAll(".choices li");
     for (var i = choices.length - 1; i >= 0; i--) {
       choices[i].innerHTML = notanswers[i]
     }
