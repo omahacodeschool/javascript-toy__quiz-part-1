@@ -22,7 +22,7 @@ window.onload = function(){
     choices.innerHTML = icelandHash["choices"];
     quiz.style.display = "block";
 
-  };
+  });
 
     // var iceland = prompt("What's the capital of Iceland?\nOslo\nTorshavn\nReykjavik\nHelsinki")
     //   var correct_answer = "Reykjavik"
