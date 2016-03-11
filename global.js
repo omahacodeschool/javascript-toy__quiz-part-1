@@ -8,10 +8,9 @@ window.onload = function(){
   var choices = document.querySelectorAll(".choices li");
   var next = document.getElementById("next");
   next.addEventListener("click", function() {
-    //document.getElementById("question").innerHTML = question1;
+    document.getElementById("question").innerHTML = question1;
     for (var i = choices.length - 1; i >= 0; i--) {
       choices[i].innerHTML = notanswers[i]
-      //can you loop through multiple arrays??
     }
   });
 };
