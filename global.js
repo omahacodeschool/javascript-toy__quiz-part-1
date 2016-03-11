@@ -17,6 +17,13 @@ window.onload = function(){
     else{
       alert("WRONG!")
     };
+    questionThree = prompt("What is the capitol of Kansas? Wichita? Manhattan? Lawrence? Kansas City?");
+    if (questionThree.toLowerCase() === "wichita"){
+      alert("You are correct!")
+    }
+    else{
+      alert("WRONG!")
+    };
   };
   startButton.addEventListener("click", beginGame);
 };
