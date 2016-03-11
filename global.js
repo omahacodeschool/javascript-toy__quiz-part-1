@@ -65,7 +65,7 @@ window.onload = function(){
     fischer_yates_shuffle(notanswers)
     question3["answer_choices"] = notanswers
 
-    all_questions.push(question4)
+    all_questions.push(question3)
 
     var question4 = new Object();
     question4["question"] = "Do you like brownies?";
@@ -83,34 +83,17 @@ window.onload = function(){
 
   // return all_questions
   //}
-
+  q = 0
   //questions_array = set_up_questions
   //keeps track of the questions asked
-  q = 0
-  document.getElementById("question").innerHTML = all_questions[q]["question"];
-  var choices = document.querySelectorAll(".choices li");  
-  for (var i = choices.length - 1; i >= 0; i--) {
-    choices[i].innerHTML = all_questions[q]["answer_choices"][i]
-  }  
-  //
-  //when "next" is clicked it replaces question and answers
-  for (var q = 1; q >= all_questions.length; q++) {
-    
-    current_question = all_questions[q]  
-    
-    var next = document.getElementById("next");
-    next.addEventListener("click", function() {
-      hide_class_elements("a_stuff")
-      show_class_elements("q_stuff")
-      q++
-      document.getElementById("answer").value = ""
-      document.getElementById("question").innerHTML = all_questions[q]["question" ];
-      var choices = document.querySelectorAll(".choices li");  
-      for (var i = choices.length - 1; i >= 0; i--) {
-        choices[i].innerHTML = all_questions[q]["answer_choices"][i]
-      }
-    });
-    //
+  while(q <= 3) {  
+    //questions and answer choices are set 
+    document.getElementById("question").innerHTML = all_questions[q]["question"];
+    var choices = document.querySelectorAll(".choices li");  
+    for (var i = choices.length - 1; i >= 0; i--) {
+      choices[i].innerHTML = all_questions[q]["answer_choices"][i]
+    }   
+    //they guess (text input)
     //if they input the correct answer it tells them they are right
     var submit_guess = document.getElementById("submitter")
     submit_guess.addEventListener("click", function() {
@@ -120,10 +103,17 @@ window.onload = function(){
         console.log("right_answers = " + right_answers);
         document.getElementById("question_result").innerHTML = "CORRECT!";
       } else {
-        document.getElementById("question_result").innerHTML = "NO! WHY WOULD   YOU EVER THINK THAT??";
+        document.getElementById("question_result").innerHTML = "NO! WHY WOULD YOU EVER THINK THAT??";
       };
       hide_class_elements("q_stuff");
       show_class_elements("a_stuff");
+    });
+    //clicking on to the next question resets everything    
+    var next = document.getElementById("next");
+    next.addEventListener("click", function() {
+      hide_class_elements("a_stuff")
+      show_class_elements("q_stuff")
+      q++
     });
   };
   alert("YOU DID IT!");
