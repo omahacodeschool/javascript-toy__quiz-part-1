@@ -15,40 +15,40 @@ var next_button = document.getElementById("next");
 var result = document.getElementById("total_result");
 
 
-	begin_button.addEventListener("click", function(){
+  begin_button.addEventListener("click", function(){
 
-		begin_button.style.display = "none";
-		quiz.style.display = "block";
+    begin_button.style.display = "none";
+    quiz.style.display = "block";
 
-		for (var key in hashQuestionsAndAnswers){
-				question_text.innerHTML = key;
-				choices.innerHTML = hashQuestionsAndAnswers[key];
-				var correct_answers = 0;
+    for (var key in hashQuestionsAndAnswers){
+      question_text.innerHTML = key;
+      choices.innerHTML = hashQuestionsAndAnswers[key];
+      var correct_answers = 0;
 
-			submit_button.addEventListener("click", function(){
+      submit_button.addEventListener("click", function(){
 
-				if (answer == hashQuestionsAndAnswers[key][0]){
-					next_button.display = "block";
-					next_button.addEventListener("click", function(){
-						alert("You answered correctly");
-						correct_answers ++ ;
-					});
-				};
+        if (answer == hashQuestionsAndAnswers[key][0]){
+          next_button.display = "block";
+          next_button.addEventListener("click", function(){
+            alert("You answered correctly");
+            correct_answers ++ ;
+          });
+        };
 
-				else {
-					next_button.display = "block";
-					next_button.addEventListener("click", function(){
-						alert("WRONG. The correct answer is " + hashQuestionsAndAnswers[key][0]);
-						};
-				};
+        else {
+          next_button.display = "block";
+          next_button.addEventListener("click", function(){
+            alert("WRONG. The correct answer is " + hashQuestionsAndAnswers[key][0]);
+            };
+        };
 
-			});
-			
-		};
+      });
+      
+    };
 
-		result.innerHTML = ("You got" + correct_answers + "out of" + Object.keys(hashQuestionsAndAnswers).length + "answers correct");
-		result.display = "block";
-	});
+    result.innerHTML = ("You got" + correct_answers + "out of" + Object.keys(hashQuestionsAndAnswers).length + "answers correct");
+    result.display = "block";
+  });
 };
 
 
