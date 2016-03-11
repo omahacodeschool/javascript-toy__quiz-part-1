@@ -1,6 +1,6 @@
 window.onload = function(){
   // let's count how many answers they get correct. starts at 0 obvs 
-  right_answers = 0
+  var right_answers = 0
   //shuffle function for shuffling array, NOT MINE. input array to randomize.
   function fischer_yates_shuffle(array) {
     var m = array.length, t, i;
@@ -29,10 +29,16 @@ window.onload = function(){
   };
   //
   //set up test question and choices, randomizes choices array
-  var question1 = "How great is pizza?";
+
+  var question1 = new Object();
+  question1["question"] = "How great is pizza?";
   var answer = "SUPER GREAT";
+  question1["answer"] = answer;
   var notanswers = ["great","fine","i've never had pizza"];
   notanswers.push(answer)
+  fischer_yates_shuffle(notanswers)
+  question1["answer_choices"] = notanswers
+  
   //
   //when "next" is clicked it replaces question and answers
   var next = document.getElementById("next");
@@ -40,11 +46,10 @@ window.onload = function(){
     hide_class_elements("a_stuff")
     show_class_elements("q_stuff")
     document.getElementById("answer").value = ""
-    document.getElementById("question").innerHTML = question1;
-    var choices = document.querySelectorAll(".choices li");
-    fischer_yates_shuffle(notanswers)
+    document.getElementById("question").innerHTML = question1["question"];
+    var choices = document.querySelectorAll(".choices li");  
     for (var i = choices.length - 1; i >= 0; i--) {
-      choices[i].innerHTML = notanswers[i]
+      choices[i].innerHTML = question1["answer_choices"][i]
     }
   });
   //
@@ -52,7 +57,7 @@ window.onload = function(){
   var submit_guess = document.getElementById("submitter")
   submit_guess.addEventListener("click", function() {
     guess = document.getElementById("answer").value;
-    if (guess === answer) {
+    if (guess === question1[answer]) {
       right_answers++;
       console.log("right_answers = " + right_answers);
       document.getElementById("question_result").innerHTML = "CORRECT!";
