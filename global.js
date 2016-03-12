@@ -46,7 +46,9 @@ window.onload = function(){
   button.addEventListener("click", function() {
     button.style.display = "none";
     question.innerHTML = array_of_countries[current_question]["question"];
+
     choices.innerHTML = array_of_countries[current_question]["choices"];
+
     answer.value = "";
     quiz.style.display = "block";
     enter.style.display = "block";
@@ -81,7 +83,9 @@ window.onload = function(){
       question_result.style.display = "none";
       current_question++
       question.innerHTML = array_of_countries[current_question]["question"];
+
       choices.innerHTML = array_of_countries[current_question]["choices"];
+      
       answer.value = "";
       total.innerHTML = "You have " + points_count + " point(s).";
 
