@@ -80,41 +80,40 @@ window.onload = function(){
     all_questions.push(question4)
 
     fischer_yates_shuffle(all_questions)
-
-  // return all_questions
-  //}
-  q = 0
-  //questions_array = set_up_questions
-  //keeps track of the questions asked
-  while(q <= 3) {  
-    //questions and answer choices are set 
+  function set_question(q){
     document.getElementById("question").innerHTML = all_questions[q]["question"];
     var choices = document.querySelectorAll(".choices li");  
     for (var i = choices.length - 1; i >= 0; i--) {
       choices[i].innerHTML = all_questions[q]["answer_choices"][i]
     }   
-    //they guess (text input)
-    //if they input the correct answer it tells them they are right
-    var submit_guess = document.getElementById("submitter")
-    submit_guess.addEventListener("click", function() {
-      guess = document.getElementById("answer").value;
-      if (guess === all_questions[q]["answer"]) {
-        right_answers++;
-        console.log("right_answers = " + right_answers);
-        document.getElementById("question_result").innerHTML = "CORRECT!";
-      } else {
-        document.getElementById("question_result").innerHTML = "NO! WHY WOULD YOU EVER THINK THAT??";
-      };
-      hide_class_elements("q_stuff");
-      show_class_elements("a_stuff");
-    });
-    //clicking on to the next question resets everything    
-    var next = document.getElementById("next");
-    next.addEventListener("click", function() {
-      hide_class_elements("a_stuff")
-      show_class_elements("q_stuff")
-      q++
-    });
   };
+  // return all_questions
+  //}
+  var q = 0
+  set_question(q)
+
+  //they guess (text input)
+  //if they input the correct answer it tells them they are right
+  var submit_guess = document.getElementById("submitter")
+  submit_guess.addEventListener("click", function() {
+    guess = document.getElementById("answer").value;
+    if (guess === all_questions[q]["answer"]) {
+      right_answers++;
+      console.log("right_answers = " + right_answers);
+      document.getElementById("question_result").innerHTML = "CORRECT!";
+    } else {
+      document.getElementById("question_result").innerHTML = "NO! WHY WOULD YOU EVER THINK THAT??";
+    };
+    hide_class_elements("q_stuff");
+    show_class_elements("a_stuff");
+  });
+  //clicking on to the next question resets everything    
+  var next = document.getElementById("next");
+  next.addEventListener("click", function() {
+    hide_class_elements("a_stuff")
+    show_class_elements("q_stuff")
+    q++
+  });
+
   alert("YOU DID IT!");
 };
