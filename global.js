@@ -117,10 +117,10 @@ window.onload = function(){
     document.getElementById("answer").value = ""
     q++
     console.log("value of q is " + q)
-    if(q === 4){
+    if(q === all_questions.length){
       hide_class_elements("q_stuff");
       hide_class_elements("a_stuff");
-      document.getElementById("total_result").textContent = "You answered all the questions! You got " + right_answers + "/4 right! That's a score of " + (right_answers/4)*100 + "%!";
+      document.getElementById("total_result").textContent = "You answered all the questions! You got " + right_answers + "/4 right! That's a score of " + (right_answers/all_questions.length)*100 + "%!";
     } else {
       set_question(q)
     };
