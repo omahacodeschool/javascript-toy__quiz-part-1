@@ -15,10 +15,13 @@
       This is a question.
     </div>  <!--this ends question div -->  <!-- maybe choices are hidden once answer is submitted -->
     <div id="choices" class="choices q_stuff">
-      <li>Choice 1</li>
-      <li>Choice 2</li>
-      <li>Choice 3</li>
-      <li>Choice 4</li>
+      <form>
+      <input type="radio" name="choice" onclick="check(this.value)">
+        <li>Choice 1</li>
+        <li>Choice 2</li>
+        <li>Choice 3</li>
+        <li>Choice 4</li>
+      </form>
     </div><!-- this ends choices div -->
     
     <input type="text" id="answer" class="q_stuff">
