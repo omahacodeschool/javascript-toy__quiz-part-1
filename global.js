@@ -116,8 +116,13 @@ window.onload = function(){
     show_class_elements("q_stuff")
     document.getElementById("answer").value = ""
     q++
-    set_question(q)
+    console.log("value of q is " + q)
+    if(q === 4){
+      hide_class_elements("q_stuff");
+      hide_class_elements("a_stuff");
+      document.getElementById("total_result").value = "You answered all the questions!";
+    } else {
+      set_question(q)
+    };
   });
-
-  alert("YOU DID IT!");
 };
