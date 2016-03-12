@@ -82,9 +82,10 @@ window.onload = function(){
     fischer_yates_shuffle(all_questions)
   function set_question(q){
     document.getElementById("question").innerHTML = all_questions[q]["question"];
-    var choices = document.querySelectorAll(".choices li");  
-    for (var i = choices.length - 1; i >= 0; i--) {
-      choices[i].innerHTML = all_questions[q]["answer_choices"][i]
+    var choiceInputs = document.querySelectorAll(".choices input");  
+    for (var i = choiceInputs.length - 1; i >= 0; i--) {
+      document.querySelectorAll("#label"+(i+1))[0].innerHTML = all_questions[q]["answer_choices"][i];
+      choiceInputs[i].value = all_questions[q]["answer_choices"][i];
     }   
   };
   // return all_questions
