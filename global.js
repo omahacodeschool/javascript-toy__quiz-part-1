@@ -94,7 +94,10 @@ window.onload = function(){
   set_question(q)
   hide_class_elements("a_stuff");
   show_class_elements("q_stuff");
-
+  //hopefully this will 'check' the radio buttons
+  function check(choicevalue) {
+    document.getElementById("answer").value = choicevalue;
+  }
   //they guess (text input)
   //if they input the correct answer it tells them they are right
   var submit_guess = document.getElementById("submitter")
