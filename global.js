@@ -120,7 +120,7 @@ window.onload = function(){
     if(q === 4){
       hide_class_elements("q_stuff");
       hide_class_elements("a_stuff");
-      document.getElementById("total_result").textContent = "You answered all the questions! You got " + right_answers + "/4 right!";
+      document.getElementById("total_result").textContent = "You answered all the questions! You got " + right_answers + "/4 right! That's a score of " + (right_answers/4)*100 + "%!";
     } else {
       set_question(q)
     };
