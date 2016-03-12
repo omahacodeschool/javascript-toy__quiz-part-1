@@ -21,20 +21,39 @@
 //     answerFive: "Lansing"
 //   };
 
-  // Quiz();
-  // var questions = new Quiz();
-  //   questions.questionOne = "Nebraska";
-  //   questions.questionTwo = "Missouri";
-  //   questions.questionThree = "Illinois";
-  //   questions.questionFour = "Colorado";
-  //   questions.questionFive = "Michigan";
 
-  // var answers = new Quiz();
-  //   answers.answerOne = "Lincoln";
-  //   answers.answerTwo = "Jefferson City";
-  //   answers.answerThree = "Springfield";
-  //   answers.answerFour = "Denver";
-  //   answers.answerFive = "Lansing";
+function Question () {
+    this.question = "";
+    this.options = {};
+    this.answer = "";
+}
+
+  var questionOne = new Question();
+    questionOne.question = "What is the capital of Nebraska?";
+    questionOne.options = {
+      a: "Lincoln",
+      b: "Kearney",
+      c: "Denver"
+    }
+    questionOne.answer = "a";
+
+var questionTwo = new Question();
+    questionTwo.question = "What is the capital of Missouri?";
+    questionTwo.options = {
+      a: "Columbia",
+      b: "Jefferson City",
+      c: "St. Louis"
+    }
+    questionTwo.answer = "b";
+
+var questionThree = new Question();
+    questionThree.question = "What is the capital of Illinois?";
+    questionThree.options = {
+      a: "Chicago",
+      b: "Champaign",
+      c: "Springfield"
+    }
+    questionThree.answer = "c";
 
 
 
@@ -46,7 +65,16 @@ window.onload = function(){
   
   click_me.addEventListener("click", function(){
 
-    alert("hi for now.");
+    alert("Start the quiz!");
+    alert(questionOne.question);
+    var answer = prompt("a " + questionOne.options["a"] + " b " + questionOne.options["b"] + " c " + questionOne.options["c"]);
+    if (answer == questionOne.answer) { 
+      alert("That's correct!");
+      }
+    else if (answer != questionOne.answer) {
+
+      alert("That's incorrect.");
+    }
     }
     );
 
@@ -64,20 +92,3 @@ window.onload = function(){
 
   
 };
-
-// var text;
-// var favDrink = prompt("What's your favorite cocktail drink?");
-// switch(favDrink) {
-//     case "Martini":
-//         text = "Excellent choice! Martini is good for your soul.";
-//         break;
-//     case "Daiquiri":
-//         text = "Daiquiri is my favorite too!";
-//         break;
-//     case "Cosmopolitan":
-//         text = "Really? Are you sure the Cosmopolitan is your favorite?";
-//         break;
-//     default:
-//         text = "I have never heard of that one..";
-//         break;
-// }
