@@ -91,6 +91,8 @@ window.onload = function(){
   //}
   var q = 0
   set_question(q)
+  hide_class_elements("a_stuff");
+  show_class_elements("q_stuff");
 
   //they guess (text input)
   //if they input the correct answer it tells them they are right
@@ -102,7 +104,7 @@ window.onload = function(){
       console.log("right_answers = " + right_answers);
       document.getElementById("question_result").innerHTML = "CORRECT!";
     } else {
-      document.getElementById("question_result").innerHTML = "NO! WHY WOULD YOU EVER THINK THAT??";
+      document.getElementById("question_result").innerHTML = "SORRY! That is INCORRECT!";
     };
     hide_class_elements("q_stuff");
     show_class_elements("a_stuff");
@@ -112,7 +114,9 @@ window.onload = function(){
   next.addEventListener("click", function() {
     hide_class_elements("a_stuff")
     show_class_elements("q_stuff")
+    document.getElementById("answer").value = ""
     q++
+    set_question(q)
   });
 
   alert("YOU DID IT!");
