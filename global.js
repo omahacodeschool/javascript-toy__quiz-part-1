@@ -55,6 +55,8 @@ var questionThree = new Question();
     }
     questionThree.answer = "c";
 
+var Quiz = [questionOne, questionTwo, questionThree]; 
+
 
 
 
@@ -64,16 +66,20 @@ window.onload = function(){
   var click_me = document.getElementById("begin_button");
   
   click_me.addEventListener("click", function(){
-
+    var score = 0
     alert("Start the quiz!");
-    alert(questionOne.question);
-    var answer = prompt("a " + questionOne.options["a"] + " b " + questionOne.options["b"] + " c " + questionOne.options["c"]);
-    if (answer == questionOne.answer) { 
+
+    for(i = 0; i <= Quiz.length; i++){
+    alert(Quiz[i].question);
+    var answer = prompt("a " + Quiz[i].options["a"] + " b " + Quiz[i].options["b"] + " c " + Quiz[i].options["c"]);
+    if (answer == Quiz[i].answer) { 
       alert("That's correct!");
+      score++;
       }
     else if (answer != questionOne.answer) {
 
       alert("That's incorrect.");
+    }
     }
     }
     );
