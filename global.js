@@ -1,3 +1,8 @@
+//hopefully this will 'check' the radio buttons
+  function check(choicevalue) {
+    document.getElementById("answer").value = document.getElementById(choicevalue ).value
+  };
+
 window.onload = function(){
   // let's count how many answers they get correct. starts at 0 obvs 
   var right_answers = 0
@@ -10,10 +15,10 @@ window.onload = function(){
       array[m] = array[i];
       array[i] = t;
     }
-  }
+  };
   //hide_class_elements hides elements 
   //input class either "q_stuff"(question elements) or "a_stuff"(answer elements)
-  function hide_class_elements(class_name){
+  function hide_class_elements(class_name) {
     var array = document.getElementsByClassName(class_name)
     for (var i = array.length - 1; i >= 0; i--) {
       array[i].style.display = "none"
@@ -94,10 +99,6 @@ window.onload = function(){
   set_question(q)
   hide_class_elements("a_stuff");
   show_class_elements("q_stuff");
-  //hopefully this will 'check' the radio buttons
-  function check(choicevalue) {
-    document.getElementById("answer").value = choicevalue;
-  }
   //they guess (text input)
   //if they input the correct answer it tells them they are right
   var submit_guess = document.getElementById("submitter")
