@@ -1,6 +1,5 @@
 window.onload = function(){
   
-  var startButton = document.getElementById("begin_button");
   var submitButton = document.getElementById("submitter");
   var nextButton = document.getElementById("next");
 
@@ -15,17 +14,11 @@ window.onload = function(){
       document.getElementById("quiz").innerHTML = 
         "Who ran the first marathon?";
       document.getElementById("choices").innerHTML = "Kyle Sandage? Steve Prefontaine? Pheidippides? Usain Bolt?";  
+    },
+    questionThree = function(){
+      document.getElementById("quiz").innerHTML = "What is the capitol of Kansas?";
+      document.getElementById("choices").innerHTML = "Wichita? Manhattan? Lawrence? Kansas City?";
     }
-    // questionThree = function(){
-    //   responseThree = prompt("What is the capitol of Kansas? Wichita? Manhattan? Lawrence? Kansas City?");
-    //   if (responseThree.toLowerCase() === "wichita"){
-    //     alert("You are correct!");
-    //     correctAnswers += 1;
-    //   }
-    //   else{
-    //     alert("WRONG!");
-    //   }
-    // },
   ];
 
   var allAnswers = [
@@ -48,15 +41,21 @@ window.onload = function(){
       else{
         document.getElementById("question_result").innerHTML = "Wrong!";
       };
+    },
+    answerThree = function(){
+      responseThree = document.getElementById("answer").value;
+      if (responseThree.toLowerCase() === "wichita"){
+        document.getElementById("question_result").innerHTML = "Correct!";
+        correctAnswers += 1;
+      }
+      else{
+        document.getElementById("question_result").innerHTML = "Wrong!";
+      };
     }
   ];
-  var i = 0
-  beginGame = function(){
 
-    if(i < allQuestions.length){
-      allQuestions[i]();
-    };
-  };
+  var i = 0
+  allQuestions[i]();
 
   nextQuestion = function(){
     i++
@@ -71,12 +70,10 @@ window.onload = function(){
     score()
   };
 
-
   score = function(){
     var score = (correctAnswers / allQuestions.length) * 100;
     document.getElementById("total_results").innerHTML = "You answered " + correctAnswers + " out of " + allQuestions.length +" correctly. " + "You scored " + score.toFixed(2) + "% on this exam.";
   };
-
 
   submitAnswer = function(){
     if(i < allQuestions.length){
@@ -85,8 +82,7 @@ window.onload = function(){
     };
   };
 
-  submitButton.addEventListener("click", submitAnswer);
-  startButton.addEventListener("click", beginGame); 
+  submitButton.addEventListener("click", submitAnswer); 
   nextButton.addEventListener("click", nextQuestion);
 
 };
