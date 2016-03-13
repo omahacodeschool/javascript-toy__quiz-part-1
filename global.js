@@ -5,6 +5,11 @@ window.onload = function(){
 //There is no hash in javascript as far as I can tell. There is an object but I don't know if I can iterate through an object. So an array? Try both? Wish I was smarter about these things.
 //Maybe what I need is for the prompt to ask the "key" part of the object and they get it right if the "guess" matches the "value" part of the object. What the hell am I talking about. 
 
+//So when a person starts the quiz by pushing the preset button, I need to have the questions come up one at a time. I need the following pieces of information: The questions, the choices, the correct answers, the user's guess, something that says they got it right or got it wrong, a counter for correct answers, a statement that says they got X right out of Y, and a percentage they got right. 
+//I could put the questions and choices and correct answers in a hash but there's no such thing. There is a javascript object.  
+
+
+
 //var qBank = [q0, q1, q2, q3]
 
 
@@ -23,34 +28,26 @@ var answer = ["c", "b", "c" ,"a"]
 var question = ["What is the meaning of life?", "What do we talk about when we talk about love?", "Where is the remote?", "How do we know what we know?"]
 
 var choices = [
-  "a. Karma b. Life is a cereal. c. This is the correct answer. d. The species must survive long enough to code instructions for how to recreate itself and send the instructions to a parallel universe.",
-  "a. Hormones. b. This is the correct answer. c. Ourselves. d. Ask your mother.",
-  "a. Between the couch cushions. b. Cat is sleeping on it. c. This is the correct answer. d. The remote knows where it is but we are lost.",
-  "a. This is the correct answer. b. We just do. c. We don't really. d. We Google." ]   
+  "a. Karma b. Life is a cereal. c. THIS IS THE CORRECT ANSWER. d. The species must survive long enough to code instructions for how to recreate itself and send the instructions to a parallel universe.",
+  "a. Hormones. b. THIS IS THE CORRECT ANSWER. c. Ourselves. d. Ask your mother.",
+  "a. Between the couch cushions. b. Cat is sleeping on it. c. THIS IS THE CORRECT ANSWER. d. The remote knows where it is but we are lost.",
+  "a. THIS IS THE CORRECT ANSWER. b. We just do. c. We don't really. d. We Google." ]   
   
-//var guess = prompt(question[index] + choices[index]);
 
 
 
-
-for (var index = 0; index < question.length; index+=1) {
-   var guess = prompt(question[index] + choices[index]);
-   var correctAnswer = answer[index]
-
-if guess === correctAnswer; {
-      alert("Correct! Well done!");
+for (var index = 0, var score = 0; index < question.length; index+=1) {
+   var userGuess = prompt(question[index] + choices[index]);
+   if (userGuess === answer[index]) {
+  
+    alert("Correct! Well done!");
 }//close the if  
-else //guess !== (answer[index]));
-  {
-      alert("Sorry, the correct answer is " + answer[index] + " . ");
- } //close the else
+  else {
+   alert("Sorry, the correct answer is " + answer[index] + " . ");
+  } //close the else
 }//close the for loop
 
 
-//    document.getElementById(id).style.display = 'block';
-    // hide the lorem ipsum text
- //   document.getElementById(text).style.display = 'none';
-    // hide the link
 
 
 };//end of window.onload curly bracket
