@@ -9,47 +9,37 @@
 
 <h1>Quiz Game</h1>
 <div id="scoreCount" style="display: none"> SCORE WILL GO HERE </div>
-
   <div class="questions">
 
-    <ul class="questionOne">
-      <p id="questionOneQuestion" style="display: none"> WORDS WILL GO HERE AND STUFF </p>
-      <li style="display: none"><input type="radio" name="questionOneAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionOneAnswer" value="2"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionOneAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionOneAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionOneAnswer" value="1"> SOME WORDS WILL GO HERE</li>
+    <ul id="question1" class="question" style="display: none">
+      <p id="questionQuestion1"> WORDS WILL GO HERE AND STUFF </p>
+      <li><input type="radio" name="questionChoices"value="1"> SOME WORDS WILL GO HERE</li>
+      <li><input type="radio" name="questionChoices" value="2"> SOME WORDS WILL GO HERE</li>
+      <li><input type="radio" name="questionChoices" value="1"> SOME WORDS WILL GO HERE</li>
+      <li><input type="radio" name="questionChoices" value="1"> SOME WORDS WILL GO HERE</li>
+      <li><input type="radio" name="questionChoices" value="1"> SOME WORDS WILL GO HERE</li>
 
-      <p id="questionOneResult" style="display: none"> WORDS WILL GO HERE AND STUFF </p>
+      <p id="questionActualAnswer1" style="display: none" > WORDS WILL GO HERE AND STUFF </p>
     </ul>
 
-    <ul class="questionTwo">
-      <p id="questionTwoQuestion" style="display: none"> WORDS WILL GO HERE AND STUFF </p>
+        <ul id="question2" class="question" style="display: none">
+      <p id="questionQuestion2"> WORDS WILL GO HERE AND STUFF:SECOND QUESTION </p>
+      <li><input type="radio" name="questionChoices" value="1"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+      <li><input type="radio" name="questionChoices" value="2"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+      <li><input type="radio" name="questionChoices" value="1"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+      <li><input type="radio" name="questionChoices" value="1"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+      <li><input type="radio" name="questionChoices" value="1"> SOME WORDS WILL GO HERESECOND QUESTION</li>
 
-      <li style="display: none"><input type="radio" name="questionTwoAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionTwoAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionTwoAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionTwoAnswer" value="2"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionTwoAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-
-      <p id="questionTwoResult" style="display: none"> WORDS WILL GO HERE AND STUFF </p>
+      <p id="questionActualAnswer2" style="display: none" > WORDS WILL GO HERE AND STUFF </p>
     </ul>
 
-    <ul class="questionThree">
-      <p id="questionThreeQuestion" style="display: none"> WORDS WILL GO HERE AND STUFF </p>
-      <li style="display: none"><input type="radio" name="questionThreeAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionThreeAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionThreeAnswer" value="1"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionThreeAnswer" value="2"> SOME WORDS WILL GO HERE</li>
-      <li style="display: none"><input type="radio" name="questionThreeAnswer" value="1"> SOME WORDS WILL GO HERE</li>
+    <p id="correct" style="display: none"> CORRECT </p>
+    <p id="wrong" style="display: none"> WRONG </p>
 
-      <p id="questionThreeResult" style="display: none"> WORDS WILL GO HERE AND STUFF </p>
-    </ul>
+    <input onclick="changeButtonz" type="button" id="buttonz" value="Click Here to Start the Quiz"></input>
 
-    <input onclick="changeButtonz()" type="button" id="button" value="Click me to begin the game"></button>
+
   </div>
-
-
 </body>
 </html>
 </body>
