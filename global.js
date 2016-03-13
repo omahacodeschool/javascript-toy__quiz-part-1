@@ -37,11 +37,11 @@ window.onload = function(){
   //set_up_questions()
     all_questions = []
     var question1 = new Object();
-    question1["question"] = "How great is pizza?";
-    var answer = "SUPER GREAT";
+    question1["question"] = "Which of the following holidays does NOT have a specialty shaped Reese's candy?";
+    var answer = "4th of July";
     question1["answer"] = answer;
     //notanswers is an array that will make up the other choices
-    var notanswers = ["great","fine","i've never had pizza"];
+    var notanswers = ["Christmas","Easter","Valentine's Day"];
     notanswers.push(answer)
     fischer_yates_shuffle(notanswers)
     question1["answer_choices"] = notanswers
@@ -49,11 +49,11 @@ window.onload = function(){
     all_questions.push(question1) 
 
     var question2 = new Object();
-    question2["question"] = "How do you feel about nachos?";
-    var answer = "ALSO GREAT";
+    question2["question"] = "What is the shape of specialty Halloween Reese's?";
+    var answer = "pumpkin";
     question2["answer"] = answer;
     //notanswers is an array that will make up the other choices
-    var notanswers = ["too much cheese!","waste of chips.","i've never had nachos"];
+    var notanswers = ["ghost","witch hat","coffin full of feelings"];
     notanswers.push(answer)
     fischer_yates_shuffle(notanswers)
     question2["answer_choices"] = notanswers
@@ -61,11 +61,11 @@ window.onload = function(){
     all_questions.push(question2)
 
     var question3 = new Object();
-    question3["question"] = "Donuts?";
-    var answer = "SURE OKAY";
+    question3["question"] = "Which candy 'starts' the Reese's season?";
+    var answer = "Reese's Pumpkins";
     question3["answer"] = answer;
     //notanswers is an array that will make up the other choices
-    var notanswers = ["no thank you","too sweet!","gross."];
+    var notanswers = ["Reese's Hearts","Reese's Arbor Day Maple Trees","Reese's Chinese New Year Monkeys(2016)"];
     notanswers.push(answer)
     fischer_yates_shuffle(notanswers)
     question3["answer_choices"] = notanswers
@@ -73,11 +73,11 @@ window.onload = function(){
     all_questions.push(question3)
 
     var question4 = new Object();
-    question4["question"] = "Do you like brownies?";
-    var answer = "KRYPTONITE";
+    question4["question"] = "While all of these are true, which of these facts about Reese's Ice Cream Easter Eggs makes the LEAST sense?";
+    var answer = "They're available ALL YEAR ROUND";
     question4["answer"] = answer;
     //notanswers is an array that will make up the other choices
-    var notanswers = ["they hurt my tummy","i don't like chocolate","i really prefer pie"];
+    var notanswers = ["They're only available at Walmart","Serving size is '1 bar' when they are and egg","That they say 'limited edition' event though they were released in 2013"];
     notanswers.push(answer)
     fischer_yates_shuffle(notanswers)
     question4["answer_choices"] = notanswers
