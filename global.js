@@ -56,33 +56,32 @@ window.onload = function() {
 
   var nextButton = document.getElementById("nextButton");
   var begin = document.getElementById("beginButton");
-  var answerField = document.getElementById("answer");  
+  var answerField = document.getElementById("answer");
+  var question = document.getElementById("question");    
 
   function nextQuestion() { 
 
       begin.style.display = "none";
 
       (function(){
-          var ul = document.createElement('ul');
-          ul.setAttribute('id','choiceList');
+        var ul = document.createElement('ul');
+        ul.setAttribute('id','choiceList');
 
 
-          document.getElementById('choices').appendChild(ul);
-          quiz[currentQuestion]['choices'].forEach(showChoices);
+        document.getElementById('choices').appendChild(ul);
+        quiz[currentQuestion]['choices'].forEach(showChoices);
 
-          function showChoices(element, index, arr) {
-              var li = document.createElement('li');
-              li.setAttribute('class','question');
+        function showChoices(element, index, arr) {
+            var li = document.createElement('li');
+            li.setAttribute('class','question');
 
-              ul.appendChild(li);
+            ul.appendChild(li);
 
-              t = document.createTextNode(element);
+            t = document.createTextNode(element);
 
-              li.innerHTML=li.innerHTML + element;
-          }
+            li.innerHTML=li.innerHTML + element;
+        }
       })();    
-
-      var question = document.getElementById("question");
 
       question.innerHTML = (quiz[currentQuestion]['question']);
 
@@ -110,10 +109,9 @@ window.onload = function() {
 
     var questionResult = document.getElementById("questionResult"); 
 
-    if (answer == quiz[0]["correct"]) {
+    if (answer == quiz[currentQuestion]["correct"]) {
       questionResult.innerHTML = ("That is correct!");
       score ++;
-      console.log(score);
     } else {
       questionResult.innerHTML = ("Sorry. " + quiz[currentQuestion]["correct"] + " is the answer!");
     }
@@ -123,7 +121,8 @@ window.onload = function() {
   });
 
   nextButton.addEventListener("click", function() { 
-    currentQuestion ++;
+  nextButton.style.display = "none";
+  currentQuestion ++;
   nextQuestion();  
   });
 
