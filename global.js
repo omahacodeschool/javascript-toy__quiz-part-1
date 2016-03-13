@@ -50,14 +50,21 @@ window.onload = function(){
       };
     }
   ];
-
+  var i = 0
   beginGame = function(){
-    for(var i = 0; i < allQuestions.length; i++) {
+
+    if(i < allQuestions.length){
       allQuestions[i]();
+    }
+    else{
+      alert("Game Over");
     };
-    nextQuestion = function(){
-      i++;
-    };
+
+  };
+
+  nextQuestion = function(){
+    alert("you clicked next");
+    i++
   };
 
 
@@ -69,7 +76,7 @@ window.onload = function(){
   // };
 
   submitAnswer = function(){
-    for(var i = 0; i < allAnswers.length; i++) {
+    if(i < allQuestions.length){
       allAnswers[i]();
     };
   };
