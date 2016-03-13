@@ -60,7 +60,19 @@ var questionThree = new Question();
 
 var Quiz = [questionOne, questionTwo, questionThree]; 
 
+function checkAnswer(submitted_answer, current_question_answer){
 
+      if (submitted_answer == current_question_answer) { 
+      alert("That's correct!");
+      //score++;
+      }
+      else if (submitted_answer != current_question_answer) {
+
+      alert("That's incorrect.");
+    }
+      
+
+      };
 
 
 
@@ -70,31 +82,33 @@ window.onload = function(){
   
   click_me.addEventListener("click", function(){
     var score = 0
-
-    for(i = 0; i < Quiz.length; i++){
-    
     var current_question = document.getElementById("question");
+    var current_choices = document.getElementById("choices");
+    var submitter = document.getElementById("submitter");
+
+    for(i = 0; i < Quiz.length;){
+    debugger;
     current_question.innerHTML = Quiz[i].question;
 
     //alert(Quiz[i].question);
-    var current_choices = document.getElementById("choices");
     current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
-    var current_answer = Quiz[i].answer;
     
-    var submitter = document.getElementById("submitter");
+    var current_answer = Quiz[i].answer;
 
-    submitter.onclick = function (current_answer){
+    submitter.onclick = function(){
 
       var answer = document.getElementById("answer").value;
-      debugger;
-      if (answer == current_answer) { 
-      alert("That's correct!");
-      score++;
-      }
-      else if (answer != Quiz[i].answer) {
+      checkAnswer(answer, current_answer);
+      i++;
+      
+    //   if (answer == current_answer) { 
+    //   alert("That's correct!");
+    //   score++;
+    //   }
+    //   else if (answer != Quiz[i].answer) {
 
-      alert("That's incorrect.");
-    }
+    //   alert("That's incorrect.");
+    // }
       
 
       };
