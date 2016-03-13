@@ -5,10 +5,21 @@ window.onload = function(){
 
 
 
+//Seems like the right thing to do to put the questions and answers in some kind of a hash. 
+
+
+for (var index = 0; index < qbank.length; index+=1) {
+    prompt(qbank(index));
 
 
 
-
+    if (guess === correctAnswer) {
+      alert("Correct! Well done!");
+  }//close for if
+else {
+      alert("Sorry, the correct answer is " + password + " . ");
+  } //close for else
+}//close for for loop
 
 
 
@@ -27,29 +38,28 @@ var last = "$400"
 
 
 //Thousand dollar pyramid
-prompt("Here is your " " + " first + " question. " + q1);
-prompt("Here is your " " + " second + " question. " + q2);
-prompt("Here is your " " + " third + " question. " + q3);
-prompt("Here is your " " + " last + "question. " + q4);
+guess1 = prompt("Here is your " " + " first + " question. " + q1);
+guess2 = prompt("Here is your " " + " second + " question. " + q2);
+guess3 = prompt("Here is your " " + " third + " question. " + q3);
+guess4 = prompt("Here is your " " + " last + "question. " + q4);
 
 alert("Your answer")
 
 
-var qanda1 = {
- question: "juni",
- age: 1
-}
+//I dont' think this is it. var qanda1 = {
+// question: "meaning of life",
+// answer: c
+//}
 
 
 
- var userName = document.getElementById("full_name");
+ //var userName = document.getElementById("full_name");
   
-  userName.addEventListener("keyup", function() {
+//will I need this?  userName.addEventListener("keyup", function() {
 
+var qbank = ["What is the meaning of life?", "What do we talk about when we talk about love?", "Where is the remote?", "How much is too much?"];
 
-for (var index = 0; index < qbank.length; index+=1) {
-      if (toggle[index].style.display === "none") {
-        toggle[index].style.display = "block";
+var cars = ["Saab", "Volvo", "BMW"];
 
 
 var q1 = "What is the meaning of life?"
@@ -57,12 +67,15 @@ var q2 = "What do we talk about when we talk about love?"
 var q3 = "Where is the remote?"
 var q4 = "On a scale of 1 to 10, why do we use scales of 1 to 10?"
 
+var questions = 
+
   //var greeting = document.getElementById("greeting");
 
  // greeting.innerHTML = ("Hail Citizen " + userName.value + " well met!");
 
   });//closing curly bracket for the addEventListener open bracket
 };//closing curly bracket for window.onload.
+
 
 
 
@@ -78,7 +91,7 @@ var q4 = "On a scale of 1 to 10, why do we use scales of 1 to 10?"
 3. Upon answer, they see an `alert()` telling them whether they answered correctly or incorrectly. They click "Okay" to move on.
 4. Steps 2-3 repeat until there are no more questions.
 5. Once they have answered all questions, they see an `alert()` telling them how many they answered correctly (out of however many questions there were), and something that looks like a percentage. E.g. **You answered 7 of 10 questions correctly, good for 70.0%**
-
+-------------------------------------------------------------
 ### Clarifying the Assignment
 
 1. Questions should be multiple choice. You'll have the stem (question), 4 answer choices, and only one of those answers should be correct. Every question should follow this format.
