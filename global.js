@@ -70,21 +70,43 @@ window.onload = function(){
   
   click_me.addEventListener("click", function(){
     var score = 0
-    alert("Start the quiz!");
 
     for(i = 0; i < Quiz.length; i++){
-    alert(Quiz[i].question);
-    var answer = prompt("a " + Quiz[i].options["a"] + " b " + Quiz[i].options["b"] + " c " + Quiz[i].options["c"] + " d " + Quiz[i].options["d"]);
-    if (answer == Quiz[i].answer) { 
+    
+    var current_question = document.getElementById("question");
+    current_question.innerHTML = Quiz[i].question;
+
+    //alert(Quiz[i].question);
+    var current_choices = document.getElementById("choices");
+    current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
+    var current_answer = Quiz[i].answer;
+    
+    var submitter = document.getElementById("submitter");
+
+    submitter.onclick = function (current_answer){
+
+      var answer = document.getElementById("answer").value;
+      debugger;
+      if (answer == current_answer) { 
       alert("That's correct!");
       score++;
       }
-    else if (answer != Quiz[i].answer) {
+      else if (answer != Quiz[i].answer) {
 
       alert("That's incorrect.");
     }
+      
+
+      };
+
+
+
+
+    //
+    //Make this an ordered list that and loop through the options instead of listing them all out.
+    //var answer = prompt("a " + Quiz[i].options["a"] + " b " + Quiz[i].options["b"] + " c " + Quiz[i].options["c"] + " d " + Quiz[i].options["d"]);
     }
-    alert("You got " + score + " out of " + Quiz.length + " correct.");
+    //alert("You got " + score + " out of " + Quiz.length + " correct.");
     }
     );
 
