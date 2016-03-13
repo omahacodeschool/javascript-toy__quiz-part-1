@@ -1,7 +1,7 @@
 //hopefully this will 'check' the radio buttons
-  function check(choicevalue) {
-    document.getElementById("answer").value = document.getElementById(choicevalue ).value
-  };
+function check(choicevalue) {
+  document.getElementById("answer").value = document.getElementById(choicevalue).innerHTML
+};
 
 window.onload = function(){
   // let's count how many answers they get correct. starts at 0 obvs 
@@ -14,7 +14,7 @@ window.onload = function(){
       t = array[m];
       array[m] = array[i];
       array[i] = t;
-    }
+    };
   };
   //hide_class_elements hides elements 
   //input class either "q_stuff"(question elements) or "a_stuff"(answer elements)
@@ -22,7 +22,7 @@ window.onload = function(){
     var array = document.getElementsByClassName(class_name)
     for (var i = array.length - 1; i >= 0; i--) {
       array[i].style.display = "none"
-    }
+    };
   };
   //show_class_elements = shows elements that were hidden 
   //input class either "q_stuff"(question elements) or "a_stuff"(answer elements)
@@ -34,7 +34,7 @@ window.onload = function(){
   };
   //
   //set up test question and choices, randomizes choices array
-  //set_up_questions() {
+  //set_up_questions()
     all_questions = []
     var question1 = new Object();
     question1["question"] = "How great is pizza?";
@@ -91,12 +91,12 @@ window.onload = function(){
     for (var i = choiceInputs.length - 1; i >= 0; i--) {
       document.querySelectorAll("#label"+(i+1))[0].innerHTML = all_questions[q]["answer_choices"][i];
       choiceInputs[i].value = all_questions[q]["answer_choices"][i];
-    }   
+    };   
   };
   // return all_questions
   //}
-  var q = 0
-  set_question(q)
+  var q = 0;
+  set_question(q);
   hide_class_elements("a_stuff");
   show_class_elements("q_stuff");
   //they guess (text input)
