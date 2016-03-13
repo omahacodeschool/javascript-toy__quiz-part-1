@@ -61,7 +61,9 @@ window.onload = function() {
 
   function nextQuestion() { 
 
-      begin.style.display = "none";
+    begin.style.display = "none";
+
+    if (choices.innerHTML === "") {
 
       (function(){
         var ul = document.createElement('ul');
@@ -72,16 +74,15 @@ window.onload = function() {
         quiz[currentQuestion]['choices'].forEach(showChoices);
 
         function showChoices(element, index, arr) {
+
             var li = document.createElement('li');
-            li.setAttribute('class','question');
 
             ul.appendChild(li);
+            li.innerHTML = li.innerHTML + element;
 
-            t = document.createTextNode(element);
-
-            li.innerHTML=li.innerHTML + element;
         }
-      })();    
+      })();
+    }
 
       question.innerHTML = (quiz[currentQuestion]['question']);
 
