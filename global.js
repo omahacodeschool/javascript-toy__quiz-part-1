@@ -33,7 +33,8 @@ function Question () {
     questionOne.options = {
       a: "Lincoln",
       b: "Kearney",
-      c: "Denver"
+      c: "Denver",
+      d: "York"
     }
     questionOne.answer = "a";
 
@@ -42,7 +43,8 @@ var questionTwo = new Question();
     questionTwo.options = {
       a: "Columbia",
       b: "Jefferson City",
-      c: "St. Louis"
+      c: "St. Louis",
+      d: "St. Charles"
     }
     questionTwo.answer = "b";
 
@@ -51,7 +53,8 @@ var questionThree = new Question();
     questionThree.options = {
       a: "Chicago",
       b: "Champaign",
-      c: "Springfield"
+      c: "Springfield",
+      d: "Macomb"
     }
     questionThree.answer = "c";
 
@@ -69,18 +72,19 @@ window.onload = function(){
     var score = 0
     alert("Start the quiz!");
 
-    for(i = 0; i <= Quiz.length; i++){
+    for(i = 0; i < Quiz.length; i++){
     alert(Quiz[i].question);
-    var answer = prompt("a " + Quiz[i].options["a"] + " b " + Quiz[i].options["b"] + " c " + Quiz[i].options["c"]);
+    var answer = prompt("a " + Quiz[i].options["a"] + " b " + Quiz[i].options["b"] + " c " + Quiz[i].options["c"] + " d " + Quiz[i].options["d"]);
     if (answer == Quiz[i].answer) { 
       alert("That's correct!");
       score++;
       }
-    else if (answer != questionOne.answer) {
+    else if (answer != Quiz[i].answer) {
 
       alert("That's incorrect.");
     }
     }
+    alert("You got " + score + " out of " + Quiz.length + " correct.");
     }
     );
 
