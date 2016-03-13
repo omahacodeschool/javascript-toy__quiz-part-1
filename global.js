@@ -67,7 +67,9 @@ window.onload = function(){
     else{
       alert("Game Over");
     };
+    if(i == allQuestions.length){
     score()
+    };
   };
 
   score = function(){
