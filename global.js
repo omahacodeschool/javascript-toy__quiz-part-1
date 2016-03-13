@@ -6,10 +6,11 @@ window.onload = function(){
 
 
 //Seems like the right thing to do to put the questions and answers in some kind of a hash. 
-
+//There is no hash in javascript as far as I can tell. There is an object but I don't know if I can iterate through an object. So an array? Try both? Wish I was smarter about these things.
+//Maybe what I need is for the prompt to ask the "key" part of the object and they get it right if the "guess" matches the "value" part of the object. What the hell am I talking about. 
 
 for (var index = 0; index < qbank.length; index+=1) {
-    prompt(qbank(index));
+    prompt(qbank[index]);
 
 
 
@@ -57,17 +58,55 @@ alert("Your answer")
   
 //will I need this?  userName.addEventListener("keyup", function() {
 
-var qbank = ["What is the meaning of life?", "What do we talk about when we talk about love?", "Where is the remote?", "How much is too much?"];
+//var qbank = ["What is the meaning of life?", "What do we talk about when we talk about love?", "Where is the remote?", "How much is too much?"];
 
-var cars = ["Saab", "Volvo", "BMW"];
+var qbank = [q0, q1, q2, q3]
 
+var q0 = {
+  index: 0
+  question: "What is the meaning of life?"
+  choiceA: "a. Nothing."
+  choiceB: "b. Life is a cereal."
+  choiceC: "c. This is the correct answer."
+  choiceD: "d. The greatest gift from a generous god."
+  answer: "c"
+}
 
-var q1 = "What is the meaning of life?"
-var q2 = "What do we talk about when we talk about love?"
-var q3 = "Where is the remote?"
-var q4 = "On a scale of 1 to 10, why do we use scales of 1 to 10?"
+var q1 = {
+  index: 1
+  question: "What do we talk about when we talk about love?"
+  choiceA: "a. Hormones."
+  choiceB: "b. This is the correct answer."
+  choiceC: "c. Ourselves."
+  choiceD: "d. The greatest gift from a generous god."
+  answer: "b"
+}
 
-var questions = 
+var q2 = {
+  index: 2
+  question: "What is the meaning of life?"
+  choiceA: "a. Nothing."
+  choiceB: "b. Life is a cereal."
+  choiceC: "c. This is the correct answer."
+  choiceD: "d. The greatest gift from a generous god."
+  answer: "c"
+}
+
+var q3 = {
+  index: 3
+  question: "How do we know what we know?"
+  choiceA: "a. This is the correct answer."
+  choiceB: "b. We just do."
+  choiceC: "c. We don't really."
+  choiceD: "d. We Google."
+  answer: "a"
+}
+
+//var q1 = "What is the meaning of life?"
+//var q3 = "Where is the remote?"
+//var q4 = "On a scale of 1 to 10, why do we use scales of 1 to 10?"
+
+//var questions = 
 
   //var greeting = document.getElementById("greeting");
 
