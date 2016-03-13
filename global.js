@@ -33,21 +33,21 @@ var choices = [
   "a. Between the couch cushions. b. Cat is sleeping on it. c. THIS IS THE CORRECT ANSWER. d. The remote knows where it is but we are lost.",
   "a. THIS IS THE CORRECT ANSWER. b. We just do. c. We don't really. d. We Google." ]   
   
+var score = 0
 
-
-
-for (var index = 0, var score = 0; index < question.length; index+=1) {
+for (var index = 0; index < question.length; index+=1) {
    var userGuess = prompt(question[index] + choices[index]);
    if (userGuess === answer[index]) {
   
     alert("Correct! Well done!");
+    score +=1;
 }//close the if  
   else {
    alert("Sorry, the correct answer is " + answer[index] + " . ");
   } //close the else
 }//close the for loop
 
-
+    alert("You completed the quiz with " + score + " answers out of" + question.length)
 
 
 };//end of window.onload curly bracket
