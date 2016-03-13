@@ -13,3 +13,73 @@
 
 </body>
 </html>
+
+---------
+<div id="quiz">
+    <p>This is a div for the quiz?</p>
+
+  <div id="question">
+      <p>This is a div for the questions</p>
+  </div>
+
+  <div id="choices">
+      <p>This is a div for the choices</p>
+  </div>
+
+  <div input type="text" id="answer">
+      <p>This is a div for the answers:</p>
+  </div>
+
+  <button id="submitter">Submitter</button>
+
+  <div id="question_result">
+    <p>This is a div for the results</p>
+  </div>
+
+   <button id="next">Next</button>
+
+   <div id="total_result"> 
+   <p>This is a div for the final quiz score</p>
+</div>
+
+--------------------------------
+    <ul class="first_five">
+      <li>Jurassic Park</li>
+      <li>Aristocats</li>
+      <li>Oliver and Company</li>
+      <li>Homeward Bound</li>
+      <li>Balto</li>
+    </ul>
+
+    <ul class="second_five">
+      <li style="display: none">Anastasia</li>
+      <li style="display: none">Rent</li>
+      <li style="display: none">Aladdin</li>
+      <li style="display: none">Clueless</li>
+      <li style="display: none">Home Alone</li>
+    </ul>
+
+    <button id="submitter">Submitter</button>
+  </div>
+
+use JavaScript to read/interact with those HTML elements (a.k.a. the "DOM").
+
+(This phase could easily have 20+ commits, if you're committing responsibly.)
+
+### Instructions
+
+First, update **index.html** by creating HTML elements that will contain the information that was previously displayed using prompts and alerts.
+
+- `div#quiz` (This means make a `div` and give it an `id` of `quiz`.)
+  - `div#question`
+    - Empty for now. We'll use JavaScript to put question text into this.
+  - `div#choices`
+    - Empty for now. We'll use JavaScript to put question text into this.
+  - `input[type=text]#answer` (This means make an `input` tag with attribute `type=text` and an `id` of `answer`.
+  - `button#submitter` (This means make a `button` tag with an `id` of `submitter`.)
+- `div#question_result`
+  - Empty for now. We'll use JavaScript to put each question's result into this.
+- `button#next`
+  - This will eventually be the button that the user clicks after they see that a question was correct/wrong. It will load up the next question.
+- `div#total_result`
+  - Empty for now. We'll use JavaScript to put the quiz's final result into this.
