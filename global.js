@@ -55,29 +55,33 @@ window.onload = function(){
 
     if(i < allQuestions.length){
       allQuestions[i]();
+    };
+  };
+
+  nextQuestion = function(){
+    i++
+    if(i < allQuestions.length){
+      allQuestions[i]();
+      document.getElementById("answer").value = ""
+      document.getElementById("question_result").innerHTML = ""
     }
     else{
       alert("Game Over");
     };
-
-  };
-
-  nextQuestion = function(){
-    alert("you clicked next");
-    i++
+    score()
   };
 
 
+  score = function(){
+    var score = (correctAnswers / allQuestions.length) * 100;
+    document.getElementById("total_results").innerHTML = "You answered " + correctAnswers + " out of " + allQuestions.length +" correctly. " + "You scored " + score.toFixed(2) + "% on this exam.";
+  };
 
-  // var score = (correctAnswers / allQuestions.length) * 100;
-  // alert("You answered " + correctAnswers + " out of " + 
-  //   allQuestions.length + ".");
-  // alert("You scored " + score.toFixed(2) + "% on this exam.");
-  // };
 
   submitAnswer = function(){
     if(i < allQuestions.length){
       allAnswers[i]();
+
     };
   };
 
