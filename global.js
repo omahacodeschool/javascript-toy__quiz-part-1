@@ -74,6 +74,21 @@ function checkAnswer(submitted_answer, current_question_answer){
 
       };
 
+    function submit(current_question_index){
+
+      var answer = document.getElementById("answer").value;
+      current_question_answer = Quiz[current_question_index].answer;
+      checkAnswer(answer, current_question_answer);
+      current_question_index++;
+    }
+
+    //   submitter.onclick = function(){
+
+    //   var answer = document.getElementById("answer").value;
+    //   checkAnswer(answer, current_answer);
+    //   i++;
+    // }
+
 
 
 
@@ -85,21 +100,19 @@ window.onload = function(){
     var current_question = document.getElementById("question");
     var current_choices = document.getElementById("choices");
     var submitter = document.getElementById("submitter");
+  
 
-    for(i = 0; i < Quiz.length;){
-    debugger;
+    for(i = 0; i < Quiz.length; i++){
+   
     current_question.innerHTML = Quiz[i].question;
 
     //alert(Quiz[i].question);
     current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
     
-    var current_answer = Quiz[i].answer;
 
-    submitter.onclick = function(){
+    submitter.addEventListener("click", submit(i));
 
-      var answer = document.getElementById("answer").value;
-      checkAnswer(answer, current_answer);
-      i++;
+
       
     //   if (answer == current_answer) { 
     //   alert("That's correct!");
@@ -119,7 +132,6 @@ window.onload = function(){
     //
     //Make this an ordered list that and loop through the options instead of listing them all out.
     //var answer = prompt("a " + Quiz[i].options["a"] + " b " + Quiz[i].options["b"] + " c " + Quiz[i].options["c"] + " d " + Quiz[i].options["d"]);
-    }
     //alert("You got " + score + " out of " + Quiz.length + " correct.");
     }
     );
