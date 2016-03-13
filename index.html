@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Quiz Game</title>
+  <title>Shannon's Quiz Game</title>
 
   <script type="text/javascript" src="global.js"></script>
 </head>
@@ -9,7 +9,30 @@
 
 <h1>Quiz Game</h1>
 
-<button id="begin_button">Click me to begin the game.</button>
-
 </body>
+  <div id="quiz" >
+    <div id="question" class="q_stuff">
+      This is a question.
+    </div>  <!--this ends question div -->  <!-- maybe choices are hidden once answer is submitted -->
+    <div id="choices" class="choices q_stuff">
+      <form>
+      <input type="radio" name="choice" onclick="check('label1')" value="choice1"></input><label id="label1">Choice 1</label><br>
+      <input type="radio" name="choice" onclick="check('label2')" value="choice2"></input><label id="label2">Choice 2</label><br>
+      <input type="radio" name="choice" onclick="check('label3')" value="choice3"></input><label id="label3">Choice 3</label><br>
+      <input type="radio" name="choice" onclick="check('label4')" value="choice4"></input><label id="label4">Choice 4</label><br> 
+      </form>
+    </div><!-- this ends choices div -->
+    
+    <input type="hidden" id="answer" class="q_stuff">
+    <button id="submitter" class="q_stuff">Submit Answer</button>
+    <!-- these two things should be hidden until answer submitted -->
+    <div id="question_result" class="a_stuff">
+      <!-- right/wrong -->
+    </div>
+    <button id="next" class="a_stuff">Next Question</button>
+  </div> <!--this ends quiz div--> 
+  <div id="total_result">
+    <!-- Everything else is hidden, gives score -->
+  </div>
 </html>
+<!-- Would it be cuter if right/wrong and/or final results were an alert?-->
