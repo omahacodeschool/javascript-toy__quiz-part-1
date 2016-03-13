@@ -63,7 +63,10 @@ window.onload = function() {
 
     begin.style.display = "none";
 
-    if (choices.innerHTML === "") {
+    var node = document.getElementById('choices');
+    while (node.hasChildNodes()) {
+        node.removeChild(node.firstChild);
+    }
 
       (function(){
         var ul = document.createElement('ul');
@@ -82,7 +85,6 @@ window.onload = function() {
 
         }
       })();
-    }
 
       question.innerHTML = (quiz[currentQuestion]['question']);
 
