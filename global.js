@@ -103,6 +103,7 @@ function showQuestion(){
     var current_choices = document.getElementById("choices");
     var result_output = document.getElementById("question_result");
     result_output.innerHTML = "";
+    document.getElementById("answer").value = "";
     if (i >= (Quiz.length - 1)) {
        var next = document.getElementById("next");
        next.style.display = "none";
