@@ -102,16 +102,21 @@ function submit(){
       }
     };
 
-function showOption(option_key, text){
+function showOption(option_key, text, name){
 
     var radio = document.createElement("input");
       radio.type = "radio";
       radio.id = option_key;
+      radio.name = name;
     var label = document.createElement("label");
-      label.for = option_key;
+      label.for = radio.id;
       label.innerHTML = text;
-    var choices = document.getElementById("choices");
-      choices.appendChild(label);
+      label.appendChild(radio);
+    var option_item = document.createElement("li");
+      option_item.appendChild(label);
+
+      options_list.appendChild(option_item);
+      return options_list;
   };
 
 
@@ -130,24 +135,15 @@ function showQuestion(){
    
     current_question.innerHTML = Quiz[i].question;
 
-    var text = "";
+  var options_list = document.createElement("OL");
+      options_list.type = "A";
+
     var x;
   for (x in Quiz[i].options) {
-    var option = document.createElement("input");
-      option.type = "radio";
-      option.value = x;
-      option.id = x;
-      var label = document.createElement("label");
-      label.for = option.id;
-      var new_label = label.appendChild(document.createTextNode(Quiz[i].options[x]));
-      //option.text = Quiz[i].options[x];
-      //var new_label = label.appendChild(option);
-
-      //var final_label = new_label.appendChild(document.createTextNode(Quiz[i].options[x]));
-      current_choices.innerHTML += new_label;
-      //current_choices = current_choices.appendChild(new_label);
-      //current_choices.innerHTML += option;
+   showOption(x, Quiz[i].options[x]); 
   }
+    var choices = document.getElementById("choices");
+      choices.appendChild(options_list); 
 
 
     // current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
