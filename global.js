@@ -34,14 +34,12 @@ window.onload = function(){
   var button = document.getElementById("submitter");
 
   button.addEventListener("click", function(){
-    var guess = document.getElementById("answer")
+    var guess = document.getElementById("answer").value;
     
     if (guess == answer_list[0]) {
      score++; 
     }
   });
-
-
 };
 
  
