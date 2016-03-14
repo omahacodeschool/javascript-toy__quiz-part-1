@@ -70,14 +70,14 @@ function averageScore(score, questions_array){
 
 function quizFunction(questions_array){
   for (i = 0; i < quizQuestions.length; i++)
-    prompt(quizQuestions[i].question, "some text")
+    prompt((quizQuestions[i].question) + "\n" + (quizQuestions[i].options), "answer goes here")
 }
 
 
 
 
 window.onload = function(){
-  // debugger;
+  debugger;
 
   var start_quiz = document.getElementById("begin_button");
   start_quiz.addEventListener("click", quizFunction(quizQuestions));
