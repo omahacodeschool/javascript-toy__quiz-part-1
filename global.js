@@ -1,9 +1,13 @@
 window.onload = function(){
 
+  //Variables 
   count = 1;
-  question_list = ["Question 1", "Question 2", "question 3"];
-  choice_list = ["A\n B\n", "C\n D\n", "E\n F\n"];
+  score = 0;
+  question_list = ["Question 1", "Question 2", "Question 3"];
+  choice_list = ["1. A\n 2. B\n", "1. C\n 2. D\n", "1. E\n 2. F\n"];
+  answer_list = ["1", "2", "3"];
 
+  //Beginning question
   var questions = document.getElementById("questions");
   questions.innerText = (question_list[0]);
   var choices = document.getElementById("choices");
@@ -18,21 +22,24 @@ window.onload = function(){
     questions.innerText = (question_list[count]);
     var choices = document.getElementById("choices");
     choices.innerText = (choice_list[count]); count++;
+  });
 
+  //Submission form
+  var button = document.getElementById("submitter");
+
+  button.addEventListener("click", function(){
+    var answer = document.forms["submission"]["answer"].value;
+    if (answer == answer_list[0]) {
+     score++; 
+    }
   });
 
 
 
-  // //Questions 
+};
 
-  // for (var i = 0;i < questions.length; i++) {
-  //   var questions = document.getElementById("questions");
-  //   questions[i].innerText;
-  //   var choices = document.getElementById("choices");
-  //   choices[i].innerText;
-  // }
-
-  //Submission form
+ 
+   //Submission form
   // var button = document.getElementById("submitter");
 
   // button.addEventListener("click", function(){
@@ -48,13 +55,8 @@ window.onload = function(){
   // for (var c = 0; c < results.length; i++) {
   //  if (results[c] == "correct"); count++;
   // }
-    
-};
-
-
-
-
-   
+  
+ 
   // var count = 0
 
   // button.addEventListener("click", function(){
