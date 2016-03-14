@@ -49,7 +49,6 @@ window.onload = function(){
   });
 
   submit_it.addEventListener("click", function() {
-
     for (var i = 0; i < que_class.length; i++) {
       que_class[i].style.display    = "none";
     }
@@ -57,8 +56,7 @@ window.onload = function(){
       result_class[i].style.display = "block";
     }
 
-    var userAnswer = ""
-        userAnswer = document.getElementById("answer").value;
+    userAnswer = document.getElementById("answer").value;
 
     if (userAnswer === questionArr[quizCount].getKeyByValue("correct")) {
       q_result.innerHTML = ("Correct! " + userAnswer + " is right!")
@@ -86,15 +84,12 @@ window.onload = function(){
       choices.innerHTML  = questionKeys.slice(1, 5).join("\n");
 
     } else {
-      // for (var i = 0; i < que_class.length; i++) {
-      //   que_class[i].style.display = "none";
-      // }
       total_result.style.display      = "block";
       for (var i = 0; i < result_class.length; i++) {
         result_class[i].style.display = "none";
       }
 
-      total_result.innerHTML     = ("You've answered " + ((winCount / 4) * 100) + "% correctly!");
+      total_result.innerHTML = ("You've answered " + ((winCount / 4) * 100) + "% correctly!");
       console.log("Win Ratio: " + winCount + ":" + 4);
     }
   });
