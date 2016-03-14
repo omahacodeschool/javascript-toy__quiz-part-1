@@ -68,14 +68,19 @@ function averageScore(score, questions_array){
   var avgPercent = avg.toFixed(2)
 }
 
-function displayOptions(questions_array)
-for (var choice in q1.options){
-  "These are Q1's options. " + choice + ":" + q1.options[choice] ;
-}
 
+
+
+
+
+// This method runs the quiz
 function quizFunction(questions_array){
   for (i = 0; i < quizQuestions.length; i++)
     prompt((quizQuestions[i].question) + "\n" + "options go here", "answer goes here")
+
+  for (var choice in q1.options){
+  console.log("These are Q1's options. " + choice + ":" + q1.options[choice] );
+}
 }
 
 
