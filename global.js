@@ -38,7 +38,7 @@ function determineScore(e) {
     //If userSelection is 2, correct notifcation is displayed. scoreCount is increased by 1
     if (userSelection == 2) { // 2 = true 1 = false
       correctNotification.style.display = "block";
-      scoreCount += 1 
+      ++scoreCount 
 
     // if choice is not selected or has a value of 1, "wrong" notifcation is displayed
     } else { 
@@ -87,7 +87,7 @@ window.onload = function(){
 
   //event listener that is triggered when next button is clicked
   nextButton.addEventListener("click", function() {
-    currentQuestion += 1 // increases value of currentQuestion to get now question
+    ++currentQuestion // increases value of currentQuestion to get now question
 
     //triggers when user has interacted with all questions in the collection
     if (currentQuestion >= totalQuestions) {
