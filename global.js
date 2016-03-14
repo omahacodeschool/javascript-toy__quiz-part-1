@@ -9,14 +9,20 @@ window.onload = function(){
 
   var answer = ["c", "b", "c" ,"a"]
 
-  var question = ["What is the meaning of life?", "What do we talk about when we talk about love?", "Where is the remote?", "How do we know what we know?"]
+  var questions = ["What is the meaning of life?", "What do we talk about when we talk about love?", "Where is the remote?", "How do we know what we know?"]
 
   var choices = [
     "a. Karma b. Life is a cereal. c. THIS IS THE CORRECT ANSWER. d. The species must survive long enough to code instructions for how to recreate itself and send the instructions to a parallel universe.",
     "a. Hormones. b. THIS IS THE CORRECT ANSWER. c. Ourselves. d. Ask your mother.",
     "a. Between the couch cushions. b. Cat is sleeping on it. c. THIS IS THE CORRECT ANSWER. d. The remote knows where it is but we are lost.",
     "a. THIS IS THE CORRECT ANSWER. b. We just do. c. We don't really. d. We Google." ]   
-  
+
+counter = 0;
+
+var questions = document.getElementById("question").innerHTML = (questions[0]);
+var choices = document.getElementById("choice").innerHTML = (choices[0]);
+counter+=1
+
 //  var score = 0
 
 //  for (var index = 0; index < question.length; index+=1) {
@@ -39,17 +45,20 @@ window.onload = function(){
 
 
 //-----------------------------EXPERIMENTS BELOW
-//in this file
-//var lang = new Array();
-//lang = ["English", "Chinese", "Korean"];
+
+//so what I think I want to do is get the "question" id on the html page and change the content that is in the <p> tag from the content that is there now to question 1. Question 1 is actually the question at index position 0 in the question array. 
+
+//I started making a function because it seemed like I would want repeatable code for showing the user each question and the choices.
+
+
 
 //function askQuestions() {
-//var question = document.getElementsById("question");
-//var html = "<div>?????????"
-////    for (var i = 0; i < question.length; i++) {
+//var question = document.getElementById("question").innerHTML
+//for (var i = 0; i < question.length; i++) {
+ // setAttribute("p", "question[i]")
   // html += "input type="button" name='" + question[i] + "' value='" + i + "
   //' onclick=\"setValue(this.value);\">" + question[i] + "<br>";
-}
+//}
 
 
 
