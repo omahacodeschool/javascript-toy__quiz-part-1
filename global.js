@@ -71,6 +71,10 @@ function averageScore(score, questions_array){
 }
 
 
+// for/in loop that works for one questions options
+for (var choice in q1.options){
+console.log("These are Q1's options. " + choice + ":" + q1.options[choice] );
+  }
 
 
 
@@ -78,12 +82,23 @@ function averageScore(score, questions_array){
 // This method runs the quiz
 function quizFunction(questions_array){
   for (i = 0; i < quizQuestions.length; i++)
-    prompt((quizQuestions[i].question) + "\n" + "options go here", "answer goes here")
 
-  for (var choice in q1.options){
-  console.log("These are Q1's options. " + choice + ":" + q1.options[choice] );
+    // for/in loop pushes options to empty string for one question
+    var options_string = ""
+
+    for (var letter in quizQuestions[i].options){
+      options_string += letter; 
+      options_string += ": ";
+      options_string += quizQuestions[i].options[letter];
+      options_string += "\n";
+    }
+
+
+    prompt((quizQuestions[i].question) + "\n" + "options go here", "answer goes here")
 }
-}
+
+
+
 
 
 
