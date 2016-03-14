@@ -60,27 +60,7 @@ var questionThree = new Question();
 
 var Quiz = [questionOne, questionTwo, questionThree]; 
 
-function checkAnswer(submitted_answer, current_question_answer){
 
-      if (submitted_answer == current_question_answer) { 
-      alert("That's correct!");
-      //score++;
-      }
-      else if (submitted_answer != current_question_answer) {
-
-      alert("That's incorrect.");
-    }
-      
-
-      };
-
-    function submit(current_question_index){
-
-      var answer = document.getElementById("answer").value;
-      current_question_answer = Quiz[current_question_index].answer;
-      checkAnswer(answer, current_question_answer);
-      current_question_index++;
-    }
 
     //   submitter.onclick = function(){
 
@@ -88,31 +68,68 @@ function checkAnswer(submitted_answer, current_question_answer){
     //   checkAnswer(answer, current_answer);
     //   i++;
     // }
+function checkAnswer(submitted_answer, current_question_answer){
+
+      if (submitted_answer == current_question_answer) { 
+      return "CORRECT!";
+      
+      }
+      else if (submitted_answer != current_question_answer) {
+
+      return "INCORRECT!";
+    }
+      
+
+      };
+
+function submit(current_question_index){
+
+      var answer = document.getElementById("answer").value;
+      current_question_answer = Quiz[current_question_index].answer;
+      var result_output = document.getElementById("question_result");
+      result_output.innerHTML = checkAnswer(answer, current_question_answer);
+    };
 
 
 
 
 window.onload = function(){
   var click_me = document.getElementById("begin_button");
+
+
   
   click_me.addEventListener("click", function(){
     var score = 0
     var current_question = document.getElementById("question");
     var current_choices = document.getElementById("choices");
-    var submitter = document.getElementById("submitter");
-  
+    var i = 0
 
-    for(i = 0; i < Quiz.length; i++){
+
    
     current_question.innerHTML = Quiz[i].question;
 
     //alert(Quiz[i].question);
     current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
     
+    });
 
-    submitter.addEventListener("click", submit(i));
+    var submitter = document.getElementById("submitter");
+    submitter.addEventListener("click", function() {
+      var i = 0
+      var answer = document.getElementById("answer").value;
+      var current_questions_answer = Quiz[i].answer;
+      var result = document.getElementById("question_result");
+      if (answer == current_questions_answer){
+        result.innerHTML = "CORRECT!"
+      }
+      else if (answer !== current_questions_answer){
+        result.innerHTML = "INCORRECT!"
+      }
+    });
 
+    //submitter.onclick = submit(i);
 
+      
       
     //   if (answer == current_answer) { 
     //   alert("That's correct!");
@@ -124,7 +141,6 @@ window.onload = function(){
     // }
       
 
-      };
 
 
 
@@ -133,8 +149,8 @@ window.onload = function(){
     //Make this an ordered list that and loop through the options instead of listing them all out.
     //var answer = prompt("a " + Quiz[i].options["a"] + " b " + Quiz[i].options["b"] + " c " + Quiz[i].options["c"] + " d " + Quiz[i].options["d"]);
     //alert("You got " + score + " out of " + Quiz.length + " correct.");
-    }
-    );
+    
+    
 
 //1) What is the capital of Nebraska?
 //a) Lincoln b) Kearney c) Denver
