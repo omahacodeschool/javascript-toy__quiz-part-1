@@ -1,13 +1,16 @@
 window.onload = function(){
   console.log("loading");
+  alert("Welcome! Click the button to begin!")
 
   // Declaring two variables I was having trouble with being undefined. Clean this up later.
   userGuess = "";
   i = 0;
 
+
   // This bit of code sets up the 'Start Quiz' button, and assigns `runQuiz()` as its 'click' action.
   startButton = document.getElementById("start_button");
   startButton.addEventListener("click", runQuiz());
+
 
   // Developer's note: If adding to, or subtracting from, the number of questions, you will need to set the `allQuestionsArray` at the bottom of the `getQuestions()` function to include or not include those questions.
 
@@ -162,6 +165,7 @@ window.onload = function(){
     finalScore =  (userScore / allQuestionsArray.length) * 100;
     alert("Your Score is: " + finalScore + " %");
   };
+
 
 };
 
