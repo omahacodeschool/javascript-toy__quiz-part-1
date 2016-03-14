@@ -2,21 +2,31 @@ window.onload = function(){
   alert("Foo");
 
   var click_it    = document.getElementById("begin_button");
-  var QuestionArr = [{"qOne": "Which is the superior 80's sequel?", 
-                    "correct": "Aliens", "aB": "The Road Warrior", 
-                      "aC": "The Empire Strikers Back", "aD": "Evil Dead II"},
+  var questionArr = [{"Which is the superior 80's sequel?": "qOne", 
+                    "Aliens": "correct", "The Road Warrior": "aB", 
+                      "The Empire Strikers Back": "aC", "Evil Dead II": "aD"},
                       
-                    {"qTwo": "What is the best color?", "aA": "Red", "aB": "Blue", "correct": "Green", "aD": "Yellow"},
+                    {"What is the best color?": "qTwo", "Red": "aA",
+                      "Blue": "aB", "Yellow": "aC", "Green": "correct"},
                       
-                    {"qThree": "", "aA": "", "aB": "", "aC": "", "correct": ""}
+                    {"Which direction?": "qThree", "East": "aA", "West": "aB", "North": "correct", "South": "aD"},
                       
-                    {"qFour": "What is the correct answer?", "aA": "A", "aB": "B", "correct": "C", "aD": "D"},
+                    {"What is the correct answer?": "qFour", "A": "aA", 
+                      "B": "correct", "C": "aC", "D": "aD"}
                     ]
 
   click_it.addEventListener("click", function(){
     // Create a prompt with a 4-answer multiple-choice question
-    for (i = 0; i <= QuestionArr.length; i++) {
-      var UserAnswer = prompt(QuestionArr[i](qOne \n correct \n aB \n aC \n aD))
+    for (var i = 0; i <= questionArr.length; i++) {
+      
+      var UserAnswer = prompt(Object.keys(questionArr[i]));
+
+      if (UserAnswer === () {
+        alert("Correct! " + UserAnswer + " is right!")
+        console.log(UserAnswer,)
+      } else {
+        alert("Try again...")
+      }
     }
     // Create an alert for correct or incorrect
     // Repeat for 4 questions
