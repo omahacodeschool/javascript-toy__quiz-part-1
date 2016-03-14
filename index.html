@@ -6,10 +6,57 @@
   <script type="text/javascript" src="global.js"></script>
 </head>
 <body>
-
 <h1>Quiz Game</h1>
+<div id="scoreCountNotice"></div> 
+</div>
+<form onsubmit="determineScore(event)">
+<div id="gameEnded" style="display: none">GAME OVER.</div> 
+  <div id="questions">
 
-<button id="begin_button">Click me to begin the game.</button>
+    <ul id="question0" class="question" style="display: none">
+      <p id="questionQuestion0"> WORDS WILL GO HERE AND STUFF </p>
+      <li><input type="radio" name="questionChoices0"value="1"> SOME WORDS WILL GO HERE</li>
+      <li><input type="radio" name="questionChoices0" value="2"> SOME WORDS WILL GO HERE</li>
+      <li><input type="radio" name="questionChoices0" value="1"> SOME WORDS WILL GO HERE</li>
+      <li><input type="radio" name="questionChoices0" value="1"> SOME WORDS WILL GO HERE</li>
+      <li><input type="radio" name="questionChoices0" value="1"> SOME WORDS WILL GO HERE</li>
 
+      <p id="questionActualAnswer1" style="display: none" > WORDS WILL GO HERE AND STUFF </p>
+    </ul>
+
+    <ul id="question1" class="question" style="display: none">
+      <p id="questionQuestion1"> WORDS WILL GO HERE AND STUFF:SECOND QUESTION </p>
+      <li><input type="radio" name="questionChoices1" value="1"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+      <li><input type="radio" name="questionChoices1" value="2"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+      <li><input type="radio" name="questionChoices1" value="1"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+      <li><input type="radio" name="questionChoices1" value="1"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+      <li><input type="radio" name="questionChoices1" value="1"> SOME WORDS WILL GO HERESECOND QUESTION</li>
+
+      <p id="questionActualAnswer2" style="display: none" > WORDS WILL GO HERE AND STUFF </p>
+    </ul>
+
+
+    <ul id="question2" class="question" style="display: none">
+      <p id="questionQuestion2"> WORDS WILL GO HERE AND STUFF: THIRD QUESTION </p>
+      <li><input type="radio" name="questionChoices3" value="1"> SOME WORDS WILL GO HERE THIRD QUESTION</li>
+      <li><input type="radio" name="questionChoices3" value="2"> SOME WORDS WILL GO HERE THIRD QUESTION</li>
+      <li><input type="radio" name="questionChoices2" value="1"> SOME WORDS WILL GO HERE THIRD QUESTION</li>
+      <li><input type="radio" name="questionChoices2" value="1"> SOME WORDS WILL GO HERE THIRD QUESTION</li>
+      <li><input type="radio" name="questionChoices2" value="1"> SOME WORDS WILL GO HERE THIRD QUESTION</li>
+
+      <p id="questionActualAnswer2" style="display: none" > WORDS WILL GO HERE AND STUFF </p>
+    </ul>
+
+    <p id="correct" style="display: none"> CORRECT </p>
+    <p id="wrong" style="display: none"> WRONG </p>
+
+    <input id="submitButton" style="display: none" type="submit" value="Submit">
+    </form>
+    <button type="button" id="nextButton" style="display: none"> Next Question</button>
+  </div>
+  <button type="button" id="startButton">Click Here to Start the Quiz</button>
+  <button type="button" id="restartButton" style="display: none">Play Again</button>
+</body>
+</html>
 </body>
 </html>
