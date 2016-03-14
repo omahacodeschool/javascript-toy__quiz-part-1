@@ -7,7 +7,7 @@ window.onload = function(){
 //There is no hash in javascript as far as I can tell. There is an object but I don't know if I can iterate through an object. So an array? Try both? Wish I was smarter about these things.
 //Maybe what I need is for the prompt to ask the "key" part of the object and they get it right if the "guess" matches the "value" part of the object. What the hell am I talking about. 
 
-  var correctAnswers = ["c", "b", "c" ,"a"]
+  var questionResults = ["c", "b", "c" ,"a"]
 
   var questions = ["What is the meaning of life?", "What do we talk about when we talk about love?", "Where is the remote?", "How do we know what we know?"]
 
@@ -17,42 +17,44 @@ window.onload = function(){
     "a. Between the couch cushions. b. Cat is sleeping on it. c. THIS IS THE CORRECT ANSWER. d. The remote knows where it is but we are lost.",
     "a. THIS IS THE CORRECT ANSWER. b. We just do. c. We don't really. d. We Google." ]   
 
-counter = 0;
+var index = 0;
+var score = 0;
 
 var questions = document.getElementById("question").innerHTML = (questions[0]);
 var choices = document.getElementById("choice").innerHTML = (choices[0]);
-var answers = document.getElementById("answer").innerText = (answer[0]); 
-counter+=1
+var questionResults = document.getElementById("question_result").innerHTML = (questionResults[0]); 
+index+=1
 
-//document.addEventListener("click", function() {
-//document.getElementById("begin_button").innerHTML = (questions[0]);
-
-//});
+document.addEventListener("click", function() {
+document.getElementById("begin_button").innerHTML = (questions[0]);
+});
 
 //OK SO I add an event Listener, and when it hears the click of 
-var button = document.getElementById("submitter");
+var button = document.getElementById("submitter").addEventListener("click", function() {
+  var answer = document.getElementById("answer").value;
 
-button.addEventListener("click", function() {
-  var guess = document.getElementById("answer").value;
+  if (answer == questionResults[index]) {
+    alert("Correct! Well done!"); 
+    score+=1;
+    var percentRight = ((score / question.length)*100)
 
-  if (guess == answer_list[count]) {
-    alert("Well  Done!"); score++;
+  } //close the if
+  else {
+    alert("Sorry, the correct answer is " + questionResults[index] + " . ");
+  } //close the else
 
-  } else {
-    alert("sorry, incorrect");
-  }
-
-  if(count == question_list.length) {
-    alert("Thanks for playing. YOu got " + score + "out of " + count + " right.");
-
+  if(index == questions.length) {
+    
+var finalScore = document.getElementById("total_result")
+("You completed the quiz with " + score + " answers out of " + question.length + " , or " + percentRight + "%.").
   }
   })
 
 //  var score = 0
 
- for (var index = 0; index < questions.length; index+=1) {
-     var userGuess = prompt(question[index] + choices[index]);
-     if (userGuess === answer[index]) {
+ //for (var index = 0; index < questions.length; index+=1) {
+//     var userGuess = prompt(question[index] + choices[index]);
+//     if (userGuess === answer[index]) {
     
 //      alert("Correct! Well done!");
 //      score +=1;
@@ -89,7 +91,7 @@ button.addEventListener("click", function() {
 
 //end of window.onload curly bracket
 
-//- The user should type their answer for a question into `input[type=text]#answer`
+
 //-----------------------------EXPERIMENTS BELOW
 
 //so what I think I want to do is get the "question" id on the html page and change the content that is in the <p> tag from the content that is there now to question 1. Question 1 is actually the question at index position 0 in the question array. 
