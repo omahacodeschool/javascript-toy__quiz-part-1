@@ -85,10 +85,10 @@ function checkAnswer(submitted_answer, current_question_answer){
 
       };
 
-function submit(current_question_index, current_score){
+function submit(){
 
       var answer = document.getElementById("answer").value;
-      current_question_answer = Quiz[current_question_index].answer;
+      current_question_answer = Quiz[i].answer;
       var result_output = document.getElementById("question_result");
       var result = checkAnswer(answer, current_question_answer);
       result_output.innerHTML = result;
@@ -98,12 +98,15 @@ function submit(current_question_index, current_score){
       }
     };
 
-function showQuestion(i){
+function showQuestion(){
     var current_question = document.getElementById("question");
     var current_choices = document.getElementById("choices");
     var result_output = document.getElementById("question_result");
     result_output.innerHTML = "";
-    //var i = 0;
+    if (i >= (Quiz.length - 1)) {
+       var next = document.getElementById("next");
+       next.style.display = "none";
+    }
 
 
    
@@ -121,7 +124,7 @@ window.onload = function(){
   var click_me = document.getElementById("begin_button");
 
   
-  click_me.addEventListener("click", function(){ showQuestion(i); });
+  click_me.addEventListener("click", showQuestion);
 
   // {
   //   var score = 0
@@ -140,7 +143,7 @@ window.onload = function(){
   
 
     var submitter = document.getElementById("submitter");
-    submitter.addEventListener("click", function() { submit(i, score); });
+    submitter.addEventListener("click", submit);
       //var i = 0
     //   var answer = document.getElementById("answer").value;
     //   var current_questions_answer = Quiz[i].answer;
@@ -154,15 +157,9 @@ window.onload = function(){
     // });
 
     var next = document.getElementById("next");
-    
-    next.addEventListener("click", function() { showQuestion(i); });
   
-    // if (i < Quiz.length){
-    //   next.removeEventListener("click", )
-    // }
-    // else {next.style.display="none";}
-
-
+      next.addEventListener("click", showQuestion);
+    
    
       
 
