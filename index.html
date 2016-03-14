@@ -28,16 +28,17 @@
     <input type="text" id="answer">
   
 <!--`button#submitter` (This means make a `button` tag with an `id` of `submitter`.) -->
-    <button id="submitter">Submit Answer</button>
+    <button id="submit_button">Submit Answer</button>
 
 <!--`div#question_result`
   Empty for now. We'll use JavaScript to put each question's result into this.-->
-    <div class="question_result">
-    </div>
+    <div class="question_result" style="display: none">
+    
 
 <!--`button#next`
   This will eventually be the button that the user clicks after they see that a question was correct/wrong. It will load up the next question. -->
-    <button id="next" style="display: none">Next Question</button>
+      <button id="next_button">Next Question</button>
+    </div>
 
 <!--`div#total_result`
   Empty for now. We'll use JavaScript to put the quiz's final result into this. -->
