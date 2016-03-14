@@ -17,28 +17,65 @@ window.onload = function(){
     "a. Between the couch cushions. b. Cat is sleeping on it. c. THIS IS THE CORRECT ANSWER. d. The remote knows where it is but we are lost.",
     "a. THIS IS THE CORRECT ANSWER. b. We just do. c. We don't really. d. We Google." ]   
   
-  var score = 0
+//  var score = 0
 
-  for (var index = 0; index < question.length; index+=1) {
-     var userGuess = prompt(question[index] + choices[index]);
-     if (userGuess === answer[index]) {
+//  for (var index = 0; index < question.length; index+=1) {
+//     var userGuess = prompt(question[index] + choices[index]);
+//     if (userGuess === answer[index]) {
     
-      alert("Correct! Well done!");
-      score +=1;
-      var percentRight = ((score / question.length)*100);
-    }//close the if  
-    else {
-     alert("Sorry, the correct answer is " + answer[index] + " . ");
-    } //close the else
-  }//close the for loop
+//      alert("Correct! Well done!");
+//      score +=1;
+//      var percentRight = ((score / question.length)*100);
+ //   }//close the if  
+//    else {
+//     alert("Sorry, the correct answer is " + answer[index] + " . ");
+//    } //close the else
+//  }//close the for loop
 
-      alert("You completed the quiz with " + score + " answers out of " + question.length + " , or " + percentRight + "%.")
+//      alert("You completed the quiz with " + score + " answers out of " + question.length + " , or " + percentRight + "%.")
 
 
 };//end of window.onload curly bracket
 
 
+//-----------------------------EXPERIMENTS BELOW
+//in this file
+//var lang = new Array();
+//lang = ["English", "Chinese", "Korean"];
 
+//function askQuestions() {
+//var question = document.getElementsById("question");
+//var html = "<div>?????????"
+////    for (var i = 0; i < question.length; i++) {
+  // html += "input type="button" name='" + question[i] + "' value='" + i + "
+  //' onclick=\"setValue(this.value);\">" + question[i] + "<br>";
+}
+
+
+
+
+
+
+
+ // var button = document.getElementById("begin_button");
+
+//  button.addEventListener("click", function() {
+
+//    var question = document.querySelectorAll("ul.second_five li");
+
+//    for (var i = 0; i < question.length; i++) {
+//      if (question[i].style.display === "block") {
+//        question[i].style.display = "none";
+//      }
+//      else {
+//        question[i].style.display = "list-item";
+//      }
+//    }
+
+//  });
+
+
+//----------------------------
 
  //var userName = document.getElementById("full_name"); in case I need this
   

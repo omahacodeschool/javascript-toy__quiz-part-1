@@ -11,16 +11,26 @@
 
 <button id="begin_button">Click me to begin the game.</button>
 
-</body>
-</html>
-
----------
 <div id="quiz">
     <p>This is a div for the quiz?</p>
 
   <div id="question">
       <p>This is a div for the questions</p>
+  <script>
+document.getElementById("question").innerHTML = (question[0]);
+</script> 
+
   </div>
+
+
+
+</body>
+</html>
+
+---------
+
+
+
 
   <div id="choices">
       <p>This is a div for the choices</p>
@@ -68,18 +78,16 @@ use JavaScript to read/interact with those HTML elements (a.k.a. the "DOM").
 
 ### Instructions
 
-First, update **index.html** by creating HTML elements that will contain the information that was previously displayed using prompts and alerts.
+Now, modify your JavaScript so that when the page loads, the first question's content is added into `div#question`. And do the same thing for the question's choices (into `div#choices`).
 
-- `div#quiz` (This means make a `div` and give it an `id` of `quiz`.)
-  - `div#question`
-    - Empty for now. We'll use JavaScript to put question text into this.
-  - `div#choices`
-    - Empty for now. We'll use JavaScript to put question text into this.
-  - `input[type=text]#answer` (This means make an `input` tag with attribute `type=text` and an `id` of `answer`.
-  - `button#submitter` (This means make a `button` tag with an `id` of `submitter`.)
-- `div#question_result`
-  - Empty for now. We'll use JavaScript to put each question's result into this.
-- `button#next`
-  - This will eventually be the button that the user clicks after they see that a question was correct/wrong. It will load up the next question.
-- `div#total_result`
-  - Empty for now. We'll use JavaScript to put the quiz's final result into this.
+If it makes things easier, you can comment out large portions of **global.js**, as much of that code will be changing and/or be moved around.
+
+Continue to add functionality that uses the elements on the page instead of prompts/alerts to conduct the quiz game:
+
+- The user should type their answer for a question into `input[type=text]#answer`
+- They should click `button#submitter` to submit that answer
+- Whether they got the question correct/incorrect should be displayed in `div#question_result`
+- Clicking `button#next` should replace the question and choices content with the next question. (It should also clear the user's answer to the previous question from the text field.)
+- When the game is complete, the final quiz result information should be displayed in `div#total_result`
+
+If you have trouble with this, consider taking a couple steps back and implementing the game with _just one question_ first. Don't worry about the functionality for `button#next` or even for `div#total_result` at all. Often, when a series of steps stumps us, it's best to focus in on just one step and then only zoom back out to the series after we succeed.
