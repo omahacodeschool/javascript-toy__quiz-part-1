@@ -111,6 +111,7 @@ window.onload = function() {
     answer = answer.toUpperCase();
 
     var questionResult = document.getElementById("questionResult"); 
+    questionResult.style.display = "block";
 
     if (answer == quiz[currentQuestion]["correct"]) {
       questionResult.innerHTML = ("That is correct!");
@@ -127,6 +128,8 @@ window.onload = function() {
   nextButton.style.display = "none";
   currentQuestion ++;
   nextQuestion();  
+  questionResult.style.display = "none";
+  answerField.value = "";
   });
 
  
