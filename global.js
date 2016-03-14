@@ -40,7 +40,7 @@ window.onload = function(){
     var questionKeys = (Object.keys(questionArr[quizCount]));
 
     question.innerHTML = questionKeys[0]
-    choices.innerHTML  = questionKeys.slice(1, -1)
+    choices.innerHTML  = questionKeys.slice(1, 5).join("\n")
   });
 
       // var userAnswer = document.getElementById("answer").value;
