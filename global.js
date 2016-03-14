@@ -12,6 +12,8 @@ window.onload = function(){
   questions.innerText = (question_list[0]);
   var choices = document.getElementById("choices");
   choices.innerText = (choice_list[0]); count++;
+  var question_result = document.getElementById("question_result");
+  question_result.innerText = (answer_list[0])
 
   //Next button
   var next = document.getElementById("next")
@@ -28,8 +30,6 @@ window.onload = function(){
   var button = document.getElementById("submitter");
 
   button.addEventListener("click", function(){
-    var answer = document.getElementById("question_results");
-    answer.innerText = (answer_list[0])
     var guess = document.getElementById("answer")
     if (guess[0] == answer_list[0]) {
      score++; 
