@@ -102,6 +102,19 @@ function submit(){
       }
     };
 
+function showOption(option_key, text){
+
+    var radio = document.createElement("input");
+      radio.type = "radio";
+      radio.id = option_key;
+    var label = document.createElement("label");
+      label.for = option_key;
+      label.innerHTML = text;
+    var choices = document.getElementById("choices");
+      choices.appendChild(label);
+  };
+
+
 function showQuestion(){
     var current_question = document.getElementById("question");
     var current_choices = document.getElementById("choices");
@@ -123,8 +136,17 @@ function showQuestion(){
     var option = document.createElement("input");
       option.type = "radio";
       option.value = x;
-      option.text = Quiz[i].options[x];
-      current_choices.innerHTML += option;
+      option.id = x;
+      var label = document.createElement("label");
+      label.for = option.id;
+      var new_label = label.appendChild(document.createTextNode(Quiz[i].options[x]));
+      //option.text = Quiz[i].options[x];
+      //var new_label = label.appendChild(option);
+
+      //var final_label = new_label.appendChild(document.createTextNode(Quiz[i].options[x]));
+      current_choices.innerHTML += new_label;
+      //current_choices = current_choices.appendChild(new_label);
+      //current_choices.innerHTML += option;
   }
 
 
