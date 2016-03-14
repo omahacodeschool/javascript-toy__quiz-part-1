@@ -51,13 +51,12 @@ window.onload = function() {
      score = 0,
      chose;
 
-
   var submitter = document.getElementById('submitter');
-
   var nextButton = document.getElementById("nextButton");
   var begin = document.getElementById("beginButton");
   var answerField = document.getElementById("answer");
   var question = document.getElementById("question");    
+  var totalResult = document.getElementById("totalResult");
 
   function nextQuestion() { 
 
@@ -122,6 +121,22 @@ window.onload = function() {
 
     answerField.style.display = "none";
 
+    totalResult.innerHTML = "Your score is " + score + " out of " + quiz.length + "." ;
+
+    if (currentQuestion === (quiz.length - 1)){
+      nextButton.style.display = "none";
+      var scorePercentage = (score / (quiz.length) * 100);
+      scorePercentage = scorePercentage.toFixed(2) + "%";
+      totalResult.innerHTML = "Your score is " + score + " out of " + quiz.length + ". (That's a " + scorePercentage + "!)";
+      var node = document.getElementById('choices');
+      while (node.hasChildNodes()) {
+          node.removeChild(node.firstChild);
+      question.style.display = "none";
+      questionResult.style.display = "none";
+    }      
+
+    };
+
   });
 
   nextButton.addEventListener("click", function() { 
@@ -131,6 +146,7 @@ window.onload = function() {
   questionResult.style.display = "none";
   answerField.value = "";
   });
+
 
  
 };  
