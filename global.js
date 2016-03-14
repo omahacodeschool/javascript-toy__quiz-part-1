@@ -117,8 +117,18 @@ function showQuestion(){
    
     current_question.innerHTML = Quiz[i].question;
 
-    //alert(Quiz[i].question);
-    current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
+    var text = "";
+    var x;
+  for (x in Quiz[i].options) {
+    var option = document.createElement("input");
+      option.type = "radio";
+      option.value = x;
+      option.text = Quiz[i].options[x];
+      current_choices.innerHTML += option;
+  }
+
+
+    // current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
     
     };
 
