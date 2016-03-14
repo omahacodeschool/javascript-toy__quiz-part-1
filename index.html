@@ -10,7 +10,40 @@
 <h1>Quiz Game</h1>
 
 <button id="begin_button">Click me to begin the game.</button>
+<!-- `div#quiz` (This means make a `div` and give it an `id` of `quiz`.)-->
+  <div id="quiz">
 
+<!--`div#question`
+  Empty for now. We'll use JavaScript to put question text into this. -->
+    <div class="question">
+    </div>
+
+<!-- `div#choices`
+    Empty for now. We'll use JavaScript to put question text into this. -->
+    <div class="choices">
+    </div>
+
+<!-- `input[type=text]#answer` (This means make an `input` tag with attribute `type=text` and an `id` of `answer`. -->
+    <input type="text" id="answer">
+  
+<!--`button#submitter` (This means make a `button` tag with an `id` of `submitter`.) -->
+    <button id="submitter">Submit Answer</button>
+
+<!--`div#question_result`
+  Empty for now. We'll use JavaScript to put each question's result into this.-->
+    <div class="question_result">
+    </div>
+
+<!--`button#next`
+  This will eventually be the button that the user clicks after they see that a question was correct/wrong. It will load up the next question. -->
+    <button id="next">Next Question</button>
+
+<!--`div#total_result`
+  Empty for now. We'll use JavaScript to put the quiz's final result into this. -->
+    <div class="total_result">
+    </div>
+    
+  </div>
 </body>
 </html>
 
