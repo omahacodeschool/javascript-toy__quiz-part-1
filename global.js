@@ -1,7 +1,6 @@
 window.onload = function(){
 
   var click_it    = document.getElementById("begin_button");
-  var winCount    = 0
   var questionArr = [{"Which is the superior 80's sequel?": "qOne", 
                     "Aliens": "correct", "The Road Warrior": "B", 
                       "The Empire Strikers Back": "C", "Evil Dead II": "D"},
@@ -25,6 +24,8 @@ window.onload = function(){
   }
 
   click_it.addEventListener("click", function(){
+    var winCount = 0
+
     for (var i = 0; i < questionArr.length; i++) {
       
       var UserAnswer = prompt(Object.keys(questionArr[i]));
