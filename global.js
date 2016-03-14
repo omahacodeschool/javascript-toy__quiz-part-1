@@ -11,9 +11,9 @@ window.onload = function(){
   var questions = document.getElementById("questions");
   questions.innerText = (question_list[0]);
   var choices = document.getElementById("choices");
-  choices.innerText = (choice_list[0]); count++;
+  choices.innerText = (choice_list[0]); 
   var question_result = document.getElementById("question_result");
-  question_result.innerText = (answer_list[0])
+  question_result.innerText = (answer_list[0]); count++;
 
   //Next button
   var next = document.getElementById("next")
@@ -24,18 +24,22 @@ window.onload = function(){
     questions.innerText = (question_list[count]);
     var choices = document.getElementById("choices");
     choices.innerText = (choice_list[count]); count++;
+
+    if(count === question_list.length) {
+        alert("Thanks for playing! You got " + score + " out of " + count + " right!");
+    }
   });
 
-  //
+  //Submit button
   var button = document.getElementById("submitter");
 
   button.addEventListener("click", function(){
     var guess = document.getElementById("answer")
-    if (guess[0] == answer_list[0]) {
+    
+    if (guess == answer_list[0]) {
      score++; 
     }
   });
-
 
 
 };
