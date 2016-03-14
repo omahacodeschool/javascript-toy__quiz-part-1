@@ -1,23 +1,66 @@
-window.onload = function(){
-  var a1 = "B", 
-      a2 = "D", 
-      a3 = "D",
-      a4 = "A";
+function Question(){
+  this.question = "";
+  this.options = {};
+  this.answer = "";
+}
 
+var q1 = new Question();
+  q1.question = "What is the name for a group of flamingos?"
+  q1.options = {
+    a: "Flock",
+    b: "Flamboyance",
+    c: "Pink Out", 
+    d: "Gaggle"
+  }
+  q1.answer = "a"
+
+var q2 = new Question();
+  q2.question = "Which ocean claimed the Titanic?"
+  q2.options = {
+    a: "The Arctic",
+    b: "The East Indian",
+    c: "The South Pacific",
+    d: "The North Atlantic",
+  }
+  q2.answer = "d"
+
+var q3 = new Question();
+  q3.question = "How many paintings did vanGogh sell during his lifetime?"
+  q3.optons = {
+    a: 2,
+    b: 27,
+    c: 1,
+    d: 397
+  }
+  q3.answer = "c"
+
+var q4 = new Question();
+  q4.question = "Which direction does the Great Pyramid of Giza face?"
+  q4.options = {
+    a: "North",
+    b: "South",
+    c: "East",
+    d: "West"
+  }
+  q4.answer = "a"
+
+
+
+
+
+
+
+
+
+
+
+window.onload = function(){
+  
   var quizFunction = function(){
 
   var score = 0
 
   alert("Get ready to be quizzed!");
-
-  var q1 = prompt("What is the name for a group of flamingos?\nA. Flock\nB. Flamboyance\nC. Pink Out\nD. Gaggle", "I pick answer..."),
-
-    q2 = prompt("Which Ocean claimed the Titanic?\nA. The Arctic\nB. The East Indian\nC. The South Pacific\nD. The North Atlantic", "I pick answer..."),
-
-    q3 = prompt("How many paintings did vanGogh sell during his lifetime?\nA. 322\nB. 12\nC. 1\nD. 2", "I pick answer..."),
-
-    q4 = prompt("Which direction does the Great Pyramid of Giza face?\nA. North\nB. South\nC. East\nD. West", "I pick answer...");
-    
 
   if (q1 == a1){
     score++;
