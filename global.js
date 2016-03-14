@@ -1,17 +1,43 @@
 window.onload = function(){
 
-  var questions = document.getElementById("questions");
-  questions.innerText = "What is my name?";
-  var choices = document.getElementById("choices");
-  choices.innerText = "1. Derek\n 2. Mark\n 3. Sarah\n 4. Dottie\n";
+  count = 0
 
+  
+  //Questions Loop
+  for (var i = 0;i < questions.length; i++) {
+    var questions = document.getElementById("questions");
+    questions[i].innerText;
+    var choices = document.getElementById("choices");
+    choices[i].innerText;
+  }
+
+  // var questions = document.getElementById("questions");
+  // questions.innerText = "What is my name?";
+  // var choices = document.getElementById("choices");
+  // choices.innerText = "1. Derek\n 2. Mark\n 3. Sarah\n 4. Dottie\n";
+
+  //Next button
+  var next = document.getElementById("next")
+  next.addEventListener("click" function(){
+    var questions = document.getElementById("questions");
+  });
+
+  //Submission form
   var button = document.getElementById("submitter");
-  var results = document.getElementById("question_result");
 
   button.addEventListener("click", function(){
-    var answers = document.forms["answer"].submit("text");
-    results.innerText = (answers);
+    var answers = document.form("answer").submit("text");
+    
+    if (answers == correct answer ) {
+      results.innerText = "correct";
+    }
   });
+
+//Count Loop
+  var results = document.getElementById("question_result");
+  for (var c = 0; c < results.length; i++) {
+   if (results[c] == "correct"); count++;
+  }
     
 };
 
