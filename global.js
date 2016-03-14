@@ -1,45 +1,29 @@
 window.onload = function(){
  
+  var button = document.getElementById("begin_button");
   var firstQuestionAns = "New York City"
   var secondQuestionAns = "Stomach"
   var thirdQuestionAns = "Lake Ontario"
   var fourthQuestionAns = "Thirty Helens"
   var correctAns = 0
 
-  var button = document.getElementById("begin_button");
-
   button.addEventListener("click", function(){
 
-    var alert_to_show = alert("Quiz time!");
+    var question = document.getElementsByClassName("question");
+    var answer = document.getElementsByClassName("answer");
 
-    var firstQuestion = prompt("What was the first city to be illuminated with electric street lamps in 1882? \n\n Tokyo \n London \n New York City \n Buenos Aires");
-    if (firstQuestion === firstQuestionAns){ 
+    for (var i = 0; i < question.length; i++) {
+      prompt(question[i]);
+
+    if (question === answer){ 
       alert("That's correct! Click OK to continue."); correctAns++;
     };
-    if (firstQuestion != firstQuestionAns){
-      alert("Sorry, that's incorrect. Click OK to continue.");
+    else alert("Sorry, that's incorrect. Click OK to continue.");
     };
-    var secondQuestion = prompt("What part of a rat's body can detect a bitter taste? \n\n Feet \n Stomach \n Tongue \n Nose");
-    if (secondQuestion === secondQuestionAns){ 
-      alert("That's correct! Click OK to continue."); correctAns++;
-    };
-    if (secondQuestion != secondQuestionAns){
-      alert("Sorry, that's incorrect. Click OK to continue.");
-    };
-    var thirdQuestion = prompt("What name did the British restore to Lake Frontenac, after the French surrendered it in 1763? \n\n Windermere \n Bassenthwaite Lake \n Lake Victoria \n Lake Ontario");
-    if (thirdQuestion === thirdQuestionAns){ 
-      alert("That's correct! Click OK to continue."); correctAns++;
-    };
-    if (thirdQuestion != thirdQuestionAns){
-      alert("Sorry, that's incorrect. Click OK to continue.");
-    };
-    var fourthQuestion = prompt("How many Helens agreed on a variety of opinions in the Kids in the Hall sketch? \n\n Thirty Helens \n Ten Helens \n One Hundred Helens \n Twenty Helens");
-    if (fourthQuestion === fourthQuestionAns){ 
-      alert("That's correct! Click OK to continue."); correctAns++;
-    };
-    if (fourthQuestion != fourthQuestionAns){
-      alert("Sorry, that's incorrect. Click OK to continue.");
-    };
+
+    if (correctAns == 0){
+      alert("You answered 0 out of 4 correctly!");
+    }
     if (correctAns == 1){
       alert("You answered 1 out of 4 correctly!");
     }
