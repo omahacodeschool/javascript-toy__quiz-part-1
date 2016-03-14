@@ -20,19 +20,22 @@ window.onload = function(){
 var index = 0;
 var score = 0;
 
+document.addEventListener("click", function() {
+document.getElementById("begin_button").innerHTML = (questions[0]);
+});//close event listener?
+
 var questions = document.getElementById("question").innerHTML = (questions[0]);
 var choices = document.getElementById("choice").innerHTML = (choices[0]);
 var questionResults = document.getElementById("question_result").innerHTML = (questionResults[0]); 
 index+=1
 
-document.addEventListener("click", function() {
-document.getElementById("begin_button").innerHTML = (questions[0]);
-});
+
 
 //OK SO I add an event Listener, and when it hears the click of 
 var button = document.getElementById("submitter").addEventListener("click", function() {
   var answer = document.getElementById("answer").value;
-
+})
+//for (index = 0; index < question.length; index+=1) {
   if (answer == questionResults[index]) {
     alert("Correct! Well done!"); 
     score+=1;
@@ -42,30 +45,12 @@ var button = document.getElementById("submitter").addEventListener("click", func
   else {
     alert("Sorry, the correct answer is " + questionResults[index] + " . ");
   } //close the else
-
-  if(index == questions.length) {
+//}//close the for loop
     
-var finalScore = document.getElementById("total_result")
-("You completed the quiz with " + score + " answers out of " + question.length + " , or " + percentRight + "%.").
-  }
-  })
+var finalScore = document.getElementById("total_result").innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.").
+  
 
-//  var score = 0
-
- //for (var index = 0; index < questions.length; index+=1) {
-//     var userGuess = prompt(question[index] + choices[index]);
-//     if (userGuess === answer[index]) {
-    
-//      alert("Correct! Well done!");
-//      score +=1;
-//      var percentRight = ((score / question.length)*100);
- //   }//close the if  
-//    else {
-//     alert("Sorry, the correct answer is " + answer[index] + " . ");
-//    } //close the else
-//  }//close the for loop
-
-//      alert("You completed the quiz with " + score + " answers out of " + question.length + " , or " + percentRight + "%.")
+};
 
 
 
