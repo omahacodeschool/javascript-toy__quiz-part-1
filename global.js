@@ -8,5 +8,7 @@ window.onload = function(){
     click_to_begin.style.display = "none";
   });
 
+  
+
 
 };
