@@ -87,7 +87,9 @@ function checkAnswer(submitted_answer, current_question_answer){
 
 function submit(){
 
-      var answer = document.getElementById("answer").value;
+
+      var answer = document.querySelector('input[name="option"]:checked').value;
+
       current_question_answer = Quiz[i].answer;
       var result_output = document.getElementById("question_result");
       var result = checkAnswer(answer, current_question_answer);
@@ -102,12 +104,12 @@ function submit(){
       }
     };
 
-function showOption(option_key, text, name){
+function showOption(option_key, text){
 
     var radio = document.createElement("input");
       radio.type = "radio";
       radio.id = option_key;
-      radio.name = name;
+      radio.name = "option";
     var label = document.createElement("label");
       label.for = radio.id;
       label.innerHTML = text;
@@ -120,10 +122,8 @@ function showOption(option_key, text, name){
 
 function showQuestion(){
     var current_question = document.getElementById("question");
-    var current_choices = document.getElementById("choices");
     var result_output = document.getElementById("question_result");
     result_output.innerHTML = "";
-    document.getElementById("answer").value = "";
     if (i >= (Quiz.length - 1)) {
        var next = document.getElementById("next");
        next.style.display = "none";
@@ -133,8 +133,10 @@ function showQuestion(){
    
     current_question.innerHTML = Quiz[i].question;
 
-  var options_list = document.createElement("OL");
+    var options_list = document.createElement("OL");
       options_list.type = "A";
+      options_list.id = ((i + 1) + "options");
+
 
     var x;
   for (x in Quiz[i].options) {
@@ -142,7 +144,13 @@ function showQuestion(){
     options_list.appendChild(option);
   }
     var choices = document.getElementById("choices");
-      choices.appendChild(options_list); 
+
+      choices.innerHTML = "";
+
+      choices.appendChild(options_list);
+
+    
+    
 
 
     // current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
@@ -153,7 +161,16 @@ function showQuestion(){
 
 
 window.onload = function(){
+
   var click_me = document.getElementById("begin_button");
+
+  var choices = document.getElementById("choices");
+
+  // var options_list = document.createElement("OL");
+  //     options_list.type = "A";
+  //     options_list.id = "options_list";
+  //     options_list.style.display = "none";
+  // choices.appendChild(options_list);
 
   
   click_me.addEventListener("click", showQuestion);  
