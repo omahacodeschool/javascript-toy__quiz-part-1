@@ -1,5 +1,8 @@
 window.onload = function(){
-  alert("Foo");
+  var a1 = "B", 
+      a2 = "D", 
+      a3 = "D",
+      a4 = "A";
 
   var quizFunction = function(){
 
@@ -7,32 +10,28 @@ window.onload = function(){
 
   alert("Get ready to be quizzed!");
 
-  var question_1 = prompt("What is the name for a group of flamingos?\nA. Flock\nB. Flamboyance\nC. Pink Out\nD. Gaggle", "I pick answer...");
-  var q1AnswerKey = "B";
+  var q1 = prompt("What is the name for a group of flamingos?\nA. Flock\nB. Flamboyance\nC. Pink Out\nD. Gaggle", "I pick answer..."),
 
-  var question_2 = prompt("Which Ocean claimed the Titanic?\nA. The Arctic\nB. The East Indian\nC. The South Pacific\nD. The North Atlantic", "I pick answer...");
-  var q2AnswerKey = "D";
+    q2 = prompt("Which Ocean claimed the Titanic?\nA. The Arctic\nB. The East Indian\nC. The South Pacific\nD. The North Atlantic", "I pick answer..."),
 
-  var question_3 = prompt("How many paintings did vanGogh sell during his lifetime?\nA. 322\nB. 12\nC. 1\nD. 2", "I pick answer...");
-  var q3AnswerKey = "D";
+    q3 = prompt("How many paintings did vanGogh sell during his lifetime?\nA. 322\nB. 12\nC. 1\nD. 2", "I pick answer..."),
 
-  var question_4 = prompt("Which direction does the Great Pyramid of Giza face?\nA. North\nB. South\nC. East\nD. West", "I pick answer...");
-  var q4AnswerKey = "A";
+    q4 = prompt("Which direction does the Great Pyramid of Giza face?\nA. North\nB. South\nC. East\nD. West", "I pick answer...");
     
 
-  if (question_1 == q1AnswerKey){
+  if (q1 == a1){
     score++;
   }
 
-  if (question_2 == q2AnswerKey){
+  if (q2 == a2){
     score++;
   }
 
-  if (question_3 == q3AnswerKey){
+  if (q3 == a3){
     score++;
   }
 
-  if (question_4 == q4AnswerKey){
+  if (q4 == a4){
     score++;
   }
 
