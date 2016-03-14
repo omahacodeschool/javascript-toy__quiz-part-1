@@ -96,6 +96,10 @@ function submit(){
       if (result == "CORRECT!"){
       score++;
       }
+      if (i >= (Quiz.length)){
+        var total_result = document.getElementById("total_result");
+        total_result.innerHTML = "You got " + score + " out of " + (Quiz.length) + " correct.";
+      }
     };
 
 function showQuestion(){
@@ -125,48 +129,18 @@ window.onload = function(){
   var click_me = document.getElementById("begin_button");
 
   
-  click_me.addEventListener("click", showQuestion);
-
-  // {
-  //   var score = 0
-  //   var current_question = document.getElementById("question");
-  //   var current_choices = document.getElementById("choices");
-  //   //var i = 0;
-
-
-   
-  //   current_question.innerHTML = Quiz[i].question;
-
-  //   //alert(Quiz[i].question);
-  //   current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
-    
-  //   }
-  
+  click_me.addEventListener("click", showQuestion);  
 
     var submitter = document.getElementById("submitter");
     submitter.addEventListener("click", submit);
-      //var i = 0
-    //   var answer = document.getElementById("answer").value;
-    //   var current_questions_answer = Quiz[i].answer;
-    //   var result = document.getElementById("question_result");
-    //   if (answer == current_questions_answer){
-    //     result.innerHTML = "CORRECT!"
-    //   }
-    //   else if (answer !== current_questions_answer){
-    //     result.innerHTML = "INCORRECT!"
-    //   }
-    // });
+    
 
     var next = document.getElementById("next");
   
       next.addEventListener("click", showQuestion);
     
    
-      
-
-
-
-
+    
 
     //
     //Make this an ordered list that and loop through the options instead of listing them all out.
