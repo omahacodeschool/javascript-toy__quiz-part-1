@@ -54,15 +54,17 @@ var q4 = new set_Question();
 var quizQuestions = [q1, q2, q3, q4]
 
 
-
+//This method check a users answer agaist the correct one and assigns points appropriately
 function checkAnswer(submitted_answer, current_questions_answer){
   if (submitted_answer == current_questions_answer){
     alert("Thats correct!")
+    score++
   }else{
     alert("Thats incorrect.")
   }
 } 
 
+//This method averages the score into a percentage
 function averageScore(score, questions_array){
   var avg = score/quizQuestions.length
   var avgPercent = avg.toFixed(2)
