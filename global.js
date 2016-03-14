@@ -1,10 +1,10 @@
-function Question(){
+function set_Question(){
   this.question = "";
   this.options = {};
   this.answer = "";
 }
 
-var q1 = new Question();
+var q1 = new set_Question();
   q1.question = "What is the name for a group of flamingos?"
   q1.options = {
     a: "Flock",
@@ -14,7 +14,7 @@ var q1 = new Question();
   }
   q1.answer = "a"
 
-var q2 = new Question();
+var q2 = new set_Question();
   q2.question = "Which ocean claimed the Titanic?"
   q2.options = {
     a: "The Arctic",
@@ -24,7 +24,7 @@ var q2 = new Question();
   }
   q2.answer = "d"
 
-var q3 = new Question();
+var q3 = new set_Question();
   q3.question = "How many paintings did vanGogh sell during his lifetime?"
   q3.optons = {
     a: 2,
@@ -34,7 +34,7 @@ var q3 = new Question();
   }
   q3.answer = "c"
 
-var q4 = new Question();
+var q4 = new set_Question();
   q4.question = "Which direction does the Great Pyramid of Giza face?"
   q4.options = {
     a: "North",
@@ -45,7 +45,13 @@ var q4 = new Question();
   q4.answer = "a"
 
 
-
+function checkAnswer = fucntion(){
+  if (submitted_answer == current_questions_answer)
+    alert("That's correct!")
+  score++
+} else {
+  alert("That is incorrect.")
+}
 
 
 
