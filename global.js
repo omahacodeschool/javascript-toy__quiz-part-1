@@ -3,13 +3,10 @@ window.onload = function(){
   var click_it    = document.getElementById("begin_button");
   var questionArr = [{"Which is the superior 80's sequel?": "qOne", 
                     "Aliens": "correct", "The Road Warrior": "B", 
-                      "The Empire Strikers Back": "C", "Evil Dead II": "D"},
-                      
+                      "The Empire Strikers Back": "C", "Evil Dead II": "D"},  
                     {"What is the best color?": "qTwo", "Red": "A",
-                      "Blue": "B", "Yellow": "C", "Green": "correct"},
-                      
-                    {"Which direction?": "qThree", "East": "A", "West": "B", "North": "correct", "South": "D"},
-                      
+                      "Blue": "B", "Yellow": "C", "Green": "correct"}, 
+                    {"Which direction?": "qThree", "East": "A", "West": "B", "North": "correct", "South": "D"}, 
                     {"What is the correct answer?": "qFour", "A": "A", 
                       "B": "correct", "C": "C", "D": "D"}
                     ];
@@ -39,7 +36,7 @@ window.onload = function(){
         console.log("Incorrect: " + UserAnswer);
       }
     }
-    alert("You've answered " + ((winCount / 4) * 100) + "% correctly!")
-    console.log("Win Ratio: " + winCount + ":" + 4);
+        alert("You've answered " + ((winCount / 4) * 100) + "% correctly!")
+        console.log("Win Ratio: " + winCount + ":" + 4);
   });
 };
