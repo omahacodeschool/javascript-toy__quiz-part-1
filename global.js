@@ -58,7 +58,10 @@ var questionThree = new Question();
     }
     questionThree.answer = "c";
 
-var Quiz = [questionOne, questionTwo, questionThree]; 
+var Quiz = [questionOne, questionTwo, questionThree];
+
+var score = 0;
+var i = 0;
 
 
 
@@ -82,27 +85,25 @@ function checkAnswer(submitted_answer, current_question_answer){
 
       };
 
-function submit(current_question_index){
+function submit(current_question_index, current_score){
 
       var answer = document.getElementById("answer").value;
       current_question_answer = Quiz[current_question_index].answer;
       var result_output = document.getElementById("question_result");
-      result_output.innerHTML = checkAnswer(answer, current_question_answer);
+      var result = checkAnswer(answer, current_question_answer);
+      result_output.innerHTML = result;
+      i++;
+      if (result == "CORRECT!"){
+      score++;
+      }
     };
 
-
-
-
-window.onload = function(){
-  var click_me = document.getElementById("begin_button");
-
-
-  
-  click_me.addEventListener("click", function(){
-    var score = 0
+function showQuestion(i){
     var current_question = document.getElementById("question");
     var current_choices = document.getElementById("choices");
-    var i = 0
+    var result_output = document.getElementById("question_result");
+    result_output.innerHTML = "";
+    //var i = 0;
 
 
    
@@ -111,34 +112,58 @@ window.onload = function(){
     //alert(Quiz[i].question);
     current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
     
-    });
+    };
+
+
+
+
+window.onload = function(){
+  var click_me = document.getElementById("begin_button");
+
+  
+  click_me.addEventListener("click", function(){ showQuestion(i); });
+
+  // {
+  //   var score = 0
+  //   var current_question = document.getElementById("question");
+  //   var current_choices = document.getElementById("choices");
+  //   //var i = 0;
+
+
+   
+  //   current_question.innerHTML = Quiz[i].question;
+
+  //   //alert(Quiz[i].question);
+  //   current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
+    
+  //   }
+  
 
     var submitter = document.getElementById("submitter");
-    submitter.addEventListener("click", function() {
-      var i = 0
-      var answer = document.getElementById("answer").value;
-      var current_questions_answer = Quiz[i].answer;
-      var result = document.getElementById("question_result");
-      if (answer == current_questions_answer){
-        result.innerHTML = "CORRECT!"
-      }
-      else if (answer !== current_questions_answer){
-        result.innerHTML = "INCORRECT!"
-      }
-    });
-
-    //submitter.onclick = submit(i);
-
-      
-      
-    //   if (answer == current_answer) { 
-    //   alert("That's correct!");
-    //   score++;
+    submitter.addEventListener("click", function() { submit(i, score); });
+      //var i = 0
+    //   var answer = document.getElementById("answer").value;
+    //   var current_questions_answer = Quiz[i].answer;
+    //   var result = document.getElementById("question_result");
+    //   if (answer == current_questions_answer){
+    //     result.innerHTML = "CORRECT!"
     //   }
-    //   else if (answer != Quiz[i].answer) {
+    //   else if (answer !== current_questions_answer){
+    //     result.innerHTML = "INCORRECT!"
+    //   }
+    // });
 
-    //   alert("That's incorrect.");
+    var next = document.getElementById("next");
+    
+    next.addEventListener("click", function() { showQuestion(i); });
+  
+    // if (i < Quiz.length){
+    //   next.removeEventListener("click", )
     // }
+    // else {next.style.display="none";}
+
+
+   
       
 
 
