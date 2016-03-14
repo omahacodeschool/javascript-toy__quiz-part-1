@@ -1,40 +1,50 @@
+
 window.onload = function(){
- 
-  var button = document.getElementById("begin_button");
-  var firstQuestionAns = "New York City"
-  var secondQuestionAns = "Stomach"
-  var thirdQuestionAns = "Lake Ontario"
-  var fourthQuestionAns = "Thirty Helens"
-  var correctAns = 0
 
-  button.addEventListener("click", function(){
+  count = 0
 
+  for (var i = 0; i < question.length; i++) {
     var question = document.getElementsByClassName("question");
-    var answer = document.getElementsByClassName("answer");
+    question[i].innerHTML;
+    var choices = document.getElementsByClassName("choices");
+    choices[i].innerHTML;
+  }
 
-    for (var i = 0; i < question.length; i++) {
-      prompt(question[i]);
+  // var next = document.getElementById("next")
+  // next.addEventListener("click" function(){
+  //   var question = document.getElementById("question");
+  // });
 
-    if (question === answer){ 
-      alert("That's correct! Click OK to continue."); correctAns++;
-    };
-    else alert("Sorry, that's incorrect. Click OK to continue.");
-    };
+  // var button = document.getElementById("submitter");
 
-    if (correctAns == 0){
-      alert("You answered 0 out of 4 correctly!");
-    }
-    if (correctAns == 1){
-      alert("You answered 1 out of 4 correctly!");
-    }
-    if (correctAns == 2){
-      alert("You answered 2 out of 4 correctly!");
-    }
-    if (correctAns == 3){
-      alert("You answered 3 out of 4 correctly!");
-    }
-    if (correctAns == 4){
-      alert("You answered 4 out of 4 correctly!");
-    }
-  });
+  // button.addEventListener("click", function(){
+  //   var answers = document.form("answer").submit("text");
+    
+  //   if (answers == correct answer ) {
+  //     results.innerText = "correct";
+  //   }
+  // });
+
+  // var results = document.getElementById("question_result");
+  // for (var r = 0; r < results.length; i++) {
+  //  if (results[r] == "correct"); count++;
+  // }
+    
 };
+
+
+    // if (correctAns == 0){
+    //   alert("You answered 0 out of 4 correctly!");
+    // }
+    // if (correctAns == 1){
+    //   alert("You answered 1 out of 4 correctly!");
+    // }
+    // if (correctAns == 2){
+    //   alert("You answered 2 out of 4 correctly!");
+    // }
+    // if (correctAns == 3){
+    //   alert("You answered 3 out of 4 correctly!");
+    // }
+    // if (correctAns == 4){
+    //   alert("You answered 4 out of 4 correctly!");
+    // }
