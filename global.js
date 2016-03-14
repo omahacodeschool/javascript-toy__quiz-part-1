@@ -12,7 +12,7 @@ window.onload = function(){
                       
                     {"What is the correct answer?": "qFour", "A": "A", 
                       "B": "correct", "C": "C", "D": "D"}
-                    ]
+                    ];
 
   Object.prototype.getKeyByValue = function( value ) {
     for( var prop in this ) {
@@ -24,7 +24,7 @@ window.onload = function(){
   }
 
   click_it.addEventListener("click", function(){
-    var winCount = 0
+    var winCount = 0;
 
     for (var i = 0; i < questionArr.length; i++) {
       
@@ -33,12 +33,13 @@ window.onload = function(){
       if (UserAnswer === questionArr[i].getKeyByValue("correct")) {
         alert("Correct! " + UserAnswer + " is right!")
         winCount++
-        console.log(UserAnswer)
+        console.log("Correct: " + UserAnswer);
       } else {
         alert("Try again...")
-        console.log(UserAnswer)
+        console.log("Incorrect: " + UserAnswer);
       }
     }
     alert("You've answered " + ((winCount / 4) * 100) + "% correctly!")
+    console.log("Win Ratio: " + winCount + ":" + 4);
   });
 };
