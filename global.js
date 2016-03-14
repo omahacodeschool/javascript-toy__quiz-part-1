@@ -1,6 +1,6 @@
 window.onload = function(){
 
-  count = 0;
+  count = 1;
   question_list = ["Question 1", "Question 2", "question 3"];
   choice_list = ["A\n B\n", "C\n D\n", "E\n F\n"];
 
@@ -9,6 +9,17 @@ window.onload = function(){
   var choices = document.getElementById("choices");
   choices.innerText = (choice_list[0]);
 
+  //Next button
+  var next = document.getElementById("next")
+
+  next.addEventListener("click", function(){
+  
+    var questions = document.getElementById("questions");
+    questions.innerText = (question_list[count]);
+    var choices = document.getElementById("choices");
+    choices.innerText = (choice_list[count]); count++;
+
+  });
 
 
 
@@ -20,15 +31,6 @@ window.onload = function(){
   //   var choices = document.getElementById("choices");
   //   choices[i].innerText;
   // }
-
-  
-
-  // Next button
-  // var next = document.getElementById("next")
-
-  // next.addEventListener("click" function(){
-  //   question_list[1]; choices[1];
-  // });
 
   //Submission form
   // var button = document.getElementById("submitter");
