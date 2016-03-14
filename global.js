@@ -64,13 +64,6 @@ var score = 0;
 var i = 0;
 
 
-
-    //   submitter.onclick = function(){
-
-    //   var answer = document.getElementById("answer").value;
-    //   checkAnswer(answer, current_answer);
-    //   i++;
-    // }
 function checkAnswer(submitted_answer, current_question_answer){
 
       if (submitted_answer == current_question_answer) { 
@@ -149,11 +142,7 @@ function showQuestion(){
 
       choices.appendChild(options_list);
 
-    
-    
-
-
-    // current_choices.innerHTML = "a " + Quiz[i].options["a"] + "<br />" + " b " + Quiz[i].options["b"] + "<br />" + " c " + Quiz[i].options["c"] + "<br />" + " d " + Quiz[i].options["d"];
+  
     
     };
 
@@ -164,16 +153,11 @@ window.onload = function(){
 
   var click_me = document.getElementById("begin_button");
 
-  var choices = document.getElementById("choices");
-
-  // var options_list = document.createElement("OL");
-  //     options_list.type = "A";
-  //     options_list.id = "options_list";
-  //     options_list.style.display = "none";
-  // choices.appendChild(options_list);
-
   
-  click_me.addEventListener("click", showQuestion);  
+  click_me.addEventListener("click", function(begin_button) {
+    showQuestion(begin_button);
+    begin_button.target.style.display = "none";
+  });  
 
     var submitter = document.getElementById("submitter");
     submitter.addEventListener("click", submit);
@@ -183,13 +167,6 @@ window.onload = function(){
   
       next.addEventListener("click", showQuestion);
     
-   
-    
-
-    //
-    //Make this an ordered list that and loop through the options instead of listing them all out.
-    //var answer = prompt("a " + Quiz[i].options["a"] + " b " + Quiz[i].options["b"] + " c " + Quiz[i].options["c"] + " d " + Quiz[i].options["d"]);
-    //alert("You got " + score + " out of " + Quiz.length + " correct.");
     
     
 
