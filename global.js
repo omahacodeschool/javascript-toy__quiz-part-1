@@ -1,7 +1,7 @@
 window.onload = function(){
 
   //Variables 
-  count = 1;
+  count = 0;
   score = 0;
   question_list = ["Question 1", "Question 2", "Question 3"];
   choice_list = ["1. A\n 2. B\n", "1. C\n 2. D\n", "1. E\n 2. F\n"];
@@ -11,7 +11,7 @@ window.onload = function(){
   var questions = document.getElementById("questions");
   questions.innerText = (question_list[0]);
   var choices = document.getElementById("choices");
-  choices.innerText = (choice_list[0]);
+  choices.innerText = (choice_list[0]); count++;
 
   //Next button
   var next = document.getElementById("next")
@@ -24,12 +24,14 @@ window.onload = function(){
     choices.innerText = (choice_list[count]); count++;
   });
 
-  //Submission form
+  //
   var button = document.getElementById("submitter");
 
   button.addEventListener("click", function(){
-    var answer = document.forms["submission"]["answer"].value;
-    if (answer == answer_list[0]) {
+    var answer = document.getElementById("question_results");
+    answer.innerText = (answer_list[0])
+    var guess = document.getElementById("answer")
+    if (guess[0] == answer_list[0]) {
      score++; 
     }
   });
