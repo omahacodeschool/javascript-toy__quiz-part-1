@@ -45,9 +45,14 @@
   answers[9] = ["b"]
 
 window.onload = function(){
-
-  // when the page loads, the first question's content is added into div#question
   
+  var currentQuestion = 0;
+  var scoreCount = 0;
 
+  var listQuestion = function() {
+    while(currentQuestion < questions.length) {
+      document.getElementById("questions").innerHTML = questions[currentQuestion]
+    }
+  };
 
 };
