@@ -1,5 +1,5 @@
 window.onload = function(){
-  alert("Foo");
+//  alert("Foo");
 
 //So when a person starts the quiz by pushing the preset button, I need to have the questions come up one at a time. I need the following pieces of information: The questions, the choices, the correct answers, the user's guess, something that says they got it right or got it wrong, a counter for correct answers, a statement that says they got X right out of Y, and a percentage they got right. 
 
@@ -17,12 +17,24 @@ window.onload = function(){
     "a. Between the couch cushions. b. Cat is sleeping on it. c. THIS IS THE CORRECT ANSWER. d. The remote knows where it is but we are lost.",
     "a. THIS IS THE CORRECT ANSWER. b. We just do. c. We don't really. d. We Google." ]   
 
-counter = 0;
+//counter = 0;
 
-var questions = document.getElementById("question").innerHTML = (questions[0]);
-var choices = document.getElementById("choice").innerHTML = (choices[0]);
-counter+=1
+//var questions = document.getElementById("question").innerHTML = (questions[0]);
+//var choices = document.getElementById("choice").innerHTML = (choices[0]);
+//counter+=1
 
+
+document.addEventListener("click", function() {
+document.getElementById("begin_button").innerHTML = (questions[0]);
+
+});
+
+//OK SO I add an event Listener, and when it hears the click of 
+//var button = document.getElementById("begin_button");
+//button.addEventListener("click", function() {
+
+
+//THIS COMMENTED OUT SECTION IS THE FUNCTIONING ENGINE FOR PHASE 1. 
 //  var score = 0
 
 //  for (var index = 0; index < question.length; index+=1) {
