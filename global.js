@@ -88,7 +88,7 @@ function checkAnswer(submitted_answer, current_question_answer){
 function submit(){
 
 
-      var answer = document.querySelector('input[name="option"]:checked').value;
+      var answer = document.querySelector('input[name="option"]:checked').id;
 
       current_question_answer = Quiz[i].answer;
       var result_output = document.getElementById("question_result");
