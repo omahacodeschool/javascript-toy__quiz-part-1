@@ -24,7 +24,9 @@
     </div>
 
 <!-- `input[type=text]#answer` (This means make an `input` tag with attribute `type=text` and an `id` of `answer`. -->
-    <input type="text" id="answer">
+    <p>Answer:
+    <input type="text" id="answer" placeholder="enter a number">
+    </p>
   
 <!--`button#submitter` (This means make a `button` tag with an `id` of `submitter`.) -->
     <button id="submitter">Submit Answer</button>
@@ -43,6 +45,10 @@
     <div class="total_result">
     </div>
     
+    <p id="correct" style="display: none"> Correct! </p>
+
+    <p id="incorrect" style="display: none"> Incorrect </p>
+
   </div>
 </body>
 </html>
