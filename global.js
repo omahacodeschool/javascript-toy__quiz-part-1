@@ -7,14 +7,14 @@
 
 function set_Question(){
   this.question = "";
-  this.options = {};
+  this.options = "";
   this.answer = "";
 };
 
 var q1 = new set_Question();
   q1.question = "What is the name for a group of flamingos?";
   q1.options = "a: Flock\nb: Flamboyance\nc: Pink Out\nd: Gaggle";
-  q1.answer = "a";
+  q1.answer = "b";
 
 var q2 = new set_Question();
   q2.question = "Which ocean claimed the Titanic?";
@@ -34,36 +34,60 @@ var q4 = new set_Question();
 var quizQuestions = [q1, q2, q3, q4]
 
 
-//This method check a users answer agaist the correct one and assigns points appropriately
-function checkAnswer(submitted_answer, current_questions_answer){
-  if (submitted_answer == current_questions_answer){
-    alert("Thats correct!")
-    score++;
-  }else{
-    alert("Thats incorrect.")
-  }
-}; 
+
 
 //This method averages the score into a percentage
-function averageScore(score, questions_array){
+function averageScore(score){
   var avg = score/quizQuestions.length
   var avgPercent = avg.toFixed(2)
+  alert("You scored an average of " + avgPercent + " %!")
 };
-
-
-// // for/in loop that works for one questions options
-// for (var choice in q1.options){
-// console.log("These are Q1's options. " + choice + ":" + q1.options[choice] );
-//   }
-
 
 
 
 // This method runs the quiz
 function quizFunction(){
-  for (i = 0; i < quizQuestions.length; i++)
+  var score = 0;
+  submitted = prompt((quizQuestions[0].question) + "\n" + (quizQuestions[0].options), "answer goes here");
 
-    prompt((quizQuestions[i].question) + "\n" + (quizQuestions[i].options), "answer goes here");
+    if (submitted == quizQuestions[0].answer){
+      alert("Correct");
+      score++;
+    }else{
+      alert("Incorrect");
+    }
+
+  submitted = prompt((quizQuestions[1].question) + "\n" + (quizQuestions[1].options), "answer goes here");
+
+    if (submitted == quizQuestions[1].answer){
+      alert("Correct");
+      score++;
+    }else{
+      alert("Incorrect");
+    }
+
+
+  submitted = prompt((quizQuestions[2].question) + "\n" + (quizQuestions[2].options), "answer goes here");
+
+    if (submitted == quizQuestions[2].answer){
+      alert("Correct");
+      score++;
+    }else{
+      alert("Incorrect");
+    }
+
+
+  submitted = prompt((quizQuestions[3].question) + "\n" + (quizQuestions[3].options), "answer goes here");
+
+    if (submitted == quizQuestions[3].answer){
+      alert("Correct");
+      score++;
+    }else{
+      alert("Incorrect");
+    }
+
+
+    averageScore(score)
 
 };
 
