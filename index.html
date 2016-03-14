@@ -9,14 +9,25 @@
 
 <h1>Quiz Game</h1>
 
-<div id="q1">
-  <div class="qheader">
-  1) Where was the capital of Nebraska located prior to 1867?</div>
-  <input type="radio" value="a" name="question1">a) Omaha<br>
-  <input type="radio" value="b" name="question1">a) Bellevue<br>
-  <input type="radio" value="c" name="question1">a) Grand Island<br>
-  <input type="radio" value="d" name="question1">a) Lincoln<br>
+<button id="begin" style="display:block;">Begin the Quiz?</button>
+
+<div id="quiz" style="display:none;">
+  <div class="question">
+  </div>
+  <div class="choices">
+    <input type="radio" value="a" name="question1">a) Omaha<br>
+    <input type="radio" value="b" name="question1">a) Bellevue<br>
+    <input type="radio" value="c" name="question1">a) Grand Island<br>
+    <input type="radio" value="d" name="question1">a) Lincoln<br>
+  </div>
+  <div id="question_result"></div>
+  <button id="next">Next Question</button>
 </div>
+
+<div id="total_result"></div>
+
+
+
 
 
 
