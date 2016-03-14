@@ -114,9 +114,7 @@ function showOption(option_key, text, name){
       label.appendChild(radio);
     var option_item = document.createElement("li");
       option_item.appendChild(label);
-
-      options_list.appendChild(option_item);
-      return options_list;
+      return option_item;
   };
 
 
@@ -140,7 +138,8 @@ function showQuestion(){
 
     var x;
   for (x in Quiz[i].options) {
-   showOption(x, Quiz[i].options[x]); 
+   var option = showOption(x, Quiz[i].options[x]);
+    options_list.appendChild(option);
   }
     var choices = document.getElementById("choices");
       choices.appendChild(options_list); 
