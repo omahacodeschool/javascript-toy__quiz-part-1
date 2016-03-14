@@ -68,21 +68,23 @@ function averageScore(score, questions_array){
   var avgPercent = avg.toFixed(2)
 }
 
+function displayOptions(questions_array)
+for (var choice in q1.options){
+  "These are Q1's options. " + choice + ":" + q1.options[choice] ;
+}
+
 function quizFunction(questions_array){
   for (i = 0; i < quizQuestions.length; i++)
-    prompt((quizQuestions[i].question) + "\n" + (quizQuestions[i].options), "answer goes here")
+    prompt((quizQuestions[i].question) + "\n" + "options go here", "answer goes here")
 }
 
 
 
 
 window.onload = function(){
-  debugger;
+  // debugger;
 
   var start_quiz = document.getElementById("begin_button");
   start_quiz.addEventListener("click", quizFunction(quizQuestions));
-  
-
-
-  
+    
 };
