@@ -37,9 +37,7 @@ window.onload = function(){
 
   start_it.addEventListener("click", function() {
 
-    start_it.style.display = "none";
-    // quiz.style.display     = "block";
-    
+    start_it.style.display       = "none";
     for (var i = 0; i < que_class.length; i++) {
       que_class[i].style.display = "block";
     }
@@ -53,29 +51,29 @@ window.onload = function(){
   submit_it.addEventListener("click", function() {
 
     for (var i = 0; i < que_class.length; i++) {
-      que_class[i].style.display = "none";
+      que_class[i].style.display    = "none";
     }
     for (var i = 0; i < result_class.length; i++) {
       result_class[i].style.display = "block";
     }
 
-    var userAnswer = document.getElementById("answer").value;
+    var userAnswer = ""
+        userAnswer = document.getElementById("answer").value;
 
     if (userAnswer === questionArr[quizCount].getKeyByValue("correct")) {
       q_result.innerHTML = ("Correct! " + userAnswer + " is right!")
       winCount++
-      quizCount++
       console.log("Correct: " + userAnswer);
     } else {
       q_result.innerHTML = ("Try again...")
-      quizCount++
       console.log("Incorrect: " + userAnswer + " (correct: " + questionArr[quizCount].getKeyByValue("correct") + ")");
     }
+    quizCount++
   });
 
   next_it.addEventListener("click", function() {
+    
     if (quizCount < 4) {
-
       for (var i = 0; i < que_class.length; i++) {
         que_class[i].style.display = "block";
       }
@@ -83,22 +81,20 @@ window.onload = function(){
         result_class[i].style.display = "none";
       }
 
-      var questionKeys     = (Object.keys(questionArr[quizCount]));
+      var questionKeys   = (Object.keys(questionArr[quizCount]));
+      question.innerHTML = questionKeys[0];
+      choices.innerHTML  = questionKeys.slice(1, 5).join("\n");
 
-      question.innerHTML   = questionKeys[0];
-      choices.innerHTML    = questionKeys.slice(1, 5).join("\n");
     } else {
-
-      for (var i = 0; i < que_class.length; i++) {
-        que_class[i].style.display = "none";
-      }
+      // for (var i = 0; i < que_class.length; i++) {
+      //   que_class[i].style.display = "none";
+      // }
+      total_result.style.display      = "block";
       for (var i = 0; i < result_class.length; i++) {
         result_class[i].style.display = "none";
       }
 
       total_result.innerHTML     = ("You've answered " + ((winCount / 4) * 100) + "% correctly!");
-      
-      total_result.style.display = "block";
       console.log("Win Ratio: " + winCount + ":" + 4);
     }
   });
