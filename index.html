@@ -9,13 +9,13 @@
 
 <h1>Quiz Game</h1>
 
-<button id="begin_button">Click me to begin the game.</button>
+  <button id="begin_button">Begin the Quiz</button>
 
 <!-- `div#quiz` (This means make a `div` and give it an `id` of `quiz`.)-->
-  <div id="quiz">
+  <div id="quiz" style="display: none">
 
 <!--`div#question`
-  Empty for now. We'll use JavaScript to put question text into this. -->
+    Empty for now. We'll use JavaScript to put question text into this. -->
     <div class="question">
     </div>
 
@@ -37,13 +37,13 @@
 
 <!--`button#next`
   This will eventually be the button that the user clicks after they see that a question was correct/wrong. It will load up the next question. -->
-    <button id="next">Next Question</button>
+    <button id="next" style="display: none">Next Question</button>
 
 <!--`div#total_result`
   Empty for now. We'll use JavaScript to put the quiz's final result into this. -->
-    <div class="total_result">
+    <div class="total_result" style="display: none">
     </div>
-    
+
   </div>
 </body>
 </html>
