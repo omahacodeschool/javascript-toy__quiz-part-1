@@ -1,21 +1,27 @@
 window.onload = function(){
 
-  var click_it    = document.getElementById("begin_button");
+  var start_it    = document.getElementById("begin_button");
   var questionArr = [{"Which is the superior 80's sequel?": "qOne", 
                     "Aliens": "correct", "The Road Warrior": "B", 
-                      "The Empire Strikers Back": "C", "Evil Dead II": "D"},  
+                    "The Empire Strikers Back": "C", "Evil Dead II": "D"},
+
                     {"What is the best color?": "qTwo", "Red": "A",
-                      "Blue": "B", "Yellow": "C", "Green": "correct"}, 
-                    {"Which direction?": "qThree", "East": "A", "West": "B", "North": "correct", "South": "D"}, 
+                    "Blue": "B", "Yellow": "C", "Green": "correct"},
+
+                    {"Which direction?": "qThree", "East": "A", "West": "B", 
+                    "North": "correct", "South": "D"},
+
                     {"What is the correct answer?": "qFour", "A": "A", 
-                      "B": "correct", "C": "C", "D": "D"}
+                    "B": "correct", "C": "C", "D": "D"}
                     ];
-  var questionEmt = document.getElementsByClassName("question");
-  var choicesEmt  = document.getElementsByClassName("choices");
-  var userInput   = document.getElementById("answer");
-  var submit_it   = document.getElementById("submit_button")
-  var questionRst = document.getElementsByClassName("question_result")
-  var next_it     = document.getElementById("next_button")
+  var quiz        = document.getElementById("quiz");
+  var question    = document.getElementById("question");
+  var choices     = document.getElementById("choices");
+  var submit_it   = document.getElementById("submit_button");
+  var result      = document.getElementById("question_result");
+  var next_it     = document.getElementById("next_button");
+  var winCount    = 0;
+  var quizCount   = 0;
 
   Object.prototype.getKeyByValue = function( value ) {
     for( var prop in this ) {
@@ -26,23 +32,28 @@ window.onload = function(){
     }
   }
 
-  click_it.addEventListener("click", function(){
-    var winCount = 0;
+  start_it.addEventListener("click", function(){
 
-    for (var i = 0; i < questionArr.length; i++) {
-      
-      var UserAnswer = prompt(Object.keys(questionArr[i]));
+    start_it.style.display = "none";
+    quiz.style.display = "block"
 
-      if (UserAnswer === questionArr[i].getKeyByValue("correct")) {
-        alert("Correct! " + UserAnswer + " is right!")
-        winCount++
-        console.log("Correct: " + UserAnswer);
-      } else {
-        alert("Try again...")
-        console.log("Incorrect: " + UserAnswer + " (correct: " + questionArr[i].getKeyByValue("correct") + ")");
-      }
-    }
-        alert("You've answered " + ((winCount / 4) * 100) + "% correctly!")
-        console.log("Win Ratio: " + winCount + ":" + 4);
+    var questionKeys = (Object.keys(questionArr[quizCount]));
+
+    question.innerHTML = questionKeys[0]
+    choices.innerHTML  = questionKeys.slice(1, -1)
   });
+
+      // var userAnswer = document.getElementById("answer").value;
+
+      // if (UserAnswer === questionArr[i].getKeyByValue("correct")) {
+      //   alert("Correct! " + UserAnswer + " is right!")
+      //   winCount++
+      //   console.log("Correct: " + UserAnswer);
+      // } else {
+      //   alert("Try again...")
+      //   console.log("Incorrect: " + UserAnswer + " (correct: " + questionArr[i].getKeyByValue("correct") + ")");
+      // }
+      //   alert("You've answered " + ((winCount / 4) * 100) + "% correctly!")
+      //   console.log("Win Ratio: " + winCount + ":" + 4);
+
 };
