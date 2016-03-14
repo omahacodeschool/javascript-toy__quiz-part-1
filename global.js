@@ -1,50 +1,58 @@
 window.onload = function(){
 
-  count = 0
+  count = 0;
+  question_list = ["Question 1", "Question 2", "question 3"];
+  choice_list = ["A\n B\n", "C\n D\n", "E\n F\n"];
+
+  var questions = document.getElementById("questions");
+  questions.innerText = (question_list[0]);
+  var choices = document.getElementById("choices");
+  choices.innerText = (choice_list[0]);
+
+
+
+
+  // //Questions 
+
+  // for (var i = 0;i < questions.length; i++) {
+  //   var questions = document.getElementById("questions");
+  //   questions[i].innerText;
+  //   var choices = document.getElementById("choices");
+  //   choices[i].innerText;
+  // }
 
   
-  //Questions Loop
-  for (var i = 0;i < questions.length; i++) {
-    var questions = document.getElementById("questions");
-    questions[i].innerText;
-    var choices = document.getElementById("choices");
-    choices[i].innerText;
-  }
 
-  // var questions = document.getElementById("questions");
-  // questions.innerText = "What is my name?";
-  // var choices = document.getElementById("choices");
-  // choices.innerText = "1. Derek\n 2. Mark\n 3. Sarah\n 4. Dottie\n";
+  // Next button
+  // var next = document.getElementById("next")
 
-  //Next button
-  var next = document.getElementById("next")
-  next.addEventListener("click" function(){
-    var questions = document.getElementById("questions");
-  });
+  // next.addEventListener("click" function(){
+  //   question_list[1]; choices[1];
+  // });
 
   //Submission form
-  var button = document.getElementById("submitter");
+  // var button = document.getElementById("submitter");
 
-  button.addEventListener("click", function(){
-    var answers = document.form("answer").submit("text");
+  // button.addEventListener("click", function(){
+  //   var answers = document.form("answer").submit("text");
     
-    if (answers == correct answer ) {
-      results.innerText = "correct";
-    }
-  });
+  //   if (answers == correct answer ) {
+  //     results.innerText = "correct";
+  //   }
+  // });
 
-//Count Loop
-  var results = document.getElementById("question_result");
-  for (var c = 0; c < results.length; i++) {
-   if (results[c] == "correct"); count++;
-  }
+// //Count Loop
+  // var results = document.getElementById("question_result");
+  // for (var c = 0; c < results.length; i++) {
+  //  if (results[c] == "correct"); count++;
+  // }
     
 };
 
 
 
 
-  // var button = document.getElementById("begin_button")
+   
   // var count = 0
 
   // button.addEventListener("click", function(){
