@@ -1,5 +1,5 @@
 # JavaScript - Quiz (Part 1)
-
+ 
 Your task in this assignment is to build a quiz game using JavaScript (and HTML).
 
 We've defined a couple phases for building this game in a more structured/iterative fashion. If you're feeling a bit impatient with the progression, feel free to skip directly to Phase 2. But if you're not comfortable with JavaScript and DOM manipulation yet, we recommend going through Phase 1 first.
