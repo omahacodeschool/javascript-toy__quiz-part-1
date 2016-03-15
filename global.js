@@ -49,7 +49,7 @@ function averageScore(score){
 //compares users answer to questions answer and provides a response
 function resetForm(){
   currentQuestion++
-  debugger;
+
   if (currentQuestion < quizQuestions.length){
     
     text_field = document.getElementById("answer");
@@ -60,7 +60,8 @@ function resetForm(){
     div_choices.innerHTML = quizQuestions[currentQuestion].options
 
   } else if (currentQuestion == quizQuestions.length) {
-    div_questions = "You Have answered all questions";
+    div_question = document.getElementById("question");
+    div_question = "You Have answered all questions";
     //produce score
   }
 };
