@@ -17,40 +17,61 @@ window.onload = function(){
     "a. Between the couch cushions. b. Cat is sleeping on it. c. THIS IS THE CORRECT ANSWER. d. The remote knows where it is but we are lost.",
     "a. THIS IS THE CORRECT ANSWER. b. We just do. c. We don't really. d. We Google." ]   
 
+
+
 var index = 0;
 var score = 0;
 
-document.addEventListener("click", function() {
-document.getElementById("begin_button").innerHTML = (questions[0]);
-});//close event listener?
-
-var questions = document.getElementById("question").innerHTML = (questions[0]);
-var choices = document.getElementById("choice").innerHTML = (choices[0]);
-var questionResults = document.getElementById("question_result").innerHTML = (questionResults[0]); 
-index+=1
 
 
+function add_my_begin_button_event() {
+document.getElementById("question").innerHTML = (questions[index]);
+document.getElementById("choice").innerHTML = (choices[index]);
+}
+var beginButton = document.getElementById("begin_button");
+beginButton.addEventListener("click",add_my_begin_button_event);
 
-//OK SO I add an event Listener, and when it hears the click of 
-var button = document.getElementById("submitter").addEventListener("click", function() {
+var question = document.getElementById("question")
+question.innerHTML = (questions[index]);
+
+var choice = document.getElementById("choice")
+choice.innerHTML = (choices[index]);
+
+var questionResult = document.getElementById("question_result")
+questionResult.innerHTML = (questionResults[index]);
+
+
+//get the submitter button from its location in "submitter" div, 
+//add event listener, WHY IS THIS A CLICK? THE USER is supposed TO INPUT AN ANSWER. KEYUP?
+
+var submitterButton = document.getElementById("submitter"); 
+submitterButton.addEventListener("click", function() {
   var answer = document.getElementById("answer").value;
-})
-//for (index = 0; index < question.length; index+=1) {
-  if (answer == questionResults[index]) {
+if (answer == questionResults[index]) {
     alert("Correct! Well done!"); 
     score+=1;
-    var percentRight = ((score / question.length)*100)
 
   } //close the if
   else {
     alert("Sorry, the correct answer is " + questionResults[index] + " . ");
   } //close the else
-//}//close the for loop
-    
-var finalScore = document.getElementById("total_result").innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.").
+  
+var nextButton = document.getElementById("next"); 
+nextButton.addEventListener("click", add_my_begin_button_event);
+
+index+=1
+  
+})
+
+
+var percentRight = ((score / question.length)*100);   
+var finalScore = document.getElementById("total_result"); {
+ finalScore.innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.") 
+};//close final score
+
   
 
-};
+}//close window onload
 
 
 
@@ -82,54 +103,6 @@ var finalScore = document.getElementById("total_result").innerHTML = ("You compl
 //so what I think I want to do is get the "question" id on the html page and change the content that is in the <p> tag from the content that is there now to question 1. Question 1 is actually the question at index position 0 in the question array. 
 
 //I started making a function because it seemed like I would want repeatable code for showing the user each question and the choices.
-
-
-
-//function askQuestions() {
-//var question = document.getElementById("question").innerHTML
-//for (var i = 0; i < question.length; i++) {
- // setAttribute("p", "question[i]")
-  // html += "input type="button" name='" + question[i] + "' value='" + i + "
-  //' onclick=\"setValue(this.value);\">" + question[i] + "<br>";
-//}
-
-
-
-
-
-
-
- // var button = document.getElementById("begin_button");
-
-//  button.addEventListener("click", function() {
-
-//    var question = document.querySelectorAll("ul.second_five li");
-
-//    for (var i = 0; i < question.length; i++) {
-//      if (question[i].style.display === "block") {
-//        question[i].style.display = "none";
-//      }
-//      else {
-//        question[i].style.display = "list-item";
-//      }
-//    }
-
-//  });
-
-
-//----------------------------
-
- //var userName = document.getElementById("full_name"); in case I need this
-  
-
-  //var greeting = document.getElementById("greeting");
-
- // greeting.innerHTML = ("Hail Citizen " + userName.value + " well met!");
-
- // });//closing curly bracket for the addEventListener open bracket
-//};//closing curly bracket for window.onload.
-
-
 
 
 

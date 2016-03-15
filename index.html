@@ -24,9 +24,9 @@
   </div>
 
 
-  <div input type="text" id="answer">
-      <p>This is a div for where the user types in the answer</p>
-  </div>
+  <input type="text" id="answer">
+      
+  </input>
 
 
 
@@ -34,38 +34,13 @@
 
   
   <div id="question_result">
-    <p>This is a div for whether they got the question right</p>
+    
   </div>
 
    <button id="next">Next</button>
 
    <div id="total_result"> 
-   <p>This is a div for the final quiz score</p>
+  
 </div>
 </body>
 </html>
-
----------
-
-
-
-
-use JavaScript to read/interact with those HTML elements (a.k.a. the "DOM").
-
-(This phase could easily have 20+ commits, if you're committing responsibly.)
-
-### Instructions
-
-Now, modify your JavaScript so that when the page loads, the first question's content is added into `div#question`. And do the same thing for the question's choices (into `div#choices`).
-
-If it makes things easier, you can comment out large portions of **global.js**, as much of that code will be changing and/or be moved around.
-
-Continue to add functionality that uses the elements on the page instead of prompts/alerts to conduct the quiz game:
-
-- The user should type their answer for a question into `input[type=text]#answer`
-- They should click `button#submitter` to submit that answer
-- Whether they got the question correct/incorrect should be displayed in `div#question_result`
-- Clicking `button#next` should replace the question and choices content with the next question. (It should also clear the user's answer to the previous question from the text field.)
-- When the game is complete, the final quiz result information should be displayed in `div#total_result`
-
-If you have trouble with this, consider taking a couple steps back and implementing the game with _just one question_ first. Don't worry about the functionality for `button#next` or even for `div#total_result` at all. Often, when a series of steps stumps us, it's best to focus in on just one step and then only zoom back out to the series after we succeed.
