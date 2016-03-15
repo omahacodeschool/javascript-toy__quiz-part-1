@@ -1,5 +1,6 @@
 window.onload = function(){
   console.log("loading");
+  alert("WELCOME")
 
   // Declaring two variables I was having trouble with being undefined. Clean this up later.
   userGuess = "";
@@ -11,8 +12,12 @@ window.onload = function(){
   quiz_html = document.getElementById("quiz_div")
   curr_question_html = document.getElementById("question_div")
   curr_guesses_html = document.getElementById("guesses_div")
-  user_answer_html = document.getElementById("user_input_div")
-  submit_button_html = document.getElementById("submit_button_div")
+  user_input_field = document.getElementById("user_input")
+  submit_button = document.getElementById("submit_button")
+  submit_button.addEventListener("click", alert("Clicked!"))
+  hideQuiz()
+
+  debugger;
 
   // Developer's note: If adding to, or subtracting from, the number of questions, you will need to set the `allQuestionsArray` at the bottom of the `getQuestions()` function to include or not include those questions.
 
@@ -24,14 +29,21 @@ window.onload = function(){
 
     hideStartButton = document.getElementById("start_button")
     hideStartButton.style.display="none"
+
     //set score to zero
     userScore = 0;
+
+    //show the quiz div
+    showQuiz()
 
     //get all questions
     getQuestions();
 
     //run all questions (Note: this function also calls the `createPrompt()`, `assessGuess()`, `alertCorrectWrongNull()`, and 'setScore()` functions)
     runAllQuestions();
+
+    //hide input field and button, to prepare page for final score display.
+    hideQuiz()
 
     //get the final score
     getFinalScore();
@@ -96,13 +108,12 @@ window.onload = function(){
     /*   startButton = document.getElementById("start_button_div");
   curr_question_html = document.getElementById("question_div")
   curr_guesses_html = document.getElementById("guesses_div")
-  user_answer_html = document.getElementById("user_input_div")
-  submit_button_html = document.getElementById("submit_button_div") */
+  user_input_field = document.getElementById("user_input")
+  submit_button = document.getElementById("submit_button") */
     
     curr_question_html.innerHTML = (currentQuestion + '<br>' + '<br>')
     curr_guesses_html.innerHTML = ('A: ' + currentGuess1 + '<br>' + 'B: ' + currentGuess2 + '<br>' + 'C: ' + currentGuess3 + '<br>' + 'D: ' + currentGuess4)
-    user_answer_html.innerHTML = ('<input type="text" id="user_answer" maxlength="1">')
-    submit_button_html.innerHTML = ('<button id="submit_button" type="submit" ></input>SUBMIT</button>')
+
 
     // userGuess = prompt(currentQuestion + "...       A= " + currentGuess1 + "...       B: " + currentGuess2 + "...       C: " + currentGuess3 + "...       D: " + currentGuess4);
   
@@ -174,13 +185,28 @@ window.onload = function(){
       };
   };
 
+
+  //Function hides quiz fields, input field and submit button
+  function hideQuiz(){
+    hide_quiz_div = document.getElementById("quiz_div")
+    hide_quiz_div.style.display="none"
+  };
+
+  //Function shows quiz fields, input field and submit button
+  function showQuiz(){
+    show_quiz_div = document.getElementById("quiz_div")
+    show_quiz_div.style.display="inline"
+  };
+
+
+
   // Function calculates the final score in percentage-form.
   function getFinalScore(){
     console.log("getFinalScore");
     finalScore =  (userScore / allQuestionsArray.length) * 100;
     alert("Your Score is: " + finalScore + " %");
   };
-
+debugger;
 
 };
 
