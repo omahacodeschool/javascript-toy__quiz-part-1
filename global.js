@@ -2,17 +2,17 @@ window.onload = function(){
 
   var start_it     = document.getElementById("begin_button");
   var questionArr  = [{"Which is the superior 80's sequel?": "qOne", 
-                      "Aliens": "correct", "The Road Warrior": "B", 
-                      "The Empire Strikers Back": "C", "Evil Dead II": "D"},
+                      "Aliens": true, "The Road Warrior": false, 
+                      "The Empire Strikers Back": false, "Evil Dead II": false},
 
-                      {"What is the best color?": "qTwo", "Red": "A",
-                      "Blue": "B", "Yellow": "C", "Green": "correct"},
+                      {"What is the best color?": "qTwo", "Red": false,
+                      "Blue": false, "Yellow": false, "Green": true},
 
-                      {"Which direction?": "qThree", "East": "A", "West": "B", 
-                      "North": "correct", "South": "D"},
+                      {"Which direction?": "qThree", "East": false, "West": false, 
+                      "North": true, "South": false},
 
-                      {"What is the correct answer?": "qFour", "A": "A", 
-                      "B": "correct", "C": "C", "D": "D"}
+                      {"What is the correct answer?": "qFour", "A": false, 
+                      "B": true, "C": false, "D": false}
                      ];
   var quiz         = document.getElementById("quiz");
   var question     = document.getElementById("question");
@@ -45,7 +45,7 @@ window.onload = function(){
     var questionKeys = (Object.keys(questionArr[quizCount]));
 
     question.innerHTML = questionKeys[0];
-    choices.innerHTML  = questionKeys.slice(1, 5).join('<br />');
+    choices.innerHTML  = questionKeys.slice(1, 5).join("<br />");
   });
 
   submit_it.addEventListener("click", function() {
@@ -56,7 +56,7 @@ window.onload = function(){
       result_class[i].style.display = "block";
     }
 
-    var corrAnswer = questionArr[quizCount].getKeyByValue("correct")
+    var corrAnswer = questionArr[quizCount].getKeyByValue(true)
     var userAnswer = document.getElementById("answer").value;
 
     if (userAnswer === corrAnswer) {
@@ -84,7 +84,7 @@ window.onload = function(){
 
       var questionKeys   = (Object.keys(questionArr[quizCount]));
       question.innerHTML = questionKeys[0];
-      choices.innerHTML  = questionKeys.slice(1, 5).join('<br />');
+      choices.innerHTML  = questionKeys.slice(1, 5).join("<br />");
 
     } else {
       total_result.style.display      = "block";
