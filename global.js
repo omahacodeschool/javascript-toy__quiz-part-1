@@ -3,7 +3,7 @@ window.onload = function(){
   alert("WELCOME")
 
   // Declaring two variables I was having trouble with being undefined. Clean this up later.
-  userGuess = "";
+  uguess = "";
   i = 0;
 
 
@@ -13,17 +13,17 @@ window.onload = function(){
   curr_question_html = document.getElementById("question_div")
   curr_guesses_html = document.getElementById("guesses_div")
   user_input_field = document.getElementById("user_input")
-  submit_button = document.getElementById("submit_button")
-  submit_button.addEventListener("click", alert("Clicked!"))
+  submit_button = document.getElementById("submit")
+  submit_button.addEventListener("click", function(){alert("Clicked!")})
+  
+  //hides quiz elements while waiting for "start" to be clicked.
   hideQuiz()
 
-  debugger;
+  // Note: If adding to, or subtracting from, the number of questions, you will need to set the `allQuestionsArray` at the bottom of the `getQuestions()` function to include or not include those questions.
 
-  // Developer's note: If adding to, or subtracting from, the number of questions, you will need to set the `allQuestionsArray` at the bottom of the `getQuestions()` function to include or not include those questions.
+  // Also: console.log(`function_name`) is used inside of each function, for debugging purposes.
 
-  // Additional note: console.log(`function_name`) is used inside of each function, for debugging purposes.
-
-  // Function is called when button is triggered. This will run through all of the questions, and give the final score. 
+  // Function is called when button is triggered. This will run through all of the questions and give the final score. 
   startButton.addEventListener("click", function (){
     console.log("runQuiz");
 
@@ -74,8 +74,8 @@ window.onload = function(){
     allQuestionsArray = [question1, question2, question3, question4];
   };
 
-  // Function increments variable `i` in oreder to go through each question and prepare variables for the question, possible guesses, and the correct answer. 
-  // Function also calls other functions to create prompts, assess the user's guesses, send 'correct/wrong answer' alerts and set the score.
+  // Function increments variable `i` in order to go through each question and prepare variables for the question, possible guesses, and the correct answer. 
+  // Function also calls on other functions to create prompts, assess the user's guesses, send 'correct/wrong answer' alerts and set the score.
   function runAllQuestions(){
     console.log("runAllQuestions");
     
@@ -104,18 +104,11 @@ window.onload = function(){
   // Function creates the prompt for a user's answer, by populating the alert with the question's elements.
   function createPrompt(){
     console.log("createPrompt");
-
-    /*   startButton = document.getElementById("start_button_div");
-  curr_question_html = document.getElementById("question_div")
-  curr_guesses_html = document.getElementById("guesses_div")
-  user_input_field = document.getElementById("user_input")
-  submit_button = document.getElementById("submit_button") */
     
     curr_question_html.innerHTML = (currentQuestion + '<br>' + '<br>')
     curr_guesses_html.innerHTML = ('A: ' + currentGuess1 + '<br>' + 'B: ' + currentGuess2 + '<br>' + 'C: ' + currentGuess3 + '<br>' + 'D: ' + currentGuess4)
 
-
-    // userGuess = prompt(currentQuestion + "...       A= " + currentGuess1 + "...       B: " + currentGuess2 + "...       C: " + currentGuess3 + "...       D: " + currentGuess4);
+    uguess = user_input_field.value
   
   };
 
@@ -123,7 +116,7 @@ window.onload = function(){
   function assessGuess(){
     console.log("assessGuess");
 
-    if(userGuess == currentAnswer){
+    if(uguess == currentAnswer){
 
       rightAnswer = true;
       wrongAnswer = false;
@@ -133,14 +126,14 @@ window.onload = function(){
 
     else{
 
-      if(userGuess == null){
+      if(uguess == null){
 
         rightAnswer = false;
         wrongAnswer = false;
         nullAnswer = true;
       }
       
-      if(userGuess == ""){
+      if(uguess == ""){
 
         rightAnswer = false;
         wrongAnswer = false;
@@ -171,7 +164,7 @@ window.onload = function(){
 
     if(nullAnswer == true){
       alert("Please try again.");
-      runAllQuestions();
+      //runAllQuestions();
     };
 
   };
@@ -199,14 +192,12 @@ window.onload = function(){
   };
 
 
-
   // Function calculates the final score in percentage-form.
   function getFinalScore(){
     console.log("getFinalScore");
     finalScore =  (userScore / allQuestionsArray.length) * 100;
     alert("Your Score is: " + finalScore + " %");
   };
-debugger;
 
 };
 
