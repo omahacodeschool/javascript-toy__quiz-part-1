@@ -19,8 +19,9 @@ window.onload = function(){
     questionHashTwo["solution"] = "Nothing";
 
   var questionHashThree = new Object();
-    questionHashThree["question"] = "What walks on four legs in the morning, <br> two legs in the afternoon, <br> and three in the evening?"
-    questionHashThree["choices"] = 
+    questionHashThree["question"] = "What walks on four legs in the morning, <br> two legs in the afternoon, <br> and three in the evening?";
+    questionHashThree["choices"] = ["Man, a dog, a mutant, or Steve"];
+    questionHashThree["solution"] = "Man";
 
   var button = document.getElementById('begin_button');
   button.addEventListener("click", function() {
@@ -36,7 +37,7 @@ window.onload = function(){
         question_result.innerHTML = "That's correct!"
       }
       else {
-        question_result.innerHTML = "Sorry, that's incorrect Better luck with the next one."
+        question_result.innerHTML = "Sorry, that's incorrect. Better luck with the next one."
       };
     });
 
@@ -54,7 +55,7 @@ window.onload = function(){
         question_result.innerHTML = "That's correct!"
       }
       else {
-        question_result.innerHTML = "Sorry, that's incorrect Better luck with the next one."
+        question_result.innerHTML = "Sorry, that's incorrect. Better luck with the next one."
       };
     });
 
@@ -69,17 +70,16 @@ window.onload = function(){
     submitter.addEventListener("click", function(){
       if (answer.value == questionHashThree["solution"]) {
         correctAnswer++
-        question_result.innerHTML = "That's correct!"
+        question_result.innerHTML = "That's correct! Way to finish strong!"
       }
       else {
-        question_result.innerHTML = "Sorry, that's incorrect Better luck with the next one."
+        question_result.innerHTML = "Sorry, that's incorrect."
       };
     });
-
     });
   });  
+});
 };
-
 
   // var correctAnswer = 0
   // var numberOfQuestions = 3
