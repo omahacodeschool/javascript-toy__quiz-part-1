@@ -43,7 +43,10 @@ function averageScore(score){
 //gets users answer
 //compares users answer to questions answer and provides a response
 function resetForm(){
-  document.getElementById("answer").reset();
+  text_field = document.getElementById("answer");
+  text_field.value = "";
+  //load next question
+  //load next questions options
 };
 
 // This method starts the quiz, which displays a question with it's options
@@ -53,6 +56,20 @@ function quizFunction(){
 
   div_choices = document.getElementById("choices");
   div_choices.innerHTML = q1.options;
+};
+
+// This method defines a variable for user's answer
+// Defines a variable for method that gets the question_result
+// adds if/else logic to check if answer is correct/incorrect
+function checkAnswer(){
+  users_input = document.getElementById("answer").value;
+  div_result = document.getElementById("question_result");
+
+  if(users_input == q1.answer){
+    div_result.innerHTML = "Correct";
+  }else{
+    div_result.innerHTML = "Incorrect";
+  }  
 };
 
 
@@ -66,29 +83,13 @@ window.onload = function(){
   //define variable for method that gets the submitter button
   //add event listener to run submittedAnswer function when clicked
   var submitted = document.getElementById("submitter");
-  submitted.addEventListener("click", function(){
-    //once clicked run function to define submitted answer
-    //save submitted answer to variable outside of function
-    users_input = document.getElementById("answer").value;
-
-    div_result = document.getElementById("question_result");
-
-    if(users_input == q1.answer){
-      div_result.innerHTML = "Correct";
-    }else{
-      div_result.innerHTML = "Incorrect";
-    }  
-  });
+  submitted.addEventListener("click", checkAnswer)
 
   //define variable for method that gets the next button
   //add event listener to next question button 
   var next_question = document.getElementById("next");
   next_question.addEventListener("click",resetForm);
 
-
-  //load next question
-  //load next question's options
-  
 
 };
 
