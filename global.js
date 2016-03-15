@@ -1,9 +1,9 @@
 
 
 window.onload = function(){
-  var beginButton = document.getElementById("begin_button");
-  document.getElementById("question").innerHTML = (questions[0]);
-  document.getElementById("choice").innerHTML = (choices[0]);
+  //var beginButton = document.getElementById("begin_button");
+ // document.getElementById("question").innerHTML = (questions[0]);
+ // document.getElementById("choice").innerHTML = (choices[0]);
  //  })
 //  alert("Foo");
 
@@ -28,19 +28,20 @@ window.onload = function(){
   var index = 0;
   var score = 0;
 
- // function load_question_and_choices() {
- // document.getElementById("question").innerHTML = (questions[index]);
- // document.getElementById("choice").innerHTML = (choices[index]);
- // }//close load_question_and_choices function 
+  function load_question_and_choices() {
+    debugger;
+    document.getElementById("question").innerHTML = (questions[index]);
+    document.getElementById("choice").innerHTML = (choices[index]);
+  };//close load_question_and_choices function 
 
- // var beginButton = document.getElementById("begin_button");
- // beginButton.addEventListener("click", load_question_and_choices);
+ var beginButton = document.getElementById("begin_button");
+ beginButton.addEventListener("click", load_question_and_choices);
 
   var question = document.getElementById("question")
-  question.innerHTML = (questions[index]);
+  // question.innerHTML = (questions[index]);
 
   var choice = document.getElementById("choice")
-  choice.innerHTML = (choices[index]);
+  // choice.innerHTML = (choices[index]);
 
   //Lines 41-42 of your JavaScript are setting the inner HTML to questionResults at index = 0 on page load. That action is not being tied to an event listener.
 
@@ -50,7 +51,8 @@ window.onload = function(){
 //get the submitter button from its location in "submitter" div, 
 //add event listener, WHY IS THIS A CLICK? THE USER is supposed TO INPUT AN ANSWER. KEYUP?
 
-  var submitterButton = document.getElementById("submitter"); 
+  var submitterButton = document.getElementById("submitter");
+
   submitterButton.addEventListener("click", function() {
     var questionResult = document.getElementById("question_result")
       questionResult.innerHTML = (questionResults[index]);
@@ -66,14 +68,14 @@ window.onload = function(){
       questionResult.innerHTML = ("Sorry, the correct answer is " + questionResults[index] + " . ");
     } //close the else
 
-  index+=1; 
-  var nextButton = document.getElementById("next"); 
-  nextButton.addEventListener("click", load_question_and_choices); 
+    index+=1; 
+    var nextButton = document.getElementById("next"); 
+    nextButton.addEventListener("click", load_question_and_choices); 
 
-  var percentRight = ((score / questions.length)*100);   
-  var finalScore = document.getElementById("total_result"); 
-   finalScore.innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.") 
-  })//close the function at submitter button?
+    var percentRight = ((score / questions.length)*100);   
+    var finalScore = document.getElementById("total_result"); 
+    finalScore.innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.") 
+  });//close the function at submitter button?
   
 
   //if (index > questions.length) {
@@ -91,7 +93,7 @@ window.onload = function(){
   //};//close final score
 
 
-}//close window onload??
+};//close window onload??
 
 //Whether they got the question correct/incorrect should be displayed in `div#question_result`
 //- Clicking `button#next` should replace the question and choices content with the next question. (It should also clear the user's answer to the previous question from the text field.)
