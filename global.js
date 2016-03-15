@@ -25,24 +25,47 @@ window.onload = function(){
     }
   ];
 
+  var beginButton = document.getElementById("begin_button");
+  var submitButton = document.getElementById("submitter")
   var score = 0
+  var currentQuestion = 0
 
-  button.addEventListener("click", function(){
-    current_question = questions[0]
+  beginButton.addEventListener("click", function(){
+    beginButton.innerHTML("Next question")
 
-    alert(current_question["content"])
-    alert(Object.keys("answers"))
+    currentQuestion = questions[currentQuestion]
+
+    document.getElementById("questions").innerHTML = currentQuestion["content"]
+    document.getElementById("choices").innerHTML = currentQuestion["answers"].keys
+  });
+
+  beginButton.addEventListener("click", function(){
+    // See what they typed into 'answer'
+
+    // Check if that answer is correct.
+      // If correct, do things.
+      // If not correct, do other things.
 
     // Get user's guess.
-    var user_answer = prompt();
+    userAnswer = document.getElementById("answer").value
 
     // Check if that answer is set to 'true' in the answers hash.
-    if ["answers"][user_answer] === true{
-      alert("Correct!");
-      score++;
+    if currentQuestion["answers"][userAnswer] === true {
+      document.getElementById("question_result").innerHTML = "Correct!"
+      score++
     }
     else {
-      alert("Wrong!"); 
+      document.getElementById("question_result").innerHTML = "Wrong!"
+    };
+
+    currentQuestion++
+
+    if questions[currentQuestion] === null {
+      document.getElementById("total_result").innerHTML("Game over. Final score: " + score);
     }
+    else {
+      // Update the total_result area.
+      document.getElementById("total_result").innerHTML("So far, " + score + " questions correct.");
+    };
   });
 };
