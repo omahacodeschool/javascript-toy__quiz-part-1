@@ -89,7 +89,7 @@ function checkAnswer(){
   users_input = document.getElementById("answer").value;
   div_result = document.getElementById("question_result");
 
-  if(users_input == q1.answer){
+  if(users_input == quizQuestions[currentQuestion].answer){
     score++
     div_result.innerHTML = "Correct";
   }else{
