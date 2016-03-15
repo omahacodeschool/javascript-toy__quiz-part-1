@@ -69,26 +69,24 @@ window.onload = function(){
   submitted.addEventListener("click", function(){
     //once clicked run function to define submitted answer
     //save submitted answer to variable outside of function
-    $users_input = document.getElementById("answer").value;
+    users_input = document.getElementById("answer").value;
 
     div_result = document.getElementById("question_result");
 
-    if($users_input == q1.answer){
+    if(users_input == q1.answer){
       div_result.innerHTML = "Correct";
     }else{
       div_result.innerHTML = "Incorrect";
     }  
   });
 
-
-
-  // //define variable for method that gets the next button
-  // //add event listener to next question button 
-  // var next_question = document.getElementById("next");
-  // next_question.addEventListener("click",function(){
-  //   //pass in variable for submitted answer
-  //   //clear user input
-  // });
+  //define variable for method that gets the next button
+  //add event listener to next question button 
+  var next_question = document.getElementById("next");
+  next_question.addEventListener("click",function(){
+    //clear users input
+    
+  });
 
 
   //load next question
