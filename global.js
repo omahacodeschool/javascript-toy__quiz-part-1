@@ -37,6 +37,7 @@ var q4 = new set_Question();
 // display questions until current question == array.length
 var quizQuestions = [q1, q2, q3, q4];
 var currentQuestion = 0
+var score = 0
 
 //This method averages the score into a percentage
 function averageScore(score){
@@ -45,24 +46,30 @@ function averageScore(score){
   alert("You scored an average of " + avgPercent + " %!");
 };
 
-// This method defines a variable for the user's answer
-//compares users answer to questions answer and provides a response
+// This method takes a particular action 
+// If the game is running resets the text field and loads next question/options
+// If game is over resets the text field and loads game over/score text
 function resetForm(){
   currentQuestion++
-
   if (currentQuestion < quizQuestions.length){
-    
     text_field = document.getElementById("answer");
     text_field.value = "";
+    div_result = document.getElementById("question_result")
+    div_result.innerHTML = ""
     div_question = document.getElementById("question");
     div_question.innerHTML = quizQuestions[currentQuestion].question;
     div_choices = document.getElementById("choices");
     div_choices.innerHTML = quizQuestions[currentQuestion].options
-
-  } else if (currentQuestion == quizQuestions.length) {
+  } else if (currentQuestion >= quizQuestions.length) {
+    text_field = document.getElementById("answer");
+    text_field.value = "";
+    div_result = document.getElementById("question_result")
+    div_result.innerHTML = "";
     div_question = document.getElementById("question");
-    div_question = "You Have answered all questions";
-    //produce score
+    div_question.innerHTML = "You Have answered all questions";
+    var percent = score / quizQuestions.length;
+    div_choices = document.getElementById("choices");
+    div_choices.innerHTML = "Your score is " + percent.toFixed(2) + " %!";
   }
 };
 
@@ -83,6 +90,7 @@ function checkAnswer(){
   div_result = document.getElementById("question_result");
 
   if(users_input == q1.answer){
+    score++
     div_result.innerHTML = "Correct";
   }else{
     div_result.innerHTML = "Incorrect";
