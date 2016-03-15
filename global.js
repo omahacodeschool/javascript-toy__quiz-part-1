@@ -16,18 +16,18 @@ window.onload = function(){
   var questionHashTwo = new Object();
     questionHashTwo["question"] = "What is bigger than the universe, <br> dead people eat it, <br> and when living people eat it they die?";
     questionHashTwo["choices"] = ["Arsenic, Pi, Nothing, or Water"];
-    questionHashTwo["solution"] = "nothing";
+    questionHashTwo["solution"] = "Nothing";
 
   var button = document.getElementById('begin_button');
   button.addEventListener("click", function() {
 
     var quiz = document.getElementById('quiz');
-    question.innerHTML = questionHash["question"]
-    choices.innerHTML = questionHash["choices"]
+    question.innerHTML = questionHashOne["question"];
+    choices.innerHTML = questionHashOne["choices"];
     quiz.style.display = "block";
 
     submitter.addEventListener("click", function() {
-      if (answer.value == questionHash["solution"]) {
+      if (answer.value == questionHashOne["solution"]) {
         correctAnswer++
         question_result.innerHTML = "That's correct!"
       }
@@ -37,7 +37,22 @@ window.onload = function(){
     });
 
     next.addEventListener("click", function(){
+      question_result.innerHTML = "";
+      answer.value = ""
+      quiz = document.getElementById('quiz');
+        question.innerHTML = questionHashTwo["question"];
+        choices.innerHTML = questionHashTwo["choices"];
+        quiz.style.display = "block";
 
+    submitter.addEventListener("click", function(){
+      if (answer.value == questionHashTwo["solution"]) {
+        correctAnswer++
+        question_result.innerHTML = "That's correct!"
+      }
+      else {
+        question_result.innerHTML = "Sorry, that's incorrect Better luck with the next one."
+      };
+    });
     });
   });  
 };
