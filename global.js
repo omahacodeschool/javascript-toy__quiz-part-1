@@ -1,6 +1,10 @@
 
 
 window.onload = function(){
+  var beginButton = document.getElementById("begin_button");
+  document.getElementById("question").innerHTML = (questions[0]);
+  document.getElementById("choice").innerHTML = (choices[0]);
+ //  })
 //  alert("Foo");
 
 //So when a person starts the quiz by pushing the preset button, I need to have the questions come up one at a time. I need the following pieces of information: The questions, the choices, the correct answers, the user's guess, something that says they got it right or got it wrong, a counter for correct answers, a statement that says they got X right out of Y, and a percentage they got right. 
@@ -24,15 +28,13 @@ window.onload = function(){
   var index = 0;
   var score = 0;
 
+ // function load_question_and_choices() {
+ // document.getElementById("question").innerHTML = (questions[index]);
+ // document.getElementById("choice").innerHTML = (choices[index]);
+ // }//close load_question_and_choices function 
 
-
-  function load_question_and_choices() {
-  document.getElementById("question").innerHTML = (questions[index]);
-  document.getElementById("choice").innerHTML = (choices[index]);
-  }//close load_question_and_choices function 
-
-  var beginButton = document.getElementById("begin_button");
-  beginButton.addEventListener("click", load_question_and_choices);
+ // var beginButton = document.getElementById("begin_button");
+ // beginButton.addEventListener("click", load_question_and_choices);
 
   var question = document.getElementById("question")
   question.innerHTML = (questions[index]);
