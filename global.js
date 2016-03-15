@@ -54,22 +54,24 @@ function resetForm(){
   if (currentQuestion < quizQuestions.length){
     text_field = document.getElementById("answer");
     text_field.value = "";
-    div_result = document.getElementById("question_result")
-    div_result.innerHTML = ""
+    div_result = document.getElementById("question_result");
+    div_result.innerHTML = "";
     div_question = document.getElementById("question");
     div_question.innerHTML = quizQuestions[currentQuestion].question;
     div_choices = document.getElementById("choices");
-    div_choices.innerHTML = quizQuestions[currentQuestion].options
+    div_choices.innerHTML = quizQuestions[currentQuestion].options;
   } else if (currentQuestion >= quizQuestions.length) {
     text_field = document.getElementById("answer");
     text_field.value = "";
-    div_result = document.getElementById("question_result")
+    div_result = document.getElementById("question_result");
     div_result.innerHTML = "";
     div_question = document.getElementById("question");
     div_question.innerHTML = "You Have answered all questions";
     var percent = score / quizQuestions.length;
     div_choices = document.getElementById("choices");
-    div_choices.innerHTML = "Your score is " + percent.toFixed(2) + " %!";
+    div_choices.innerHTML = "";
+    div_results = document.getElementById("total_result")
+    div_results.innerHTML = "Your score is " + percent.toFixed(2) + " %!";
   }
 };
 
