@@ -1,3 +1,5 @@
+
+
 window.onload = function(){
 //  alert("Foo");
 
@@ -19,65 +21,73 @@ window.onload = function(){
 
 
 
-var index = 0;
-var score = 0;
+  var index = 0;
+  var score = 0;
 
 
 
-function load_question_and_choices() {
-document.getElementById("question").innerHTML = (questions[index]);
-document.getElementById("choice").innerHTML = (choices[index]);
-}//close load_question_and_choices function 
+  function load_question_and_choices() {
+  document.getElementById("question").innerHTML = (questions[index]);
+  document.getElementById("choice").innerHTML = (choices[index]);
+  }//close load_question_and_choices function 
 
-var beginButton = document.getElementById("begin_button");
-beginButton.addEventListener("click", load_question_and_choices);
+  var beginButton = document.getElementById("begin_button");
+  beginButton.addEventListener("click", load_question_and_choices);
 
-var question = document.getElementById("question")
-question.innerHTML = (questions[index]);
+  var question = document.getElementById("question")
+  question.innerHTML = (questions[index]);
 
-var choice = document.getElementById("choice")
-choice.innerHTML = (choices[index]);
+  var choice = document.getElementById("choice")
+  choice.innerHTML = (choices[index]);
 
-var questionResult = document.getElementById("question_result")
-questionResult.innerHTML = (questionResults[index]);
+  //Lines 41-42 of your JavaScript are setting the inner HTML to questionResults at index = 0 on page load. That action is not being tied to an event listener.
 
-
+  //var questionResult = document.getElementById("question_result")
+  //questionResult.innerHTML = (questionResults[index]);
 
 //get the submitter button from its location in "submitter" div, 
 //add event listener, WHY IS THIS A CLICK? THE USER is supposed TO INPUT AN ANSWER. KEYUP?
 
-var submitterButton = document.getElementById("submitter"); 
-submitterButton.addEventListener("click", function() {
-  var guess = document.getElementById("answer").value;
-  if (guess == questionResults[index]) {
-    //alert("Correct! Well done!");
-    questionResult.innerHTML = ("Correct! Well done!"); 
-    score+=1;
+  var submitterButton = document.getElementById("submitter"); 
+  submitterButton.addEventListener("click", function() {
+    var questionResult = document.getElementById("question_result")
+      questionResult.innerHTML = (questionResults[index]);
+    var guess = document.getElementById("answer").value;
+    if (guess == questionResults[index]) {
+      //alert("Correct! Well done!");
+      questionResult.innerHTML = ("Correct! Well done!"); 
+      score+=1;
 
-  } //close the if
-  else {
-    //alert("Sorry, the correct answer is " + questionResults[index] + " . ");
-    questionResult.innerHTML = ("Sorry, the correct answer is " + questionResults[index] + " . ");
-
-  } //close the else
+    } //close the if
+    else {
+      //alert("Sorry, the correct answer is " + questionResults[index] + " . ");
+      questionResult.innerHTML = ("Sorry, the correct answer is " + questionResults[index] + " . ");
+    } //close the else
 
   index+=1; 
-var nextButton = document.getElementById("next"); 
-nextButton.addEventListener("click", load_question_and_choices); 
+  var nextButton = document.getElementById("next"); 
+  nextButton.addEventListener("click", load_question_and_choices); 
 
-
-})//close the function at submitter button?
+  var percentRight = ((score / questions.length)*100);   
+  var finalScore = document.getElementById("total_result"); 
+   finalScore.innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.") 
+  })//close the function at submitter button?
   
-  
 
+  //if (index > questions.length) {
 
+  //var percentRight = ((score / questions.length)*100);   
+  //var finalScore = document.getElementById("total_result"); 
+   //finalScore.innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.") 
 
-var percentRight = ((score / question.length)*100);   
-var finalScore = document.getElementById("total_result"); {
- finalScore.innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.") 
-};//close final score
+   // } //close if
+    //  else { 
+     // index+=1; 
+     // var nextButton = document.getElementById("next"); 
+     // nextButton.addEventListener("click", load_question_and_choices);
+    //}//close else
+  //};//close final score
 
-  
 
 }//close window onload??
 
