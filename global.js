@@ -20,6 +20,17 @@ window.onload = function(){
     question.innerHTML = questionHash["question"]
     choices.innerHTML = questionHash["choices"]
     quiz.style.display = "block";
+
+    answer.addEventListener("onsubmit", function() {
+      if (answer.value === questionHash["going"]) {
+        correctAnswer++
+        question_result.innerHTML = "That's correct!"
+      }
+      else {
+        question_result.innerHTML = "Sorry, that's incorrect Better luck with the next one."
+      };
+      });
+    }
   });  
 };
 
