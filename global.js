@@ -31,7 +31,12 @@ var q4 = new set_Question();
   q4.options = "a: North <br> b: South <br> c: East <br> d: West";
   q4.answer = "a";
 
+
+// Add another variable equal to 0 for current question
+// Create loop to advance through array each time next question button is hit
+// display questions until current question == array.length
 var quizQuestions = [q1, q2, q3, q4];
+var currentQuestion = 0
 
 //This method averages the score into a percentage
 function averageScore(score){
@@ -40,22 +45,33 @@ function averageScore(score){
   alert("You scored an average of " + avgPercent + " %!");
 };
 
-//gets users answer
+// This method defines a variable for the user's answer
 //compares users answer to questions answer and provides a response
 function resetForm(){
-  text_field = document.getElementById("answer");
-  text_field.value = "";
-  //load next question
-  //load next questions options
+  currentQuestion++
+  debugger;
+  if (currentQuestion < quizQuestions.length){
+    
+    text_field = document.getElementById("answer");
+    text_field.value = "";
+    div_question = document.getElementById("question");
+    div_question.innerHTML = quizQuestions[currentQuestion].question;
+    div_choices = document.getElementById("choices");
+    div_choices.innerHTML = quizQuestions[currentQuestion].options
+
+  } else if (currentQuestion == quizQuestions.length) {
+    div_questions = "You Have answered all questions";
+    //produce score
+  }
 };
 
 // This method starts the quiz, which displays a question with it's options
 function quizFunction(){
   div_question = document.getElementById("question");
-  div_question.innerHTML = q1.question;
+  div_question.innerHTML = quizQuestions[currentQuestion].question;
 
   div_choices = document.getElementById("choices");
-  div_choices.innerHTML = q1.options;
+  div_choices.innerHTML = quizQuestions[currentQuestion].options;
 };
 
 // This method defines a variable for user's answer
