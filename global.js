@@ -9,11 +9,12 @@ window.onload = function(){
 
   // This bit of code sets up the various needed elements of the DOM.
   startButton = document.getElementById("start_button");
-  quiz_html = document.getElementById("quiz_div")
-  curr_question_html = document.getElementById("question_div")
-  curr_guesses_html = document.getElementById("guesses_div")
+  quiz_html = document.getElementById("quiz_div");
+  curr_question_html = document.getElementById("question_div");
+  curr_guesses_html = document.getElementById("guesses_div");
   user_input_field = document.getElementById("user_input")
   result_html = document.getElementById("result_div")
+  next_button = document.getElementById("next")
   submit_button = document.getElementById("submit")
   
   //hides quiz elements while waiting for "start" to be clicked.
@@ -25,13 +26,20 @@ window.onload = function(){
 
   // Function is called when button is triggered. This will run through all of the questions and give the final score. 
   startButton.addEventListener("click", function (){
-    console.log("runQuiz");
-
-    hideStartButton = document.getElementById("start_button")
-    hideStartButton.style.display="none"
 
     //set score to zero
     userScore = 0;
+
+    runQuiz()
+
+  });
+
+
+  function runQuiz(){
+
+    console.log("runQuiz");
+
+    startButton.style.display="none"
 
     //show the quiz div
     showQuiz();
@@ -41,27 +49,47 @@ window.onload = function(){
 
     //runs one question (Note: this function also calls the `createPrompt()`, `assessGuess()`, `alertCorrectWrongNull()`, and 'setScore()` functions)
     runQuestion();
+  };
+  
 
-  });
+
+
+
+
+
+
+
+
 
 
   submit_button.addEventListener("click", function(){
-
-    // GET USER INPUT AND SET TO VAR `uguess`.
+    console.log("SUBMIT")
 
     uguess = user_input_field.value
-
+    console.log("uguess set to: " + user_input_field.value)
     assessGuess();
 
-      alertCorrectWrongNull();
+    hideQuiz()
 
-      setScore();    
+    showResult()
 
-      //SET UP 'NEXT' BUTTON,
+    alertCorrectWrongNull();
 
-      })
+    setScore();    
+
+  })
 
 
+    next_button.addEventListener("click", function(){
+      console.log("NEXT")
+
+      hideResult();
+
+      showQuiz();
+
+      runQuiz();
+
+    })
 
     // Function sets each question to an array containing 6 strings, each element of which is to be referenced by index.
     // See example below:
@@ -167,17 +195,19 @@ window.onload = function(){
   function alertCorrectWrongNull(){
     console.log("alertCorrectWrongNull");
     
+    result_html.style.display="block"
+
     if(rightAnswer == true){
-      alert("Correct!");
+      result_html.innerHTML = ('CORRECT!')
     };
 
     if(wrongAnswer == true){
-      alert("Wrong Answer!");
+      result_html.innerHTML = ('WRONG!')
     };
 
     if(nullAnswer == true){
-      alert("Please try again.");
-      //runAllQuestions();
+      result_html.innerHTML = ('WHAT?')
+      runQuiz();
     };
 
   };
@@ -205,6 +235,21 @@ window.onload = function(){
     show_quiz_div = document.getElementById("quiz_div")
     show_quiz_div.style.display="block"
   };
+
+  //Function hides quiz fields, input field and submit button
+  function hideResult(){
+    console.log("hideQuiz");
+    hide_quiz_div = document.getElementById("quiz_div")
+    hide_quiz_div.style.display="none"
+  };
+
+  //Function shows quiz fields, input field and submit button
+  function showResult(){
+    console.log("showQuiz");
+    show_quiz_div = document.getElementById("quiz_div")
+    show_quiz_div.style.display="block"
+  };
+
 
   //reset input field before each question
   function resetInputField(){
