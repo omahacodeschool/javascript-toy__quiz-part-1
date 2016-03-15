@@ -24,14 +24,15 @@ window.onload = function(){
     "a. THIS IS THE CORRECT ANSWER. b. We just do. c. We don't really. d. We Google." ]   
 
 
-
+ 
   var index = 0;
   var score = 0;
 
   function load_question_and_choices() {
-    debugger;
     document.getElementById("question").innerHTML = (questions[index]);
     document.getElementById("choice").innerHTML = (choices[index]);
+
+    guess = "";
   };//close load_question_and_choices function 
 
  var beginButton = document.getElementById("begin_button");
