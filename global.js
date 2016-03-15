@@ -12,7 +12,12 @@ window.onload = function(){
 
   };
 
+  var button = document.getElementByID("begin_button");
 
+  button.addEventListener("click", function(){
+    for(var i in hashQA) {
+      prompt(i);
+    }
+});
 
-  alert("Foo");
 };
