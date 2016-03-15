@@ -1,71 +1,84 @@
-var questions = []
-questions[0] = "What is the capital of Nebraska?"
-questions[1] = "Which team won Superbowl XX?"
-questions[2] = "Which club won the UEFA Champions League in 2012?"
+// An Array containing Hashes. Each Hash has the question content
+// and also the answers (as a Hash, where the keys are the answer
+// choices and their values are whether that answer is correct.)
+var questions = [
+  {
+    "content": "Where was the capital of Nebraska on March 1st, 1867?",
+    "answers": {
+      "a) Lancaster": true,
+      "b) Omaha": false,
+      "c) Bellevue": false,
+      "d) Lincoln": false
+    }
+  },
 
-var choices = []
-choices[0] = ["a) Omaha ", "b) Lincoln ", "c) Bellevue ", "d) Grand Island"]
-choices[1] = ["a) Chicago Bears ", "b) New England Patriots ", "c) Miami Dolphins ", "d) New York Giants"]
-choices[2] = "a) Barcelona  b) Bayern Munich  c) Chelsea  d) Manchester United"
+  {
+    "content": "Which team won the 1986 Superbowl?",
+    "answers": {
+      "a) San Francisco 49ers": false,
+      "b) New York Giants": false,
+      "c) Chicago Bears": true,
+      "d) New England Patriots": false
+    }
+  },
 
-var answers = []
-answers[0] = "b"
-answers[1] = "a"
-answers[2] = "c"
-
-window.onload = function(){
-
-  for (var i = 0; i < questions.length; i++) {
-  document.getElementById("question").innerHTML = questions[i];
-  document.getElementById("choices").innerHTML = choices[i];
-  var submit_answer = document.getElementById("submitter");
+  {
+    "content": "Which club won the 2012 UEFA Champions League?",
+    "answers": {
+      "a) Bayern Munich": false,
+      "b) Barcelona": false,
+      "c) Chelsea": true,
+      "d) Real Madrid": false
+    }
   }
 
+];
 
-  // document.getElementById("question").innerHTML = "Empty for now. We'll use JavaScript to put question text into this.";
-  // document.getElementById("choices").innerHTML = "Empty for now. We'll use JavaScript to put choices text into this.";
-  // document.getElementById("question_result").innerHTML = "Empty for now. We'll use JavaScript to put each question's result into this.";
-  // document.getElementById("total_result").innerHTML = "Empty for now. We'll use JavaScript to put the quiz's final result into this.";
+var begin = document.getElementById("begin_button");
+var quiz = document.getElementById("quiz");
 
-  // var click_it = document.getElementById("begin_button");
+begin.addEventListener("click", function() {
+  quiz.style.display = "block";
+  begin.style.display = "none";
+});
 
-  // click_it.addEventListener("click", function() {
-  //   alert("begin the game")
-  //   var score = 0;
-  //   var questions = 0;
+var score = 0
+var current_question = 0
 
-  //   var userAns1 = prompt("What is the capital of Nebraska? a) Lincoln b) Omaha c) Bellevue d) Grand Island");
-  //   questions += 1
-  //   if (userAns1 != "a") {
-  //     alert("Wrong!")
-  //   }
-  //   else {
-  //     alert("Correct!")
-  //     score += 1
-  //   };
 
-  //   var userAns2 = prompt("Which country won the 2014 World Cup?  a) Spain b)Germany c) Italy d) Brazil");
-  //   questions += 1
-  //   if (userAns2 != "b") {
-  //     alert("Wrong")
-  //   }
-  //   else {
-  //     alert("Correct!")
-  //     score += 1
-  //   };
+// begin_button.when_clicked do
+//   begin_button.innerHTML("Next question")
 
-  //   var userAns3 = prompt("Which club won the 2012 UEFA Champions League? a)Bayern Munich b) Barcelona c) Chelsea d) Borussia Dortmund");
-  //   questions += 1
-  //   if (userAns3 != "c") {
-  //     alert("Wrong")
-  //   }
-  //   else {
-  //     alert("Correct!")
-  //     score += 1
-  //   };
+//   current_question = questions[current_question]
 
-  //   alert("You got " + score + " out of " + questions + " correct for a score of " + ((score/questions) * 100) + "%");
+//   document.getElementById("question").innerHTML = current_question["content"]
+//   document.getElementById("choices").innerHTML = current_question["answers"].keys
+// end
 
-  // });
+// submitter.when_clicked do
+//   // See what they typed into 'answer'
 
-};
+//   // Check if that answer is correct.
+//     # If correct, do things.
+//     # If not correct, do other things.
+
+//   // Get user's guess.
+//   user_answer = document.getElementById("answer").value
+
+//   // Check if that answer is set to 'true' in the answers hash.
+//   if current_question["answers"][user_answer] == true
+//     document.getElementById("question_result").innerHTML = "Correct!"
+//     score += 1
+//   else
+//     document.getElementById("question_result").innerHTML = "Wrong!"
+//   end
+
+//   current_question += 1
+
+//   if questions[current_question].nil?
+//     document.getElementById("total_result").innerHTML("Game over. Final score: " + score);
+//   else
+//     // Update the total_result area.
+//     document.getElementById("total_result").innerHTML("So far, " + score + " questions correct.");
+//   end
+// end
