@@ -36,12 +36,36 @@ var questions = [
 
 window.onload = function() {
 
-  var begin = document.getElementById("begin_button");
+  var beginButton = document.getElementById("begin");
   var quiz = document.getElementById("quiz");
+  var questions = document.getElementById("question");
+  var choices = document.getElementById("choices");
+  var answerField = document.getElementById("answer");
+  var submitButton = document.getElementById("submitter")
+  var questionResult = document.getElementById("question_result");
+  var nextButton = document.getElementById("next")
+  var totalResult = document.getElementById("total_result");
 
-  begin.addEventListener("click", function() {
+  beginButton.addEventListener("click", function() {
     quiz.style.display = "block";
     begin.style.display = "none";
   });
+
+  var score = 0;
+  var currentQuestion = 0
+
+  // Display question, starting with currentQuestion[0]
+
+  // Display multiple choice answers starting with currentQuestion[0]
+
+  // Get the answer String
+
+  // if answer is true 
+    // message in question_result "Correct!"
+    // score +=1
+  // else
+    // message in question_result "Wrong!"
+
+
 
 };
