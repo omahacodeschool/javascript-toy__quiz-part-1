@@ -24,12 +24,13 @@ var score = 0;
 
 
 
-function add_my_begin_button_event() {
+function load_question_and_choices() {
 document.getElementById("question").innerHTML = (questions[index]);
 document.getElementById("choice").innerHTML = (choices[index]);
-}
+}//close load_question_and_choices function 
+
 var beginButton = document.getElementById("begin_button");
-beginButton.addEventListener("click",add_my_begin_button_event);
+beginButton.addEventListener("click", load_question_and_choices);
 
 var question = document.getElementById("question")
 question.innerHTML = (questions[index]);
@@ -41,27 +42,34 @@ var questionResult = document.getElementById("question_result")
 questionResult.innerHTML = (questionResults[index]);
 
 
+
 //get the submitter button from its location in "submitter" div, 
 //add event listener, WHY IS THIS A CLICK? THE USER is supposed TO INPUT AN ANSWER. KEYUP?
 
 var submitterButton = document.getElementById("submitter"); 
 submitterButton.addEventListener("click", function() {
-  var answer = document.getElementById("answer").value;
-if (answer == questionResults[index]) {
-    alert("Correct! Well done!"); 
+  var guess = document.getElementById("answer").value;
+  if (guess == questionResults[index]) {
+    //alert("Correct! Well done!");
+    questionResult.innerHTML = ("Correct! Well done!"); 
     score+=1;
 
   } //close the if
   else {
-    alert("Sorry, the correct answer is " + questionResults[index] + " . ");
-  } //close the else
-  
-var nextButton = document.getElementById("next"); 
-nextButton.addEventListener("click", add_my_begin_button_event);
+    //alert("Sorry, the correct answer is " + questionResults[index] + " . ");
+    questionResult.innerHTML = ("Sorry, the correct answer is " + questionResults[index] + " . ");
 
-index+=1
+  } //close the else
+
+  index+=1; 
+var nextButton = document.getElementById("next"); 
+nextButton.addEventListener("click", load_question_and_choices); 
+
+
+})//close the function at submitter button?
   
-})
+  
+
 
 
 var percentRight = ((score / question.length)*100);   
@@ -71,7 +79,16 @@ var finalScore = document.getElementById("total_result"); {
 
   
 
-}//close window onload
+}//close window onload??
+
+//Whether they got the question correct/incorrect should be displayed in `div#question_result`
+//- Clicking `button#next` should replace the question and choices content with the next question. (It should also clear the user's answer to the previous question from the text field.)
+//- When the game is complete, the final quiz result information should be displayed in `div#total_result
+
+
+
+
+
 
 
 
