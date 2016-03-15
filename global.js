@@ -9,15 +9,13 @@ window.onload = function(){
 
   // This bit of code sets up the 'Start Quiz' button, and assigns `runQuiz()` as its 'click' action.
   startButton = document.getElementById("start_button");
-  startButton.addEventListener("click", runQuiz());
-
 
   // Developer's note: If adding to, or subtracting from, the number of questions, you will need to set the `allQuestionsArray` at the bottom of the `getQuestions()` function to include or not include those questions.
 
   // Additional note: console.log(`function_name`) is used inside of each function, for debugging purposes.
 
   // Function is called when button is triggered. This will run through all of the questions, and give the final score. 
-  function runQuiz(){
+  startButton.addEventListener("click", function (){
     console.log("runQuiz");
     //set score to zero
     userScore = 0;
@@ -31,7 +29,7 @@ window.onload = function(){
     //get the final score
     getFinalScore();
 
-  };
+  });
 
     // Function sets each question to an array containing 6 strings, each element of which is to be referenced by index.
     // See example below:
@@ -85,7 +83,7 @@ window.onload = function(){
 
   };
 
-  // Function 
+  // Function creates the prompt for a user's answer, by populating the alert with the question's elements.
   function createPrompt(){
     console.log("createPrompt");
     
@@ -93,7 +91,7 @@ window.onload = function(){
     
   };
 
-  // Function
+  // Function sets boolean values for each result, eg: right & wrong. 
   function assessGuess(){
     console.log("assessGuess");
 
@@ -131,7 +129,7 @@ window.onload = function(){
     };  
   };
 
-  // Function
+  // Function reads boolean values set in previous function and creates the corresponding alert.
   function alertCorrectWrongNull(){
     console.log("alertCorrectWrongNull");
 
@@ -150,7 +148,7 @@ window.onload = function(){
 
   };
 
-  // Function
+  // Function increments the `userScore` value by 1 if the user's answer is correct.
   function setScore(){
     console.log("setScore");
 
@@ -159,7 +157,7 @@ window.onload = function(){
       };
   };
 
-  // Function
+  // Function calculates the final score in percentage-form.
   function getFinalScore(){
     console.log("getFinalScore");
     finalScore =  (userScore / allQuestionsArray.length) * 100;
