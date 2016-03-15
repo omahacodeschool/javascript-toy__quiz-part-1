@@ -45,7 +45,7 @@ window.onload = function(){
     var questionKeys = (Object.keys(questionArr[quizCount]));
 
     question.innerHTML = questionKeys[0];
-    choices.innerHTML  = questionKeys.slice(1, 5).join("\n");
+    choices.innerHTML  = questionKeys.slice(1, 5).join('<br />');
   });
 
   submit_it.addEventListener("click", function() {
@@ -84,7 +84,7 @@ window.onload = function(){
 
       var questionKeys   = (Object.keys(questionArr[quizCount]));
       question.innerHTML = questionKeys[0];
-      choices.innerHTML  = questionKeys.slice(1, 5).join("\n");
+      choices.innerHTML  = questionKeys.slice(1, 5).join('<br />');
 
     } else {
       total_result.style.display      = "block";
