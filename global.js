@@ -40,7 +40,11 @@ function averageScore(score){
   alert("You scored an average of " + avgPercent + " %!");
 };
 
-
+//gets users answer
+//compares users answer to questions answer and provides a response
+function checkAnswer(){
+  
+};
 
 // This method starts the quiz, which displays a question with it's options
 function quizFunction(){
@@ -52,18 +56,6 @@ function quizFunction(){
 };
 
 
-//This method checks to see if the users answer is a match to the correct answer
-function checkAnswer(submitted_answer){
-  div_result = document.getElementById("question_result");
-  
-  if (submitted_answer == q1.answer){
-    div_result.innerHTML = "Correct";
-  }else{
-    div_result.innerHTML = "Incorrect";
-  }
-  
-};
-
 window.onload = function(){
 
   //define variable for method that gets the begin button
@@ -72,23 +64,35 @@ window.onload = function(){
   start_quiz.addEventListener("click", quizFunction);
   
   //define variable for method that gets the submitter button
-  //add event listener to begin answer check when submit button is clicked
-  //get users answer
-  //pass in value of user's answer for check answer method
-  
+  //add event listener to run submittedAnswer function when clicked
   var submitted = document.getElementById("submitter");
   submitted.addEventListener("click", function(){
-    var submitted_answer = document.getElementById("answer").value
-    
+    //once clicked run function to define submitted answer
+    //save submitted answer to variable outside of function
+    $users_input = document.getElementById("answer").value;
+
     div_result = document.getElementById("question_result");
 
-    if(submitted_answer == q1.answer){
+    if($users_input == q1.answer){
       div_result.innerHTML = "Correct";
     }else{
-      div_result.innerHTML = "Incorrect"
-    }
-
+      div_result.innerHTML = "Incorrect";
+    }  
   });
+
+
+
+  // //define variable for method that gets the next button
+  // //add event listener to next question button 
+  // var next_question = document.getElementById("next");
+  // next_question.addEventListener("click",function(){
+  //   //pass in variable for submitted answer
+  //   //clear user input
+  // });
+
+
+  //load next question
+  //load next question's options
   
 
 };
