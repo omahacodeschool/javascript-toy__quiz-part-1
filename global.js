@@ -1,6 +1,7 @@
 window.onload = function(){
 
   var correctAnswer = 0;
+  var current_question_index = 0;
   var question = document.getElementById("question");
   var choices = document.getElementById("choices");
   var answer = document.getElementById("answer");
@@ -23,6 +24,7 @@ window.onload = function(){
     questionHashThree["solution"] = "Man";
 
   var button = document.getElementById('begin_button');
+  var questionsArray = [questionHashOne, questionHashTwo, questionHashThree]
   button.addEventListener("click", function() {
 
     var quiz = document.getElementById('quiz');
@@ -36,45 +38,27 @@ window.onload = function(){
         question_result.innerHTML = "That's correct!"
       }
       else {
-        question_result.innerHTML = "Sorry, that's incorrect. Better luck with the next one."
+        question_result.innerHTML = "Sorry, that's incorrect."
       };
+    current_question_index++
     });
 
     next.addEventListener("click", function(){
       question_result.innerHTML = "";
       answer.value = ""
       quiz = document.getElementById('quiz');
-        question.innerHTML = questionHashTwo["question"];
-        choices.innerHTML = questionHashTwo["choices"];
-        quiz.style.display = "block";
+      question.innerHTML = questionsArray[current_question_index]["question"];
+      choices.innerHTML = questionsArray[current_question_index]["choices"];
+      quiz.style.display = "block";
 
     submitter.addEventListener("click", function(){
-      if (answer.value == questionHashTwo["solution"]) {
+      if (answer.value == questionsArray[current_question_index]["solution"]) {
         correctAnswer++
         question_result.innerHTML = "That's correct!"
       }
       else {
-        question_result.innerHTML = "Sorry, that's incorrect. Better luck with the next one."
-      };
-    });
-
-    next.addEventListener("click", function(){
-      question_result.innerHTML = "";
-      answer.value = ""
-      quiz = document.getElementById('quiz');
-        question.innerHTML = questionHashThree["question"];
-        choices.innerHTML = questionHashThree["choices"];
-        quiz.style.display = "block";
-
-    submitter.addEventListener("click", function(){
-      if (answer.value == questionHashThree["solution"]) {
-        correctAnswer++
-        question_result.innerHTML = "That's correct! Way to finish strong!"
-      }
-      else {
         question_result.innerHTML = "Sorry, that's incorrect."
       };
-    });
     });
 
     next.addEventListener("click", function() {
@@ -89,7 +73,6 @@ window.onload = function(){
   });  
 });
 };
-
   // var correctAnswer = 0
   // var numberOfQuestions = 3
   // var button = document.getElementById("begin_button");
