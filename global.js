@@ -27,26 +27,20 @@ window.onload = function(){
 
   var score = 0
 
-  var button = document.getElementById("begin_button");
+  begin_button.when_clicked do
+  current_question = questions[0]
 
-  button.addEventListener("click", function(){
+  puts current_question["content"]
+  puts current_question["answers"].keys
 
-    questions.forEach(function(q){
-      alert(q["content"]); // Display question text
-      alert(q(Object.keys("answers"))) // Display answers for user to choose from
+  # Get user's guess.
+  user_answer = gets.chomp
 
-      // Get user's guess.
-      var user_answer = prompt();
-
-      // Check if that answer is set to 'true' in the answers hash.
-      if (q["answers"][user_answer] === true){
-        alert("Correct!");
-        score++;
-      }
-      else {
-        alert("Wrong!"); 
-      }
-    }
-    alert("Total score " + score);
-  });
-};
+  # Check if that answer is set to 'true' in the answers hash.
+  if current_question["answers"][user_answer] == true
+    puts "Correct!"
+    score += 1
+  else
+    puts "Wrong!"
+  end
+end
