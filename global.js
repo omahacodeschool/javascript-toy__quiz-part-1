@@ -42,8 +42,8 @@ function averageScore(score){
 
 //gets users answer
 //compares users answer to questions answer and provides a response
-function checkAnswer(){
-  
+function resetForm(){
+  document.getElementById("answer").reset();
 };
 
 // This method starts the quiz, which displays a question with it's options
@@ -83,10 +83,7 @@ window.onload = function(){
   //define variable for method that gets the next button
   //add event listener to next question button 
   var next_question = document.getElementById("next");
-  next_question.addEventListener("click",function(){
-    //clear users input
-    
-  });
+  next_question.addEventListener("click",resetForm);
 
 
   //load next question
