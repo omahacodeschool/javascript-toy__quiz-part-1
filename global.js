@@ -1,6 +1,5 @@
 window.onload = function(){
   console.log("loading");
-  alert("Welcome! Click the button to begin!")
 
   // Declaring two variables I was having trouble with being undefined. Clean this up later.
   userGuess = "";
@@ -9,12 +8,11 @@ window.onload = function(){
 
   // This bit of code sets up the various needed elements of the DOM.
   startButton = document.getElementById("start_button");
-  curr_question_html = document.getElementById("question")
-  curr_guesses_html = document.getElementById("guesses")
-  user_answer_html = document.getElementById("user_input")
-  submit_button_html = document.getElementById("submitter")
-
-
+  quiz_html = document.getElementById("quiz_div")
+  curr_question_html = document.getElementById("question_div")
+  curr_guesses_html = document.getElementById("guesses_div")
+  user_answer_html = document.getElementById("user_input_div")
+  submit_button_html = document.getElementById("submit_button_div")
 
   // Developer's note: If adding to, or subtracting from, the number of questions, you will need to set the `allQuestionsArray` at the bottom of the `getQuestions()` function to include or not include those questions.
 
@@ -23,6 +21,9 @@ window.onload = function(){
   // Function is called when button is triggered. This will run through all of the questions, and give the final score. 
   startButton.addEventListener("click", function (){
     console.log("runQuiz");
+
+    hideStartButton = document.getElementById("start_button")
+    hideStartButton.style.display="none"
     //set score to zero
     userScore = 0;
 
@@ -92,16 +93,16 @@ window.onload = function(){
   function createPrompt(){
     console.log("createPrompt");
 
-    /* startButton = document.getElementById("start_button");
-  curr_question_html = document.getElementById("question")
-  curr_guesses_html = document.getElementById("guesses")
-  user_answer_html = document.getElementById("answer")
-  submit_button_html = document.getElementById("submitter") */
+    /*   startButton = document.getElementById("start_button_div");
+  curr_question_html = document.getElementById("question_div")
+  curr_guesses_html = document.getElementById("guesses_div")
+  user_answer_html = document.getElementById("user_input_div")
+  submit_button_html = document.getElementById("submit_button_div") */
     
     curr_question_html.innerHTML = (currentQuestion + '<br>' + '<br>')
     curr_guesses_html.innerHTML = ('A: ' + currentGuess1 + '<br>' + 'B: ' + currentGuess2 + '<br>' + 'C: ' + currentGuess3 + '<br>' + 'D: ' + currentGuess4)
     user_answer_html.innerHTML = ('<input type="text" id="user_answer" maxlength="1">')
-    //submit_button_html.innerHTML = ("<button id='submitter' type='submit'></input></button>")
+    submit_button_html.innerHTML = ('<button id="submit_button" type="submit" ></input>SUBMIT</button>')
 
     // userGuess = prompt(currentQuestion + "...       A= " + currentGuess1 + "...       B: " + currentGuess2 + "...       C: " + currentGuess3 + "...       D: " + currentGuess4);
   
