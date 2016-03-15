@@ -8,10 +8,15 @@ window.onload = function(){
   var next = document.getElementById("next");
   var total_result = document.getElementById("total_result");
 
-  var questionHash = new Object();
-    questionHash["question"] = "As I was going to St. Ives, <br> I met a man with seven wives, <br> Each wife had seven sacks, <br> Each sack had seven cats, <br> Each cat had seven kits: <br> Kits, cats, sacks, and wives, <br> How many were there going to St. Ives?";
-    questionHash["choices"] = ["1, 2402, 343, or 2401"];
-    questionHash["going"] = "1";
+  var questionHashOne = new Object();
+    questionHashOne["question"] = "As I was going to St. Ives, <br> I met a man with seven wives, <br> Each wife had seven sacks, <br> Each sack had seven cats, <br> Each cat had seven kits: <br> Kits, cats, sacks, and wives, <br> How many were there going to St. Ives?";
+    questionHashOne["choices"] = ["1, 2402, 343, or 2401"];
+    questionHashOne["solution"] = "1";
+
+  var questionHashTwo = new Object();
+    questionHashTwo["question"] = "What is bigger than the universe, <br> dead people eat it, <br> and when living people eat it they die?";
+    questionHashTwo["choices"] = ["Arsenic, Pi, Nothing, or Water"];
+    questionHashTwo["solution"] = "nothing";
 
   var button = document.getElementById('begin_button');
   button.addEventListener("click", function() {
@@ -22,13 +27,17 @@ window.onload = function(){
     quiz.style.display = "block";
 
     submitter.addEventListener("click", function() {
-      if (answer.value === questionHash["going"]) {
+      if (answer.value == questionHash["solution"]) {
         correctAnswer++
         question_result.innerHTML = "That's correct!"
       }
       else {
         question_result.innerHTML = "Sorry, that's incorrect Better luck with the next one."
       };
+    });
+
+    next.addEventListener("click", function(){
+
     });
   });  
 };
