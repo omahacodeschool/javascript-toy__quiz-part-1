@@ -18,6 +18,10 @@ window.onload = function(){
     questionHashTwo["choices"] = ["Arsenic, Pi, Nothing, or Water"];
     questionHashTwo["solution"] = "Nothing";
 
+  var questionHashThree = new Object();
+    questionHashThree["question"] = "What walks on four legs in the morning, <br> two legs in the afternoon, <br> and three in the evening?"
+    questionHashThree["choices"] = 
+
   var button = document.getElementById('begin_button');
   button.addEventListener("click", function() {
 
@@ -53,6 +57,25 @@ window.onload = function(){
         question_result.innerHTML = "Sorry, that's incorrect Better luck with the next one."
       };
     });
+
+    next.addEventListener("click", function(){
+      question_result.innerHTML = "";
+      answer.value = ""
+      quiz = document.getElementById('quiz');
+        question.innerHTML = questionHashThree["question"];
+        choices.innerHTML = questionHashThree["choices"];
+        quiz.style.display = "block";
+
+    submitter.addEventListener("click", function(){
+      if (answer.value == questionHashThree["solution"]) {
+        correctAnswer++
+        question_result.innerHTML = "That's correct!"
+      }
+      else {
+        question_result.innerHTML = "Sorry, that's incorrect Better luck with the next one."
+      };
+    });
+
     });
   });  
 };
