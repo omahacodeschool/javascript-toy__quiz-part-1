@@ -13,11 +13,14 @@ window.onload = function(){
     questionHash["choices"] = ["1, 2402, 343, or 2401"];
     questionHash["going"] = "1";
 
-  var quiz = document.getElementById('quiz');
-  question.innerHTML = questionHash["question"]
-  choices.innerHTML = questionHash["choices"]
-  quiz.style.display = "block";
+  var button = document.getElementById('begin_button');
+  button.addEventListener("click", function() {
 
+    var quiz = document.getElementById('quiz');
+    question.innerHTML = questionHash["question"]
+    choices.innerHTML = questionHash["choices"]
+    quiz.style.display = "block";
+  });  
 };
 
 
