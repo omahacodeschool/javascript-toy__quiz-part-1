@@ -56,16 +56,19 @@ window.onload = function(){
       result_class[i].style.display = "block";
     }
 
-    userAnswer = document.getElementById("answer").value;
+    var corrAnswer = questionArr[quizCount].getKeyByValue("correct")
+    var userAnswer = document.getElementById("answer").value;
 
-    if (userAnswer === questionArr[quizCount].getKeyByValue("correct")) {
+    if (userAnswer === corrAnswer) {
       q_result.innerHTML = ("Correct! " + userAnswer + " is right!")
       winCount++
       console.log("Correct: " + userAnswer);
     } else {
-      q_result.innerHTML = ("Try again...")
-      console.log("Incorrect: " + userAnswer + " (correct: " + questionArr[quizCount].getKeyByValue("correct") + ")");
+      q_result.innerHTML = ("Umm, no... The correct answer is " + corrAnswer)
+      console.log("Incorrect: " + userAnswer + " (correct: " + corrAnswer + ")");
     }
+    
+    document.getElementById("answer").value = ""
     quizCount++
   });
 
