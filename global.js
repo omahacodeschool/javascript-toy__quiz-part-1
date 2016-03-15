@@ -47,7 +47,7 @@ window.onload = function(){
       // If not correct, do other things.
 
     // Get user's guess.
-    userAnswer = document.getElementById("answer").value
+    var userAnswer = document.getElementById("answer").value
 
     // Check if that answer is set to 'true' in the answers hash.
     if currentQuestion["answers"][userAnswer] === true {
