@@ -7,8 +7,14 @@ window.onload = function(){
   i = 0;
 
 
-  // This bit of code sets up the 'Start Quiz' button, and assigns `runQuiz()` as its 'click' action.
+  // This bit of code sets up the various needed elements of the DOM.
   startButton = document.getElementById("start_button");
+  curr_question_html = document.getElementById("question")
+  curr_guesses_html = document.getElementById("guesses")
+  user_answer_html = document.getElementById("user_input")
+  submit_button_html = document.getElementById("submitter")
+
+
 
   // Developer's note: If adding to, or subtracting from, the number of questions, you will need to set the `allQuestionsArray` at the bottom of the `getQuestions()` function to include or not include those questions.
 
@@ -53,7 +59,6 @@ window.onload = function(){
     question4 = ["What is love?", "Coffee", "Kindness", "Agony", "Worship", "A"];
 
     allQuestionsArray = [question1, question2, question3, question4];
-
   };
 
   // Function increments variable `i` in oreder to go through each question and prepare variables for the question, possible guesses, and the correct answer. 
@@ -86,9 +91,20 @@ window.onload = function(){
   // Function creates the prompt for a user's answer, by populating the alert with the question's elements.
   function createPrompt(){
     console.log("createPrompt");
+
+    /* startButton = document.getElementById("start_button");
+  curr_question_html = document.getElementById("question")
+  curr_guesses_html = document.getElementById("guesses")
+  user_answer_html = document.getElementById("answer")
+  submit_button_html = document.getElementById("submitter") */
     
-    userGuess = prompt(currentQuestion + "...       A= " + currentGuess1 + "...       B: " + currentGuess2 + "...       C: " + currentGuess3 + "...       D: " + currentGuess4);
-    
+    curr_question_html.innerHTML = (currentQuestion + '<br>' + '<br>')
+    curr_guesses_html.innerHTML = ('A: ' + currentGuess1 + '<br>' + 'B: ' + currentGuess2 + '<br>' + 'C: ' + currentGuess3 + '<br>' + 'D: ' + currentGuess4)
+    user_answer_html.innerHTML = ('<input type="text" id="user_answer" maxlength="1">')
+    //submit_button_html.innerHTML = ("<button id='submitter' type='submit'></input></button>")
+
+    // userGuess = prompt(currentQuestion + "...       A= " + currentGuess1 + "...       B: " + currentGuess2 + "...       C: " + currentGuess3 + "...       D: " + currentGuess4);
+  
   };
 
   // Function sets boolean values for each result, eg: right & wrong. 
