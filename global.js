@@ -31,18 +31,19 @@ window.onload = function(){
   function load_question_and_choices() {
     document.getElementById("question").innerHTML = (questions[index]);
     document.getElementById("choice").innerHTML = (choices[index]);
-
-    guess = "";
+    guess.value = "";
   };//close load_question_and_choices function 
 
  var beginButton = document.getElementById("begin_button");
  beginButton.addEventListener("click", load_question_and_choices);
 
-  var question = document.getElementById("question")
+  var question = document.getElementById("question");
   // question.innerHTML = (questions[index]);
 
-  var choice = document.getElementById("choice")
+  var choice = document.getElementById("choice");
   // choice.innerHTML = (choices[index]);
+
+  var guess = document.getElementById("answer");
 
   //Lines 41-42 of your JavaScript are setting the inner HTML to questionResults at index = 0 on page load. That action is not being tied to an event listener.
 
@@ -57,8 +58,8 @@ window.onload = function(){
   submitterButton.addEventListener("click", function() {
     var questionResult = document.getElementById("question_result")
       questionResult.innerHTML = (questionResults[index]);
-    var guess = document.getElementById("answer").value;
-    if (guess == questionResults[index]) {
+    
+    if (guess.value == questionResults[index]) {
       //alert("Correct! Well done!");
       questionResult.innerHTML = ("Correct! Well done!"); 
       score+=1;
@@ -79,32 +80,10 @@ window.onload = function(){
   });//close the function at submitter button?
   
 
-  //if (index > questions.length) {
-
-  //var percentRight = ((score / questions.length)*100);   
-  //var finalScore = document.getElementById("total_result"); 
-   //finalScore.innerHTML = ("You completed the quiz with " + score + " answers out of " + questions.length + " , or " + percentRight + "%.") 
-
-   // } //close if
-    //  else { 
-     // index+=1; 
-     // var nextButton = document.getElementById("next"); 
-     // nextButton.addEventListener("click", load_question_and_choices);
-    //}//close else
-  //};//close final score
-
 
 };//close window onload??
 
-//Whether they got the question correct/incorrect should be displayed in `div#question_result`
-//- Clicking `button#next` should replace the question and choices content with the next question. (It should also clear the user's answer to the previous question from the text field.)
-//- When the game is complete, the final quiz result information should be displayed in `div#total_result
-
-
-
-
-
-
+//
 
 
 
