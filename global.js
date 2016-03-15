@@ -1,6 +1,5 @@
 window.onload = function(){
   console.log("loading");
-  alert("WELCOME")
 
   // Declaring two variables I was having trouble with being undefined. Clean this up later.
   uguess = "";
@@ -14,6 +13,7 @@ window.onload = function(){
   curr_guesses_html = document.getElementById("guesses_div");
   user_input_field = document.getElementById("user_input")
   result_html = document.getElementById("result_div")
+  next_html = document.getElementById("next_div")
   next_button = document.getElementById("next")
   submit_button = document.getElementById("submit")
   
@@ -80,16 +80,16 @@ window.onload = function(){
   })
 
 
-    next_button.addEventListener("click", function(){
-      console.log("NEXT")
+  next_button.addEventListener("click", function(){
+    console.log("NEXT")
 
-      hideResult();
+    hideResult();
 
-      showQuiz();
+    showQuiz();
 
-      runQuiz();
+    runQuiz();
 
-    })
+  })
 
     // Function sets each question to an array containing 6 strings, each element of which is to be referenced by index.
     // See example below:
@@ -194,8 +194,8 @@ window.onload = function(){
   // Function reads boolean values set in previous function and creates the corresponding alert.
   function alertCorrectWrongNull(){
     console.log("alertCorrectWrongNull");
-    
-    result_html.style.display="block"
+    debugger;
+    showResult()
 
     if(rightAnswer == true){
       result_html.innerHTML = ('CORRECT!')
@@ -225,29 +225,27 @@ window.onload = function(){
   //Function hides quiz fields, input field and submit button
   function hideQuiz(){
     console.log("hideQuiz");
-    hide_quiz_div = document.getElementById("quiz_div")
-    hide_quiz_div.style.display="none"
+    quiz_html.style.display="none"
   };
 
   //Function shows quiz fields, input field and submit button
   function showQuiz(){
     console.log("showQuiz");
-    show_quiz_div = document.getElementById("quiz_div")
-    show_quiz_div.style.display="block"
+    quiz_html.style.display="block"
   };
 
-  //Function hides quiz fields, input field and submit button
+  
   function hideResult(){
     console.log("hideQuiz");
-    hide_quiz_div = document.getElementById("quiz_div")
-    hide_quiz_div.style.display="none"
+    result_html.style.display="none"
+    next_html.style.display="none"
   };
 
-  //Function shows quiz fields, input field and submit button
+  
   function showResult(){
     console.log("showQuiz");
-    show_quiz_div = document.getElementById("quiz_div")
-    show_quiz_div.style.display="block"
+    result_html.style.display="block"
+    next_html.style.display="block"
   };
 
 
