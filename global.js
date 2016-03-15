@@ -21,7 +21,7 @@ window.onload = function(){
     choices.innerHTML = questionHash["choices"]
     quiz.style.display = "block";
 
-    submitter.addEventListener("onsubmit", function() {
+    submitter.addEventListener("click", function() {
       if (answer.value === questionHash["going"]) {
         correctAnswer++
         question_result.innerHTML = "That's correct!"
