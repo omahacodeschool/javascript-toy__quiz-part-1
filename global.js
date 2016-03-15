@@ -13,8 +13,8 @@ window.onload = function(){
   curr_question_html = document.getElementById("question_div")
   curr_guesses_html = document.getElementById("guesses_div")
   user_input_field = document.getElementById("user_input")
+  result_html = document.getElementById("result_div")
   submit_button = document.getElementById("submit")
-  submit_button.addEventListener("click", function(){alert("Clicked!")})
   
   //hides quiz elements while waiting for "start" to be clicked.
   hideQuiz()
@@ -34,21 +34,34 @@ window.onload = function(){
     userScore = 0;
 
     //show the quiz div
-    showQuiz()
+    showQuiz();
 
     //get all questions
     getQuestions();
 
-    //run all questions (Note: this function also calls the `createPrompt()`, `assessGuess()`, `alertCorrectWrongNull()`, and 'setScore()` functions)
-    runAllQuestions();
-
-    //hide input field and button, to prepare page for final score display.
-    hideQuiz()
-
-    //get the final score
-    getFinalScore();
+    //runs one question (Note: this function also calls the `createPrompt()`, `assessGuess()`, `alertCorrectWrongNull()`, and 'setScore()` functions)
+    runQuestion();
 
   });
+
+
+  submit_button.addEventListener("click", function(){
+
+    // GET USER INPUT AND SET TO VAR `uguess`.
+
+    uguess = user_input_field.value
+
+    assessGuess();
+
+      alertCorrectWrongNull();
+
+      setScore();    
+
+      //SET UP 'NEXT' BUTTON,
+
+      })
+
+
 
     // Function sets each question to an array containing 6 strings, each element of which is to be referenced by index.
     // See example below:
@@ -74,41 +87,41 @@ window.onload = function(){
     allQuestionsArray = [question1, question2, question3, question4];
   };
 
-  // Function increments variable `i` in order to go through each question and prepare variables for the question, possible guesses, and the correct answer. 
-  // Function also calls on other functions to create prompts, assess the user's guesses, send 'correct/wrong answer' alerts and set the score.
-  function runAllQuestions(){
-    console.log("runAllQuestions");
+  // Function checks to see if all the questions have been run, then sets variables for each element of the quiz display and populates the html div.
+  function runQuestion(){
+    console.log("runQuestion");
     
-    while (i < allQuestionsArray.length){
-      
+
+    if (i < allQuestionsArray.length){
+
       currentQuestion = allQuestionsArray[i][0]; 
       currentGuess1 = allQuestionsArray[i][1];
       currentGuess2 = allQuestionsArray[i][2];
       currentGuess3 = allQuestionsArray[i][3];
       currentGuess4 = allQuestionsArray[i][4];
       currentAnswer = allQuestionsArray[i][5];
-
-      createPrompt();
-
-      assessGuess();
-
-      alertCorrectWrongNull();
-
-      setScore();
-      
       i++
-    };    
 
+      populateQuiz()
+
+    }
+
+    else{
+
+      //hide input field and button, to prepare page for final score display.
+      hideQuiz();
+
+      //get and display the final score
+      getFinalScore();
+    };
   };
 
   // Function creates the prompt for a user's answer, by populating the alert with the question's elements.
-  function createPrompt(){
+  function populateQuiz(){
     console.log("createPrompt");
-    
+    resetInputField()
     curr_question_html.innerHTML = (currentQuestion + '<br>' + '<br>')
     curr_guesses_html.innerHTML = ('A: ' + currentGuess1 + '<br>' + 'B: ' + currentGuess2 + '<br>' + 'C: ' + currentGuess3 + '<br>' + 'D: ' + currentGuess4)
-
-    uguess = user_input_field.value
   
   };
 
@@ -153,7 +166,7 @@ window.onload = function(){
   // Function reads boolean values set in previous function and creates the corresponding alert.
   function alertCorrectWrongNull(){
     console.log("alertCorrectWrongNull");
-
+    
     if(rightAnswer == true){
       alert("Correct!");
     };
@@ -181,22 +194,31 @@ window.onload = function(){
 
   //Function hides quiz fields, input field and submit button
   function hideQuiz(){
+    console.log("hideQuiz");
     hide_quiz_div = document.getElementById("quiz_div")
     hide_quiz_div.style.display="none"
   };
 
   //Function shows quiz fields, input field and submit button
   function showQuiz(){
+    console.log("showQuiz");
     show_quiz_div = document.getElementById("quiz_div")
-    show_quiz_div.style.display="inline"
+    show_quiz_div.style.display="block"
   };
 
+  //reset input field before each question
+  function resetInputField(){
+    console.log("resetInputField")
+    user_input_field.value=""
+  };
 
-  // Function calculates the final score in percentage-form.
+  // Function calculates the final score in percentage-form and displays it.
   function getFinalScore(){
     console.log("getFinalScore");
     finalScore =  (userScore / allQuestionsArray.length) * 100;
-    alert("Your Score is: " + finalScore + " %");
+    result_html.style.display = "block"
+    result_html.innerHTML = ('Your Score is: ' + finalScore + ' %')
+    
   };
 
 };

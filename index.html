@@ -15,7 +15,7 @@
 </body>
 </html>
 
-<div id="quiz_div">
+<div id="quiz_div" style="display: none">
 
   <div id="question_div">
   
@@ -26,13 +26,18 @@
   </div>
 
   <div id="user_input_div">
-    <form action="">
-      <input type="text" id="user_input" name="uguess" maxlength="1" value="">
+    <form action='uguess' = this.value>
+      <input type="text" id="user_input" maxlength="1">
       <input type="submit" id="submit" value="Submit">
     </form>
   </div>
 
 </div>
+
+<div id="result_div" style="display: none">
+
+</div>
+
 </center>
 
 
