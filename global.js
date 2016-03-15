@@ -6,8 +6,7 @@ window.onload = function(){
   var answer = document.getElementById("answer");
   var question_result = document.getElementById("question_result");
   var next = document.getElementById("next");
-  var total_result = document.getElementById("total_result");
-
+  
   var questionHashOne = new Object();
     questionHashOne["question"] = "As I was going to St. Ives, <br> I met a man with seven wives, <br> Each wife had seven sacks, <br> Each sack had seven cats, <br> Each cat had seven kits: <br> Kits, cats, sacks, and wives, <br> How many were there going to St. Ives?";
     questionHashOne["choices"] = ["1, 2402, 343, or 2401"];
@@ -76,6 +75,16 @@ window.onload = function(){
         question_result.innerHTML = "Sorry, that's incorrect."
       };
     });
+    });
+
+    next.addEventListener("click", function() {
+      quiz.style.display = "none";
+      var numberOfQuestions = 3;
+      var percentageCorrect = ((correctAnswer/numberOfQuestions) * 100);
+
+      var total_result = document.getElementById("total_result");
+        total_result.innerHTML = "You got " + correctAnswer + " out of " + numberOfQuestions + " correct!  That's good for " + percentageCorrect + "%!"
+        total_result.style.display = "block";
     });
   });  
 });
