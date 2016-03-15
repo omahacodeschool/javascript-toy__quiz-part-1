@@ -42,7 +42,7 @@ function averageScore(score){
 
 
 
-// This method runs the quiz
+// This method starts the quiz, which displays a question with it's options
 function quizFunction(){
   div_question = document.getElementById("question");
   div_question.innerHTML = q1.question;
@@ -54,24 +54,41 @@ function quizFunction(){
 
 //This method checks to see if the users answer is a match to the correct answer
 function checkAnswer(submitted_answer){
-  // div_result = document.getElementById("question_result");
+  div_result = document.getElementById("question_result");
   
-  // if (submitted_answer == q1.answer){
-  //   div_result.innerHTML = "Correct";
-  // }else{
-  //   div_result.innerHTML = "Incorrect";
-  // }
-  alert("yay i waited til you clicked me!")
+  if (submitted_answer == q1.answer){
+    div_result.innerHTML = "Correct";
+  }else{
+    div_result.innerHTML = "Incorrect";
+  }
+  
 };
 
 window.onload = function(){
-  // debugger;
 
+  //define variable for method that gets the begin button
+  //add event listener to begin button that starts the quiz
   var start_quiz = document.getElementById("begin_button");
   start_quiz.addEventListener("click", quizFunction);
   
+  //define variable for method that gets the submitter button
+  //add event listener to begin answer check when submit button is clicked
+  //get users answer
+  //pass in value of user's answer for check answer method
+  
   var submitted = document.getElementById("submitter");
-  submitted.addEventListener("click", checkAnswer(submitted));
+  submitted.addEventListener("click", function(){
+    var submitted_answer = document.getElementById("answer").value
+    
+    div_result = document.getElementById("question_result");
+
+    if(submitted_answer == q1.answer){
+      div_result.innerHTML = "Correct";
+    }else{
+      div_result.innerHTML = "Incorrect"
+    }
+
+  });
   
 
 };
