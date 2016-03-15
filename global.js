@@ -12,12 +12,13 @@ window.onload = function(){
 
   };
 
-  var button = document.getElementByID("begin_button");
+  var button = document.getElementById("begin_button");
 
   button.addEventListener("click", function(){
-    for(var i in hashQA) {
-      prompt(i);
-    }
-});
+    //for(var i in hashQA) {
+      //prompt(i);
+      alert("Hi!");
+    //}
+  });
 
 };
