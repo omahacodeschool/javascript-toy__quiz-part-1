@@ -48,6 +48,7 @@ window.onload = function() {
   var currentQuestion = 0
 
   question.innerHTML = "Here's the question";
+  choices.innerHTML = "Here are some questions";
 
   answerBox.addEventListener("keyup", function () {
     var submitButton = document.getElementById("submitter");
@@ -57,6 +58,10 @@ window.onload = function() {
   var submitButton = document.getElementById("submitter");
   submitButton.addEventListener("click", function () {
     // need to add a function that does something with the user's answer.
+    var questionResult = getElementById("question_result");
+    questionResult.style.display = "block";
+    var nextButton = getElementById("next");
+    nextButton.style.display = "block";
   })
 
 };
