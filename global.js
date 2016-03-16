@@ -1,6 +1,6 @@
 window.onload = function() {
 
-  var questions = [
+  var questionsArray = [
     {
       "content": "Where was the capital of Nebraska on March 1st, 1867?",
       "answers": {
@@ -51,21 +51,21 @@ window.onload = function() {
   choices.innerHTML = "Here are some questions";
 
   answerBox.addEventListener("keyup", function () {
-    var submitButton = document.getElementById("submitter");
-    submitButton.style.display = "inline";
+    document.getElementById("submitter").style.display = "inline";
   });
 
   var submitButton = document.getElementById("submitter");
   submitButton.addEventListener("click", function () {
     // need to add a function that does something with the user's answer.
     if questions[currentQuestion].nil? {
-      var questionResult = getElementById("question_result");
-      questionResult.style.display = "block";
-      var nextButton = getElementById("next");
-      nextButton.style.display = "block";
+      document.getElementById("question_result").innerHTML
+      // need if/else function to grade the answer
+      document.getElementById("total_result").innerHTML("So far you've gotten " + score + " out of " + currentQuestion + " correct.");
+      document.getElementById("next").style.display = "block";
     }
     else {
       // show the total result and quiz over.
+      document.getElementById("total_result").innerHTML("Congratulations, you got " + score + " out of " + questionsArray.length + " correct for an overall score of " + (score/questionsArray.length * 100) + "%")
     }
 
   });
