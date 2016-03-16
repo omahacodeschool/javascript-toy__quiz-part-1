@@ -58,11 +58,16 @@ window.onload = function() {
   var submitButton = document.getElementById("submitter");
   submitButton.addEventListener("click", function () {
     // need to add a function that does something with the user's answer.
-    // this  is going to need to be an if/else.
-    var questionResult = getElementById("question_result");
-    questionResult.style.display = "block";
-    var nextButton = getElementById("next");
-    nextButton.style.display = "block";
+    if questions[currentQuestion].nil? {
+      var questionResult = getElementById("question_result");
+      questionResult.style.display = "block";
+      var nextButton = getElementById("next");
+      nextButton.style.display = "block";
+    }
+    else {
+      // show the total result and quiz over.
+    }
+
   });
 
   var nextButton = getElementById("next");
