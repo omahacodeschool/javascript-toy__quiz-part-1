@@ -36,6 +36,10 @@ window.onload = function() {
   var question = document.getElementById("question");
   var choices = document.getElementById("choices");
   var answerBox = document.getElementById("answer");
+  var submitButton = document.getElementById("submitter");
+  var questionResult = document.getElementById("question_result");
+  var nextButton = document.getElementById("next");
+  var totalResult = document.getElementById("total_result");
  
   beginButton.addEventListener("click", function() {
     question.style.display = "block";
@@ -51,12 +55,12 @@ window.onload = function() {
   choices.innerHTML = "Here are some questions";
 
   answerBox.addEventListener("keyup", function () {
-    document.getElementById("submitter").style.display = "inline";
+    submitButton.style.display = "inline";
   });
 
-  document.getElementById("submitter").addEventListener ("click", function () {
-    document.getElementById("question_result").style.display = "block";
-    document.getElementById("next").style.display = "block";
+  submitButton.addEventListener ("click", function () {
+    questionResult.style.display = "block";
+    nextButton.style.display = "block";
   });
 
   // document.getElementById("submitter").addEventListener("click", function () {
