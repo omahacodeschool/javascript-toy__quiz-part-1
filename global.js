@@ -29,31 +29,20 @@ window.onload = function(){
   button.addEventListener("click", function() {
 
     var quiz = document.getElementById('quiz');
-    question.innerHTML = questionHashOne["question"];
-    choices.innerHTML = questionHashOne["choices"];
-    quiz.style.display = "block";
+      question.innerHTML = questionHashOne["question"];
+      choices.innerHTML = questionHashOne["choices"];
+      quiz.style.display = "block";
 
-    submitter.addEventListener("click", function() {
-      if (answer.value == questionHashOne["solution"]) {
-        correctAnswer++
-        question_result.innerHTML = "That's correct!"
-      }
-      else {
-        question_result.innerHTML = "Sorry, that's incorrect."
-      };
-    current_question_index++
-    });
-
-    
-    next.addEventListener("click", function(){
+    var next_block = function(){
       question_result.innerHTML = "";
       answer.value = ""
       quiz = document.getElementById('quiz');
       question.innerHTML = questionsArray[current_question_index]["question"];
       choices.innerHTML = questionsArray[current_question_index]["choices"];
       quiz.style.display = "block";
+    };  
 
-    submitter.addEventListener("click", function(){
+    var question_result_block = function(){
       if (answer.value == questionsArray[current_question_index]["solution"]) {
         correctAnswer++
         question_result.innerHTML = "That's correct!"
@@ -61,28 +50,9 @@ window.onload = function(){
       else {
         question_result.innerHTML = "Sorry, that's incorrect."
       };
-    });
-    current_question_index++
+    current_question_index++  
+    }; 
     
-    next.addEventListener("click", function(){
-      question_result.innerHTML = "";
-      answer.value = ""
-      quiz = document.getElementById('quiz');
-      question.innerHTML = questionsArray[current_question_index]["question"];
-      choices.innerHTML = questionsArray[current_question_index]["choices"];
-      quiz.style.display = "block";
-
-    submitter.addEventListener("click", function(){
-      if (answer.value == questionsArray[current_question_index]["solution"]) {
-        correctAnswer++
-        question_result.innerHTML = "That's correct!"
-      }
-      else {
-        question_result.innerHTML = "Sorry, that's incorrect."
-      };
-    });
-    current_question_index++
-
     var total_result_block = function() {
       quiz.style.display = "none";
       var percentageCorrect = ((correctAnswer/numberOfQuestions) * 100);
@@ -92,9 +62,18 @@ window.onload = function(){
         total_result.style.display = "block";
     };
 
-    next.addEventListener("click", );
-  });
-};
+    submitter.addEventListener("click", question_result_block); 
+    
+
+    next.addEventListener("click", next_block);
+
+    submitter.addEventListener("click", question_result_block);
+    
+    next.addEventListener("click", next_block); 
+  
+    submitter.addEventListener("click", question_result_block );
+
+    next.addEventListener("click", total_result_block );
 
   // var correctAnswer = 0
   // var numberOfQuestions = 3
