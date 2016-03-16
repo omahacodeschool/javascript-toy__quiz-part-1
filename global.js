@@ -35,9 +35,14 @@ window.onload = function(){
 
     // in Javascript, hashes are called objects...
     currentQuestionObject = questions[currentQuestion]
-
+    
+    if (currentQuestionObject["content"] === undefined) {
+      document.getElementById("total_result").innerHTML = "Game over. Final score: " + score;
+    }
+    else {
     document.getElementById("questions").innerHTML = currentQuestionObject["content"]
     document.getElementById("choices").innerHTML = Object.keys(currentQuestionObject["answers"])
+    };
   });
 
   submitButton.addEventListener("click", function(){
@@ -63,12 +68,7 @@ window.onload = function(){
 
     currentQuestion++
 
-    if (currentQuestionObject["content"] === null) {
-      document.getElementById("total_result").innerHTML = "Game over. Final score: " + score;
-    }
-    else {
-      // Update the total_result area.
-      document.getElementById("total_result").innerHTML = "So far, " + score + " question(s) correct.";
-    };
+    // Update the total_result area.
+    document.getElementById("total_result").innerHTML = "So far, " + score + " question(s) correct.";
   });
 };
