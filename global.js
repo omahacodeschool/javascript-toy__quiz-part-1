@@ -1,64 +1,48 @@
 window.onload = function(){
-  var questOneAnswer = "Cat"
-  var questTwoAnswer = "My Chemical Romance" 
-  var questThreeAnswer = "Fresca"
-  var questFourAnswer = "Scott Pilgrim vs The World"
-  var questFiveAnswer = "Sing"
-  var click_it = document.getElementById("begin_button");
-  var correctAnswers = 0
-  click_it.addEventListener("click", function(){
+  
 
-    var alert_to_show = alert("Welcome to the Quiz!");
+  questionList = ["What's my favorite pet to have?", "Who is my favorite band?", "What's my favorite beverage?", "What is my favorite thing to do in a band?"]
 
-    var questOne = prompt("Question 1! What's the best pet to have? Dog, Cat, Ferret, or Mouse?");
-    if (questOne === questOneAnswer){ 
-      alert("Correct! Press OK to continue to question 2.");
-     correctAnswers++;
-    };
-    if (questOne != questOneAnswer){
-      alert("That's incorrect. Please click OK to continue to question 2.");
-    };
+  choiceList = ["1. Cat\n 2. Dog\n 3. Ferret\n 4. Mouse", "1. My Chemical Romance\n 2. 30 Seconds to Mars\n 3. Motley Crue\n 4. Nirvana", "1. Snapple\n 2. 7uP\n 3. Fresca\n 4. Mountain Dew", "1. Guitar\n 2. Sing\n 3. Bass\n 4. Drums"];
 
-    var questTwo = prompt("Question 2! What band do I consider the most influential? My Chemical Romance, 30 Seconds to Mars, Motley Crue, or Nirvana?");
-    if (questTwo === questTwoAnswer){ 
-      alert("Correct! Press OK to continue to question 3.");
-      correctAnswers++;
-    };
-    if (questTwo != questTwoAnswer){
-      alert("That's incorrect. Please click OK to continue to question 3.");
-    };
+  count = 0
 
-    var questThree = prompt("Question 3! Pick what you think is my favorite beverage. Your choices are Snapple, 7uP, Fresca, or Mountain Dew.");
-    if (questThree === questThreeAnswer){ 
-      alert("Correct! Press OK to continue to question 4.");
-      correctAnswers++;
-    };
-    if (questThree != questThreeAnswer){
-      alert("That's incorrect. Please click OK to continue to question 4.");
-    };
+  score = 0
 
-    var questFour = prompt("Question 4! What is my favorite movie? Scott Pilgrim vs The World, Big Hero 6, 22 Jump Street, or Spy?");
-    if (questFour === questFourAnswer){ 
-      alert("Correct! Press OK to continue to question 5.");
-      correctAnswers++;
-    };
-    if (questFour != questFourAnswer){
-      alert("That's incorrect. Please click OK to continue to question 5.");
-    };
-    var questFive = prompt("Last Question! I was in a band at one time. What do you think I did in that band? Your choices are: Sing, Guitar, Drums, or Bass.");
-    if (questFive === questFiveAnswer){ 
-      alert("Correct! The quiz has ended.");
-      correctAnswers++;
-      alert("You got" + " " + correctAnswers + " " + "out of 5 answers correct!");
-    };
+  answerList = ["1", "1", "3", "2"];
+
+  var questions = document.getElementById("questions");
+  questions.innerText = (questionList[0]);
+  var choices = document.getElementById("choices");
+  choices.innerText = (choiceList[0]); 
+  var question_result = document.getElementById("question_result");
+  question_result.innerText = (answerList[0]);  
+
+  var next = document.getElementById("next");
+
+  next.addEventListener("click", function(){
     
-    if (questFive != questFiveAnswer){
-      alert("That's incorrect. The quiz has ended. You got" + " " + correctAnswers + " " + "out of 5 answers correct!");
-    };
-    if (correctAnswers > 3){
-      alert("Nicely done!")
-    };
-      correctAnswers = 0
+    var questions = document.getElementById("questions");
+    questions.innerText = (questionList[count]);
+    var choices = document.getElementById("choices");
+    choices.innerText = (choiceList[count]); 
+  });
+
+  var button = document.getElementById("submitter");
+
+  button.addEventListener("click", function(){
+    var guess = document.getElementById("answer").value;
     
+    if (guess == answerList[count]) {
+      alert("That's Correct!"); score++;
+    } else {
+      alert("That is incorrect!"); 
+    }
+    
+    count++;
+
+    if(count == questionList.length) {
+        alert("Thanks for playing! You got " + score + " out of " + count + " right!");
+    }
   });
 };

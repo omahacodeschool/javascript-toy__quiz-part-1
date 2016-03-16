@@ -6,10 +6,36 @@
   <script type="text/javascript" src="global.js"></script>
 </head>
 <body>
-
+<center>
 <h1>Quiz Game</h1>
+<p> Pick your choice by typing in the corresponding number!</p>
 
-<button id="begin_button">Click me to begin the game.</button>
 
+
+<div id="quiz">
+    <div id="questions">
+    </div>
+    
+    <div id="choices">
+    </div><br>
+    
+    
+    Answer:
+    <p><input type="text" id="answer" placeholder="enter number" ></p>
+    <p><button id="submitter">Submit</button></p>
+    
+
+  </div>
+
+
+
+  <div id="question_result" style="display: none">
+  </div>
+
+  <button id="next">Next</button>
+
+  <div id="total_result">
+  </div>
+</center>
 </body>
 </html>
