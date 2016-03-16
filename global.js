@@ -31,26 +31,29 @@ window.onload = function(){
   var currentQuestion = 0
 
   beginButton.addEventListener("click", function(){
-    beginButton.innerHTML("Next question")
+    beginButton.innerHTML = "Next question"
 
-    currentQuestion = questions[currentQuestion]
+    // in Javascript, hashes are called objects...
+    currentQuestionObject = questions[currentQuestion]
 
-    document.getElementById("questions").innerHTML = currentQuestion["content"]
-    document.getElementById("choices").innerHTML = currentQuestion["answers"].keys
+    document.getElementById("questions").innerHTML = currentQuestionObject["content"]
+    document.getElementById("choices").innerHTML = Object.keys(currentQuestionObject["answers"])
   });
 
-  beginButton.addEventListener("click", function(){
+  submitButton.addEventListener("click", function(){
     // See what they typed into 'answer'
 
     // Check if that answer is correct.
       // If correct, do things.
       // If not correct, do other things.
 
+    currentQuestionObject = questions[currentQuestion]
+
     // Get user's guess.
     var userAnswer = document.getElementById("answer").value
 
     // Check if that answer is set to 'true' in the answers hash.
-    if currentQuestion["answers"][userAnswer] === true {
+    if (currentQuestionObject["answers"][userAnswer] === true) {
       document.getElementById("question_result").innerHTML = "Correct!"
       score++
     }
@@ -60,12 +63,12 @@ window.onload = function(){
 
     currentQuestion++
 
-    if questions[currentQuestion] === null {
-      document.getElementById("total_result").innerHTML("Game over. Final score: " + score);
+    if (currentQuestionObject["content"] === null) {
+      document.getElementById("total_result").innerHTML = "Game over. Final score: " + score;
     }
     else {
       // Update the total_result area.
-      document.getElementById("total_result").innerHTML("So far, " + score + " questions correct.");
+      document.getElementById("total_result").innerHTML = "So far, " + score + " question(s) correct.";
     };
   });
 };
