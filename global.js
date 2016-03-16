@@ -63,6 +63,13 @@ window.onload = function() {
     nextButton.style.display = "block";
   });
 
+  nextButton.addEventListener ("click", function () {
+    currentQuestion++;
+    answerBox.reset();
+    submitButton.style.display = "none";
+
+  });
+
   // document.getElementById("submitter").addEventListener("click", function () {
   //   // need to add a function that does something with the user's answer.
   //   if (questions[currentQuestion].nil?) {
