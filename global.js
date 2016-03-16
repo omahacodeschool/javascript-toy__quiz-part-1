@@ -33,7 +33,8 @@ window.onload = function() {
   ];
 
   var beginButton = document.getElementById("begin");
-  var quiz = document.getElementById("quiz");
+  var question = document.getElementById("question");
+  var choices = document.getElementById("choices");
   var answerBox = document.getElementById("answer");
  
   beginButton.addEventListener("click", function() {
@@ -46,6 +47,6 @@ window.onload = function() {
   var score = 0;
   var currentQuestion = 0
 
-
+  question.innerHTML = "Here's the question";
 
 };
