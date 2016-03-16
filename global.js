@@ -69,7 +69,9 @@ window.onload = function() {
   });
 
   // Only displayed if questions remain.
-  // Brings up the next question and clears the text form.
+  // Loads the next question.
+  // Clears the text form.
+  // Hides the 'submit' button.
   nextButton.addEventListener ("click", function () {
     function resetAnswerBox() {
       answerBox.reset();
