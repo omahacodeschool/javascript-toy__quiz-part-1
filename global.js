@@ -54,4 +54,9 @@ window.onload = function() {
     submitButton.style.display = "inline";
   });
 
+  var submitButton = document.getElementById("submitter");
+  submitButton.addEventListener("click", function () {
+    // need to add a function that does something with the user's answer.
+  })
+
 };
