@@ -44,38 +44,58 @@ window.onload = function(){
     current_question_index++
     });
 
-    for (i = 1; i < numberOfQuestions; i++) {
-      next.addEventListener("click", function(){
-        question_result.innerHTML = "";
-        answer.value = ""
-        quiz = document.getElementById('quiz');
-        question.innerHTML = questionsArray[current_question_index]["question"];
-        choices.innerHTML = questionsArray[current_question_index]["choices"];
-        quiz.style.display = "block";
+    
+    next.addEventListener("click", function(){
+      question_result.innerHTML = "";
+      answer.value = ""
+      quiz = document.getElementById('quiz');
+      question.innerHTML = questionsArray[current_question_index]["question"];
+      choices.innerHTML = questionsArray[current_question_index]["choices"];
+      quiz.style.display = "block";
 
-      submitter.addEventListener("click", function(){
-        if (answer.value == questionsArray[current_question_index]["solution"]) {
-          correctAnswer++
-          question_result.innerHTML = "That's correct!"
-        }
-        else {
-          question_result.innerHTML = "Sorry, that's incorrect."
-        };
-      });
-      current_question_index++
+    submitter.addEventListener("click", function(){
+      if (answer.value == questionsArray[current_question_index]["solution"]) {
+        correctAnswer++
+        question_result.innerHTML = "That's correct!"
+      }
+      else {
+        question_result.innerHTML = "Sorry, that's incorrect."
+      };
     });
+    current_question_index++
+    
+    next.addEventListener("click", function(){
+      question_result.innerHTML = "";
+      answer.value = ""
+      quiz = document.getElementById('quiz');
+      question.innerHTML = questionsArray[current_question_index]["question"];
+      choices.innerHTML = questionsArray[current_question_index]["choices"];
+      quiz.style.display = "block";
 
-    next.addEventListener("click", function() {
+    submitter.addEventListener("click", function(){
+      if (answer.value == questionsArray[current_question_index]["solution"]) {
+        correctAnswer++
+        question_result.innerHTML = "That's correct!"
+      }
+      else {
+        question_result.innerHTML = "Sorry, that's incorrect."
+      };
+    });
+    current_question_index++
+
+    var total_result_block = function() {
       quiz.style.display = "none";
       var percentageCorrect = ((correctAnswer/numberOfQuestions) * 100);
 
       var total_result = document.getElementById("total_result");
         total_result.innerHTML = "You got " + correctAnswer + " out of " + numberOfQuestions + " correct!  That's good for " + percentageCorrect + "%!"
         total_result.style.display = "block";
-    });
-  };  
-});
+    };
+
+    next.addEventListener("click", );
+  });
 };
+
   // var correctAnswer = 0
   // var numberOfQuestions = 3
   // var button = document.getElementById("begin_button");
