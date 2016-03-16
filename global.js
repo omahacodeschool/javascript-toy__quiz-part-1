@@ -40,7 +40,7 @@ window.onload = function() {
   beginButton.addEventListener("click", function() {
     question.style.display = "block";
     choices.style.display = "block";
-    answerBox.style.display = "block";
+    answerBox.style.display = "inline";
     beginButton.style.display = "none";
   });
 
@@ -48,5 +48,10 @@ window.onload = function() {
   var currentQuestion = 0
 
   question.innerHTML = "Here's the question";
+
+  answerBox.addEventListener("keyup", function () {
+    var submitButton = document.getElementById("submitter");
+    submitButton.style.display = "inline";
+  });
 
 };
