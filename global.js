@@ -41,6 +41,8 @@ window.onload = function() {
   var nextButton = document.getElementById("next");
   var totalResult = document.getElementById("total_result");
  
+  // Runs when user clicks on the 'begin the quiz' button.
+  // Never runs again.
   beginButton.addEventListener("click", function() {
     question.style.display = "block";
     choices.style.display = "block";
@@ -51,47 +53,29 @@ window.onload = function() {
   var score = 0;
   var currentQuestion = 0
 
-  question.innerHTML = "Here's the question";
-  choices.innerHTML = "Here are some questions";
+  question.innerHTML = questionsArray[0]["content"];
+  choices.innerHTML = questionsArray[0]["answers"];
 
+  // Brings up the 'submit' button once a user types something in the text form.
   answerBox.addEventListener("keyup", function () {
     submitButton.style.display = "inline";
   });
 
+  // Runs when user clicks on 'submit' button.
   submitButton.addEventListener ("click", function () {
+    // if/else to determine if the user answered the questions correctly.
     questionResult.style.display = "block";
     nextButton.style.display = "block";
   });
 
+  // Only displayed if questions remain.
+  // Brings up the next question and clears the text form.
   nextButton.addEventListener ("click", function () {
+    function resetAnswerBox() {
+      answerBox.reset();
+    };
     currentQuestion++;
-    answerBox.reset();
     submitButton.style.display = "none";
-
   });
-
-  // document.getElementById("submitter").addEventListener("click", function () {
-  //   // need to add a function that does something with the user's answer.
-  //   if (questions[currentQuestion].nil?) {
-  //     document.getElementById("question_result").innerHTML
-  //     // need if/else function to grade the answer
-  //     document.getElementById("total_result").innerHTML("So far you've gotten " + score + " out of " + currentQuestion + " correct.");
-  //     document.getElementById("next").style.display = "block";
-  //   }
-  //   else {
-  //     // show the total result and quiz over.
-  //     document.getElementById("total_result").innerHTML("Congratulations, you got " + score + " out of " + questionsArray.length + " correct for an overall score of " + (score/questionsArray.length * 100) + "%")
-  //   }
-
-  // });
-
-  // var nextButton = getElementById("next");
-  // nextButton.addEventListener("click", function () {
-  //   currentQuestion++;
-  //   var submitButton = document.getElementById("submitter");
-  //   submitButton.style.display = "none";
-  //   var questionResult = getElementById("question_result");
-  //   questionResult.style.display = "none";
-  // });
 
 };
