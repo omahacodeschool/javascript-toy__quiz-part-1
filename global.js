@@ -42,6 +42,7 @@ window.onload = function() {
   var totalResult = document.getElementById("total_result");
  
   // Runs when user clicks on the 'begin the quiz' button.
+  // Hides self.
   // Never runs again.
   beginButton.addEventListener("click", function() {
     question.style.display = "block";
@@ -54,7 +55,7 @@ window.onload = function() {
   var currentQuestion = 0
 
   question.innerHTML = questionsArray[0]["content"];
-  choices.innerHTML = questionsArray[0]["answers"];
+  choices.innerHTML = Object.keys(questionsArray[0]["answers"]);
 
   // Brings up the 'submit' button once a user types something in the text form.
   answerBox.addEventListener("keyup", function () {
@@ -72,12 +73,14 @@ window.onload = function() {
   // Loads the next question.
   // Clears the text form.
   // Hides the 'submit' button.
+  // Hides questionResults.
+  // Hides self.
   nextButton.addEventListener ("click", function () {
-    function resetAnswerBox() {
-      answerBox.reset();
-    };
+    answerBox.value = "";
     currentQuestion++;
     submitButton.style.display = "none";
+    questionResult.style.display = "none";
+    nextButton.style.display = "none";
   });
 
 };
