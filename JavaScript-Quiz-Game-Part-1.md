@@ -70,5 +70,9 @@ I'll go with this basic framework in the ```<body>```:
 
 >I'd prefer radio buttons, but we'll maybe do that later.
 
+>By later, how about right now.  I found this quiz
+
+## __3. JavaScript__
 
 
+[W3 Schools](http://www.w3schools.com/quiztest/quiztest.asp?qtest=JavaScript)
