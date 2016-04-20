@@ -5,11 +5,11 @@ Build a quiz game using JavaScript and HTML.  Use JavaScript to interact with HT
 ## __User Experience__
 
 1. The user loads the index.html page, which contains a button to begin the game.
-2. They are presented with a prompt() asking them a multiple choice question.
-Upon answer, they see an alert() telling them whether they answered correctly or incorrectly. 
-3. They click "Okay" to move on.
-4. Steps 2-3 repeat until there are no more questions.
-5. Once they have answered all questions, they see an alert() telling them how many they answered correctly (out of however many questions there were), and something that looks like a percentage. E.g. You answered 7 of 10 questions correctly, good for 70.0%
+2. They are presented with a multiple choice question.
+3. Upon answer, they see a result telling them whether they answered correctly or incorrectly. 
+4. They click "Next Question" to move on. (Except for the last question).
+5. Steps 2-4 repeat until there are no more questions.
+6. Once they have answered all questions, they are able to view their results, telling them how many they answered correctly (out of however many questions there were), and something that looks like a percentage. E.g. You answered 7 of 10 questions correctly, good for 70.0%
 
 >I'll disregard optimizing, refactoring, or any sort of coding best practices for now, we just want a minimum viable product.
 
@@ -40,6 +40,8 @@ We'll set up the ```index.html``` like this:
 I'll go with this basic framework in the ```<body>```:
 
 ```html
+<button id="begin">Begin the Quiz</button>
+
 <div id="quiz" style="display: none;">
   <div id="question">
     <!-- Use JavaScript to put a question here -->
