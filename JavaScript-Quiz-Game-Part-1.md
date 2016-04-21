@@ -40,6 +40,7 @@ We'll set up the ```index.html``` like this:
 I'll go with this basic framework in the ```<body>```:
 
 ```html
+
 <button id="begin">Begin the Quiz</button>
 
 <div id="quiz" style="display: none;">
@@ -75,4 +76,4 @@ I'll go with this basic framework in the ```<body>```:
 ## __3. JavaScript__
 
 
-[W3 Schools](http://www.w3schools.com/quiztest/quiztest.asp?qtest=JavaScript)
+
