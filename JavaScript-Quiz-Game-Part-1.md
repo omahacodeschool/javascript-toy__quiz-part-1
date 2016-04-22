@@ -1,6 +1,6 @@
 ## __Instructions__
 
-Build a quiz game using JavaScript and HTML.  Use JavaScript to interact with HTML elements via the "DOM".  
+Build a quiz game using JavaScript and HTML.  Use JavaScript to interact with HTML elements via the "DOM".  What we are doing is DOM manipulation.
 
 ## __User Experience__
 
