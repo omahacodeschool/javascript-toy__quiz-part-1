@@ -12,12 +12,15 @@ window.onload = function(){
   BeginButton.addEventListener("click", function(){
     BeginButton.style.display = "none";
     Quiz.style.display = "block";
+    // Start loop through questions
+
     Question.innerHTML = "question 1";
     Choices.innerHTML = "a b c"
     Answer.addEventListener("keyup", function(){
       Submit.style.display = "inline";
     });
     Submit.addEventListener("click", function(){
+      Submit.style.display = "none";
       QuestionResult.innerHTML = "right or wrong";
       Next.style.display = "inline";
       Next.innerHTML = "Next or See Final Result";
