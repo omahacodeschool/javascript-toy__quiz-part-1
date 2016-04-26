@@ -1,4 +1,21 @@
 window.onload = function(){
+
+  var questions = [
+  {
+    question: "Where was the capital of Nebraska on March 1st, 1867?",
+    choices: ["a) Lincoln", "b) Omaha", "c) Bellevue", "d) Lancaster"],
+    correct: "d"
+  }, {
+    question: "Which club won the 2012 UEFA Champions League?",
+    choices: ["a) Bayern München", "b) Borussia Dortmund", "c) Chelsea", "d) Barcelona"],
+    correct: "c"
+  }, {
+    question: "Which team is widely considered the best in NFL history?",
+    choices: ["a) 2007 Patriots", "b) 1972 Dolphins", "c) 1985 Bears", "d) 1984 49ers"],
+    correct: "c"
+  }];
+
+
   var BeginButton = document.getElementById("begin");
   var Quiz = document.getElementById("quiz");
   var Question = document.getElementById("question");
