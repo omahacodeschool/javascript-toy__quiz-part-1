@@ -1,6 +1,6 @@
 window.onload = function(){
 
-  var questions = [
+  var QuestionsArray = [
   {
     q: "Where was the capital of Nebraska on March 1st, 1867?",
     a: ["a) Lincoln", "b) Omaha", "c) Bellevue", "d) Lancaster"],
@@ -17,30 +17,49 @@ window.onload = function(){
 
 
   var BeginButton = document.getElementById("begin");
-  var Quiz = document.getElementById("quiz");
-  var Question = document.getElementById("question");
-  var Choices = document.getElementById("choices");
-  var Answer = document.getElementById("answer");
-  var Submit = document.getElementById("submit");
-  var QuestionResult = document.getElementById("question_result");
-  var Next = document.getElementById("next");
-  var TotalResult = document.getElementById("total_result");
+  var QuizElement = document.getElementById("quiz");
+  var QuestionElement = document.getElementById("question");
+  var ChoicesElement = document.getElementById("choices");
+  // var AnswerBox = document.getElementById("answer");
+  var SubmitButton = document.getElementById("submit");
+  var QuestionResultElement = document.getElementById("question_result");
+  var NextButton = document.getElementById("next");
+  var TotalResultElement = document.getElementById("total_result");
 
   BeginButton.addEventListener("click", function(){
     BeginButton.style.display = "none";
-    Quiz.style.display = "block";
-    // Start loop through questions
+    QuizElement.style.display = "block";
+    // Loop through questions and results
+    
+      // If not final question
+        // Display the question
+        // Display the possible answers
+        // Get the value of the answer
+        var Answer = document.getElementById("answer").value;
+        // Evaluate the answer
+          // If correct dispay 'correct' String
+          // Else display 'incorrect' String
+          // Display 'Next Question' button
+      // Else final question
+        // Display the question
+        // Display the possible answers
+        // Get the value of the answer
+        // Evaluate the answer
+          // If correct display 'correct' String
+          // Else display 'incorrect' String
+          // Display 'See Final Result' button
+        // Display 'final result' String
 
-    Question.innerHTML = "question 1";
-    Choices.innerHTML = "a b c"
-    Answer.addEventListener("keyup", function(){
+    QuestionElement.innerHTML = "question 1";
+    ChoicesElement.innerHTML = "a b c"
+    AnswerBox.addEventListener("keyup", function(){
       Submit.style.display = "inline";
     });
-    Submit.addEventListener("click", function(){
-      Submit.style.display = "none";
+    SubmitButton.addEventListener("click", function(){
+      SubmitButton.style.display = "none";
       QuestionResult.innerHTML = "right or wrong";
-      Next.style.display = "inline";
-      Next.innerHTML = "Next or See Final Result";
+      NextButton.style.display = "inline";
+      NextButton.innerHTML = "Next or See Final Result";
     });
   });
 };
