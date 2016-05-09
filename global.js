@@ -26,9 +26,14 @@ window.onload = function(){
   var NextButton = document.getElementById("next");
   var TotalResultElement = document.getElementById("total_result");
 
+  var Counter = 0;
+
   BeginButton.addEventListener("click", function(){
     BeginButton.style.display = "none";
     QuizElement.style.display = "block";
+    LoadQuestion(Counter);
+    CheckQuestion(Counter);
+
     // Loop through questions and results
     
       // If not final question
@@ -48,27 +53,60 @@ window.onload = function(){
           // Else display 'incorrect' String
           // Display 'See Final Result' button
         // Display 'final result' String
+  });
 
-    QuestionElement.innerHTML = QuestionsArray[0]["q"];
-    ChoicesElement.innerHTML = QuestionsArray[0]["a"];
+  // We are calling the argument 'banana'.
+  // But the function should take the Counter we are defining above.
+  function LoadQuestion(banana){
+    QuestionElement.innerHTML = QuestionsArray[banana]["q"];
+    ChoicesElement.innerHTML = QuestionsArray[banana]["a"];
+  };
+  function ShowNextButton(){
+    NextButton.style.display = "inline";
+    NextButton.innerHTML = "Next";
+  };
+  function NextQuestion(){
+    Counter++
+    debugger;
+  };
+  function CheckQuestion(banana){
     AnswerBox.addEventListener("keyup", function(){
       SubmitButton.style.display = "inline";
     });
     SubmitButton.addEventListener("click", function(){
       var Answer = document.getElementById("answer").value;
       SubmitButton.style.display = "none";
-      if (Answer == QuestionsArray[0]["correct"]){
+      if (Answer == QuestionsArray[banana]["correct"]){
         QuestionResultElement.innerHTML = "You are Correct!";
       } else {
         QuestionResultElement.innerHTML = "Wrong"
       };
-
-
-      
-      NextButton.style.display = "inline";
-      NextButton.innerHTML = "Next or See Final Result";
+      ShowNextButton();
+      NextButton.addEventListener("click", NextQuestion);
     });
-  });
+  };
+
+  // function GameLoop(){
+  //   for (i = 0; i < (QuestionsArray.length); i++) {
+  //     console.log("I is " + i);
+  //     QuestionElement.innerHTML = QuestionsArray[i]["q"];
+  //     ChoicesElement.innerHTML = QuestionsArray[i]["a"];
+  //     AnswerBox.addEventListener("keyup", function(){
+  //       SubmitButton.style.display = "inline";
+  //     });
+  //     SubmitButton.addEventListener("click", function(){
+  //       var Answer = document.getElementById("answer").value;
+  //       SubmitButton.style.display = "none";
+  //       if (Answer == QuestionsArray[i]["correct"]){
+  //         QuestionResultElement.innerHTML = "You are Correct!";
+  //       } else {
+  //         QuestionResultElement.innerHTML = "Wrong"
+  //       };
+  //       NextButton.style.display = "inline";
+  //       NextButton.innerHTML = "Next";
+  //     });
+  //   };
+  // };
 };
 
 
