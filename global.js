@@ -57,19 +57,12 @@ window.onload = function(){
 
   // We are calling the argument 'banana'.
   // But the function should take the Counter we are defining above.
+
   function LoadQuestion(banana){
     QuestionElement.innerHTML = QuestionsArray[banana]["q"];
     ChoicesElement.innerHTML = QuestionsArray[banana]["a"];
   };
-  function ShowNextButton(){
-    NextButton.style.display = "inline";
-    NextButton.innerHTML = "Next";
-  };
-  function NextQuestion(){
-    Counter++
-    LoadQuestion(Counter)
-    // try calling the CheckQuestion function again.
-  };
+
   function CheckQuestion(banana){
     AnswerBox.addEventListener("keyup", function(){
       SubmitButton.style.display = "inline";
@@ -78,7 +71,7 @@ window.onload = function(){
       var Answer = document.getElementById("answer").value;
       SubmitButton.style.display = "none";
       if (Answer == QuestionsArray[banana]["correct"]){
-        QuestionResultElement.innerHTML = "You are Correct!";
+        QuestionResultElement.innerHTML = "You are Correct!"
       } else {
         QuestionResultElement.innerHTML = "Wrong"
       };
@@ -86,6 +79,28 @@ window.onload = function(){
       NextButton.addEventListener("click", NextQuestion);
     });
   };
+
+  function ShowNextButton(){
+    NextButton.style.display = "inline";
+    NextButton.innerHTML = "Next";
+  };
+
+  function HideNextButton(){
+    NextButton.style.display = "none";
+  };
+
+  function HideQuestionResult(){
+    QuestionResultElement.style.display = "none";
+  };
+
+  function NextQuestion(){
+    HideNextButton();
+    HideQuestionResult();
+    Counter++
+    LoadQuestion(Counter)
+    // try calling the CheckQuestion function again.
+  };
+
 
   // function GameLoop(){
   //   for (i = 0; i < (QuestionsArray.length); i++) {
