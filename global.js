@@ -7,7 +7,7 @@ window.onload = function(){
     correct: "d"
   }, {
     q: "Which club won the 2012 UEFA Champions League?",
-    a: ["a) Bayern München", "b) Borussia Dortmund", "c) Chelsea", "d) Barcelona"],
+    a: ["a) Bayern Munich", "b) Borussia Dortmund", "c) Chelsea", "d) Barcelona"],
     correct: "c"
   }, {
     q: "Which team is widely considered the best in NFL history?",
@@ -67,7 +67,8 @@ window.onload = function(){
   };
   function NextQuestion(){
     Counter++
-    debugger;
+    LoadQuestion(Counter)
+    // try calling the CheckQuestion function again.
   };
   function CheckQuestion(banana){
     AnswerBox.addEventListener("keyup", function(){
