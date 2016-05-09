@@ -89,16 +89,21 @@ window.onload = function(){
     NextButton.style.display = "none";
   };
 
+  function ResetAnswerBox(){
+    AnswerBox.reset();
+  };
+
   function HideQuestionResult(){
     QuestionResultElement.style.display = "none";
   };
 
   function NextQuestion(){
+    Counter++
     HideNextButton();
     HideQuestionResult();
-    Counter++
-    LoadQuestion(Counter)
-    // try calling the CheckQuestion function again.
+    ResetAnswerBox();   
+    LoadQuestion(Counter);
+    CheckQuestion(Counter);
   };
 
 
