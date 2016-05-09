@@ -20,7 +20,7 @@ window.onload = function(){
   var QuizElement = document.getElementById("quiz");
   var QuestionElement = document.getElementById("question");
   var ChoicesElement = document.getElementById("choices");
-  // var AnswerBox = document.getElementById("answer");
+  var AnswerBox = document.getElementById("answer");
   var SubmitButton = document.getElementById("submit");
   var QuestionResultElement = document.getElementById("question_result");
   var NextButton = document.getElementById("next");
@@ -35,7 +35,6 @@ window.onload = function(){
         // Display the question
         // Display the possible answers
         // Get the value of the answer
-        var Answer = document.getElementById("answer").value;
         // Evaluate the answer
           // If correct dispay 'correct' String
           // Else display 'incorrect' String
@@ -50,14 +49,22 @@ window.onload = function(){
           // Display 'See Final Result' button
         // Display 'final result' String
 
-    QuestionElement.innerHTML = "question 1";
-    ChoicesElement.innerHTML = "a b c"
+    QuestionElement.innerHTML = QuestionsArray[0]["q"];
+    ChoicesElement.innerHTML = QuestionsArray[0]["a"];
     AnswerBox.addEventListener("keyup", function(){
-      Submit.style.display = "inline";
+      SubmitButton.style.display = "inline";
     });
     SubmitButton.addEventListener("click", function(){
+      var Answer = document.getElementById("answer").value;
       SubmitButton.style.display = "none";
-      QuestionResult.innerHTML = "right or wrong";
+      if (Answer == QuestionsArray[0]["correct"]){
+        QuestionResultElement.innerHTML = "You are Correct!";
+      } else {
+        QuestionResultElement.innerHTML = "Wrong"
+      };
+
+
+      
       NextButton.style.display = "inline";
       NextButton.innerHTML = "Next or See Final Result";
     });
