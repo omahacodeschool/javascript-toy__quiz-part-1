@@ -13,7 +13,12 @@ window.onload = function(){
     q: "Which team is widely considered the best in NFL history?",
     a: ["a) 2007 Patriots", "b) 1972 Dolphins", "c) 1985 Bears", "d) 1984 49ers"],
     correct: "c"
-  }];
+  }, {
+    q: "Which club won the 2015-2016 Barclays Premier League Championship?",
+    a: ["a) Leicester", "b) Arsenal", "c) Chelsea", "d) Tottenham"],
+    correct: "a"
+  }
+  ];
 
 
   var BeginButton = document.getElementById("begin");
