@@ -95,7 +95,7 @@ window.onload = function(){
   };
 
   function ResetAnswerBox(){
-    AnswerBox.reset();
+    AnswerBox.innerHTML = "";
   };
 
   function HideQuestionResult(){
