@@ -90,7 +90,7 @@ window.onload = function(){
   };
 
   function ResetAnswerBox(){
-    document.getElementById("answer").reset();
+    AnswerBox.reset();
   };
 
   function HideQuestionResult(){
