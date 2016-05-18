@@ -35,7 +35,6 @@ window.onload = function(){
 
   BeginButton.addEventListener("click", function(){
     BeginButton.style.display = "none";
-    QuizElement.style.display = "block";
     LoadQuestion(Counter);
     CheckQuestion(Counter);
   });
@@ -45,8 +44,8 @@ window.onload = function(){
 
   function LoadQuestion(banana){
     QuestionElement.innerHTML = QuestionsArray[banana]["q"];
-    ChoicesElement.innerHTML = QuestionsArray[banana]["a"];\
-    AnswerBox.
+    ChoicesElement.innerHTML = QuestionsArray[banana]["a"];
+    AnswerBox.style.display = "inline-block";
   };
 
   function CheckQuestion(banana){
@@ -87,3 +86,4 @@ window.onload = function(){
     LoadQuestion(Counter);
     CheckQuestion(Counter);
   };
+};
