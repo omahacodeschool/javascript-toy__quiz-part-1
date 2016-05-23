@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Quiz Game</title>
+  <title>Quiz Game Part 1</title>
 
   <script type="text/javascript" src="global.js"></script>
 </head>
@@ -9,7 +9,31 @@
 
 <h1>Quiz Game</h1>
 
-<button id="begin_button">Click me to begin the game.</button>
+<!-- Button to begin the quiz -->
+<button id="begin">Begin the Quiz</button>
+
+<div id ="quiz">
+  <div id="question">
+    <!-- Use JavaScript to put a question here -->
+  </div>
+  <div id="choices">
+    <!-- Use JavaScript to put choices here -->
+  </div>
+  <input id="answer" type="text" style="display:none;">
+  <button id="submit" style="display:none;">Submit</button>
+</div>
+
+<div id="question_result">
+  <!-- Use JavaScript to put each questions' result here -->
+</div>
+
+<!-- The button the user clicks after they see that a question is right or wrong. -->
+<!-- This button will load the next question except when all questions have been asked. -->
+<button id="next" style="display: none;"></button>
+
+<div id="total_result">
+<!-- Use JavaScript to put the final result here -->
+</div>
 
 </body>
 </html>
